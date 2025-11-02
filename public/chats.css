@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Kranky&family=Lora:ital,wght@0,400..700;1,400..700&family=Offside&family=Oleo+Script:wght@400;700&family=Rubik+Wet+Paint&family=Trade+Winds&display=swap');
+body{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    background-color: rgb(3, 1, 1);
+
+}
+@media (max-width:395px) {
+    #CHATS-PAGE{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 100vw;
+   }
+    #HEADER{
+        background: linear-gradient(45deg, rgb(0, 0, 0), rgb(74, 9, 61));
+        color: white;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+        border-bottom: solid 1px rgb(78, 41, 37);
+    }
+    #HEADER-TOP-DIV{
+        display: flex;
+        place-content: space-between;
+        align-items: center;
+        justify-content: start;
+        gap: 5px;
+        height: 3.5rem;
+        place-content: space-between;
+    }
+    #APP-DETAILS{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        height: 95%;
+        width:12em;
+        justify-content: center;
+    }
+    #HEADER-LOGO{
+        background: url("/mediafiles/HeaderLogo.png");
+        width: 60px;
+        height: auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    #HEADER-APPNAME{
+        font-size: 0.55rem;
+        align-self: center;
+        color: rgb(230, 139, 206);
+        font-family: 'Trade Winds';
+        padding-right: 5px;
+        padding-bottom: 8px;
+    }
+     #HEADER-APPNAME h2{
+        text-align: center;
+        margin: 0px;
+        padding-top: 10px;
+    }
+      #HEADER-MIDDLE-DIV{
+        align-self: center;
+        justify-self: start;
+        height: 20px;    
+    }
+    #HEADER-MIDDLE-DIV H3{
+        text-align: center;
+        margin-top: 0px;
+        font-family: 'Oleo script';
+        font-weight:100;
+        letter-spacing: 1px;
+        font-size: small;   
+    }
+       #HEADER-BTNS{
+        height: inherit;
+        width: 100px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .HEADER-BTNS{
+        width: 4em;
+        height: 50%;
+        border-radius: 30px;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        background:radial-gradient(rgb(12, 12, 46),rgb(162, 16, 121))
+    }
+    .HEADER-BTNS a{
+        text-decoration:none;
+        user-select:none;
+    }
+    .HEADER-BTNS:hover{
+        background: none;
+        border-left: none;
+        border-right: none;
+        scale: 1.1;
+        height: 55%;
+    }
+    .HEADER-BTNS a:hover{
+        text-decoration: none;
+        user-select:none;
+    }
+    #USER-DETAILS{
+        display: flex;
+        flex-direction: row;
+        width: 200px;
+        gap: 10px;
+        justify-content: end;
+    }
+    #HEADER-USERNAME{
+        font-family: 'lora';
+        font-size: 0.8em;
+        font-style: italic;
+    }
+    #HEADER-PROFILEPIC{
+        background: radial-gradient(rgb(2, 1, 39), rgb(222, 127, 192));
+        width: 50px;
+        height: inherit;
+        border-radius: 50%;
+        margin-top: 2px;
+        justify-self: center;
+        border: 1px solid rgb(23, 29, 4);
+        margin-right: 5px;
+    }
+
+    #HEADER-BOTTOM-DIV{
+        align-self: center;
+        justify-self: center;
+        display: flex;
+        margin-bottom: 5px;
+        width: 100%;
+        max-height: 20px;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    #HEADER-BOTTOM-DIV h4{
+       font-size: 0.8rem;
+        font-weight: lighter;
+    }
+
+/*Main Section Starts here*/
+#MAIN-SECTION{
+    width: 98%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2px;
+    margin-right: 5px;
+    margin-top: 103px;
+    border-top-left-radius: 20px;  
+    border-top-right-radius: 20px;
+    align-items: center;
+    background: linear-gradient(50deg, rgb(4, 3, 3), #24011d);
+
+}
+#MAIN-SECTION-HEADER{
+    width: 100%;
+    height: 35px;
+    display:flex;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    justify-content: center;
+    padding-top: 3px;
+    border: none;
+    padding-bottom: 4px;
+    border-top: solid 1px rgb(78, 41, 37);
+}
+  #CONTACTS-SEARCH{
+         width: 60%;
+         height: 25px;
+        outline: none;
+        border-top-left-radius:50%;
+        border-top-right-radius: 50%;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius:25px;
+        text-align: center;
+        color: darkblue;
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-family: 'Oleo Script';
+        text-decoration: none;
+        border: none;
+        background: linear-gradient(30deg, rgb(5, 96, 15), rgb(108, 24, 92));
+        border-bottom: solid 3px rgb(19, 15, 12);
+        border-top: solid 1px rgb(14, 14, 14);
+    }
+    #CONTACTS-SEARCH::placeholder {
+        font-style: italic;
+        font-weight: normal;
+        color: rgb(213, 213, 231);
+    }
+    #CONTACTS-SEARCH:hover{
+        transition: 1s ease-out;
+        transform: scale(1.04);
+        background: pink;
+    }
+    #CONTACTS-SEARCH:focus{
+        background:linear-gradient(90deg, white, rgb(172, 61, 168));
+        font-family: 'Lora';
+        letter-spacing: 2px;
+        color: rgb(13, 13, 46);
+        font-style: italic;
+        border: solid 3px black;
+    }
+    #CONTACTS-SEARCH:focus::placeholder{
+        font-size: 0px;
+    }
+    #CONTACTS-BODY{
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding-top: 4px;
+    
+    }
+    .CONTACTS{
+        width: 98%;
+        height: 70px;
+        background:linear-gradient(45deg,rgb(12, 2, 11),rgb(141, 72, 64));
+        border-top-left-radius: 31px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding-left: 6px;
+        place-content: space-between;
+        border-left: 1px solid rgb(100, 18, 65);
+        
+    }
+
+    .CONTACTS-PROFILEPIC{
+        background: url("/mediafiles/users/p5.jpg");
+        background-size: cover;
+        width: 60px;
+        height: 55px;
+        border-radius: 60%;
+    }
+    .CONTACTS-INFO{
+        background: linear-gradient( 90deg, rgb(57, 10, 37), black);
+        width: 86%;
+        height: 99%;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-self: center;
+        align-items: end;
+        padding-right: 0px;
+        align-self: end;
+        gap: 10px;
+        place-content: space-between;
+    }
+    .CONTACTS-USERNAME{
+        width: 60%;
+        height: 50%;
+        border-radius: 8px;
+        margin-left: 8px;
+        padding-left: 5px;
+        padding-top: 5px;
+        font-family: 'Oleo Script';
+        color: white;
+        font-weight: lighter;
+        font-style: normal;
+        font-size: 1rem;
+    }
+    .CONTACTS-NOTE{
+        width: 100px;
+        height: 80%;
+        border-radius: 10px;
+        text-align: center;
+        color: rgb(244, 229, 229);
+        font-size: 0.6rem;
+        font-weight: lighter;
+        line-height: 18px;
+        padding: 1px 5px;
+        overflow: hidden;
+        letter-spacing: 0.5px;
+        font-family: 'Lora';
+        align-self: center;
+        background: linear-gradient( 90deg, rgb(57, 10, 37), black)
+    }
+}
+@media (min-width: 396px) {
+   #CHATS-PAGE{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 100vw;
+   }
+    #HEADER{
+        background: linear-gradient(45deg, rgb(0, 0, 0), rgb(74, 9, 61));
+        color: white;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+        border-bottom: solid 1px rgb(71, 35, 31);
+    }
+    #HEADER-TOP-DIV{
+        display: flex;
+        place-content: space-between;
+        align-items: center;
+        justify-content: start;
+        gap: 5px;
+        height: 3.5rem;
+        place-content: space-between;
+    }
+    #APP-DETAILS{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        height: inherit;
+        width:12em;
+    }
+    #HEADER-LOGO{
+        background: url("/mediafiles/HeaderLogo.png");
+        width: 50px;
+        height: auto;
+        background-size: cover;
+    }
+    #HEADER-APPNAME{
+        font-size: 0.65rem;
+        align-self: center;
+        color: rgb(230, 139, 206);
+        font-family: 'Trade Winds';
+        padding-right: 5px;
+    }
+     #HEADER-APPNAME h2{
+        text-align: center;
+        margin: 0px;
+        padding-top: 10px;
+    }
+      #HEADER-MIDDLE-DIV{
+        align-self: center;
+        justify-self: start;
+        height: 20px;    
+    }
+    #HEADER-MIDDLE-DIV H3{
+        text-align: center;
+        margin-top: 0px;
+        font-family: 'Oleo script';
+        font-weight:100;
+        letter-spacing: 1px;
+        font-size: small;   
+    }
+       #HEADER-BTNS{
+        height: inherit;
+        width: 100px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .HEADER-BTNS{
+        width: 4em;
+        height: 50%;
+        border-radius: 30px;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        background:radial-gradient(rgb(12, 12, 46),rgb(162, 16, 121))
+    }
+    .HEADER-BTNS a{
+        text-decoration:none;
+        user-select:none;
+    }
+    #USER-DETAILS{
+        display: flex;
+        flex-direction: row;
+        width: 200px;
+        gap: 10px;
+        justify-content: end;
+    }
+    #HEADER-USERNAME{
+        font-family: 'lora';
+        font-size: 0.8em;
+        font-style: italic;
+    }
+     #HEADER-PROFILEPIC{
+        background: radial-gradient(rgb(2, 1, 39), rgb(222, 127, 192));
+        width: 50px;
+        height: inherit;
+        border-radius: 50%;
+        margin-top: 2px;
+        justify-self: center;
+        border: 1px solid rgb(23, 29, 4);
+        margin-right: 5px;
+    }
+    #HEADER-BOTTOM-DIV{
+        align-self: center;
+        justify-self: center;
+        display: flex;
+        margin-bottom: 5px;
+        width: 100%;
+        max-height: 20px;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    #HEADER-BOTTOM-DIV h4{
+       font-size: 0.8rem;
+        font-weight: lighter;
+    }
+
+/*Main Section Starts here*/
+#MAIN-SECTION{
+    width: 98%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2px;
+    margin-right: 5px;
+    margin-top: 105px;
+    border-top-left-radius: 20px;  
+    border-top-right-radius: 20px;
+    align-items: center;
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(74, 9, 61));
+
+}
+#MAIN-SECTION-HEADER{
+    width: 100%;
+    height: 35px;
+    display:flex;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    justify-content: center;
+    padding-top: 3px;
+    border: none;
+    border-top: solid 1px rgb(78, 41, 37);
+    padding-bottom: 4px;
+}
+  #CONTACTS-SEARCH{
+         width: 60%;
+         height: 25px;
+        outline: none;
+        border-top-left-radius:50%;
+        border-top-right-radius: 50%;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius:25px;
+        text-align: center;
+        color: rgb(217, 217, 234);
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-family: 'Oleo Script';
+        text-decoration: none;
+        padding: 0 5px;
+        border: none;
+        background: linear-gradient(30deg, rgb(5, 96, 15), rgb(108, 24, 92));
+        border-bottom: solid 3px rgb(19, 15, 12);
+        border-top: solid 1px rgb(14, 14, 14);
+    }
+    #CONTACTS-SEARCH::placeholder {
+        font-style: italic;
+        font-weight: normal;
+        color: rgb(213, 213, 231);
+    }
+    #CONTACTS-SEARCH:hover{
+        transition: 1s ease-out;
+        transform: scale(1.04);
+        background: pink;
+    }
+    #CONTACTS-SEARCH:focus{
+        background:linear-gradient(90deg, rgb(193, 191, 191), rgb(61, 172, 89));
+        font-family: 'Lora';
+        letter-spacing: 2px;
+        color: rgb(13, 13, 46);
+        font-style: italic;
+        border: solid 3px black;
+        
+    }
+    #CONTACTS-SEARCH:focus::placeholder{
+        font-size: 0px;
+    }
+    #CONTACTS-BODY{
+        background-color: rgb(34, 3, 33);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding-top: 4px;
+    
+    }
+    .CONTACTS{
+        width: 98%;
+        height: 70px;
+        background:linear-gradient(45deg,rgb(12, 2, 11),rgb(141, 72, 64));
+        border-top-left-radius: 31px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding-left: 6px;
+        place-content: space-between;
+        border-left: 1px solid rgb(78, 30, 25);
+        
+    }
+
+    .CONTACTS-PROFILEPIC{
+        background: url("/mediafiles/users/p5.jpg");
+        background-size: cover;
+        width: 60px;
+        height: 55px;
+        border-radius: 60%;
+    }
+    .CONTACTS-INFO{
+        background: linear-gradient( 90deg, rgb(57, 10, 37), black);
+        width: 86%;
+        height: 98%;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-self: center;
+        align-items: end;
+        padding-right: 0px;
+        align-self: end;
+        gap: 10px;
+        place-content: space-between;
+    }
+    .CONTACTS-USERNAME{
+        width: 60%;
+        height: 50%;
+        border-radius: 8px;
+        margin-left: 8px;
+        padding-left: 5px;
+        padding-top: 5px;
+        font-family: 'Oleo Script';
+        color: white;
+        font-weight: lighter;
+        font-style: normal;
+        font-size: 1rem;
+        letter-spacing: .6px;
+    }
+    .CONTACTS-NOTE{
+        width: 100px;
+        height: 80%;
+        border-radius: 10px;
+        text-align: center;
+        color: rgb(244, 229, 229);
+        font-size: 0.6rem;
+        font-weight: lighter;
+        line-height: 18px;
+        padding: 1px 5px;
+        overflow: hidden;
+        letter-spacing: 0.5px;
+        font-family: 'Lora';
+        align-self: center;
+        background: linear-gradient( 90deg, rgb(57, 10, 37), black)
+    }
+}
+
+

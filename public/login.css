@@ -1,0 +1,753 @@
+@import url('https://fonts.googleapis.com/css2?family=Kranky&family=Lora:ital,wght@0,400..700;1,400..700&family=Offside&family=Oleo+Script:wght@400;700&family=Rubik+Wet+Paint&family=Trade+Winds&display=swap');
+@media (min-width: 601px) {
+body{
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+#SIGNUP-PAGE{
+ width: 100;
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+}
+#TOP-WRAPPER{
+    width: 100%;
+    height: 21em;
+    background: url("/mediafiles/signupBackground.jpg");
+    background-size: 100% 100%;
+    position: relative;
+    padding: 25px;
+    background-repeat: no-repeat;
+    margin: 0px;
+    display: block;
+}
+#HEADER{
+width: inherit;
+height: 3rem;
+align-items:start;
+display: flex;
+}
+#HAPPNAMELOGO{
+    width: 250px;
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    padding-right: 20px;
+    align-items: center;
+
+}
+#headerLogo{
+    width: 60px;
+    height: 60px;
+}
+#HAPPNAME{
+    font-family: 'Trade Winds';
+    font-size: 2rem;
+    font-weight:800;
+    color:  rgba(42, 13, 64, 0.845);
+    text-shadow: 0 0 15px rgb(179, 11, 126);
+    width: 200px;
+}
+#HSPACE{
+width:64rem;
+height: inherit;
+}
+#HPAGELINKS {
+  width: 280px;   
+  flex: 0 0 300px;     /* don’t grow or shrink */
+  display:e flx;
+  justify-content: center;
+  padding-top: 13px;
+  margin-right: 10px;
+  z-index: 100;
+  cursor: grab;
+}
+
+.HPAGELINKS-ITEMS{
+    text-decoration: none;
+    padding-right: 10px;
+    color: rgb(131, 33, 33);
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+}
+#HEADER-TOPDIV{
+    display: flex;
+    color: rgb(6, 82, 6);
+    font-size: small;
+    font-style: italic;
+    align-items: center;
+    justify-content: center
+    ;
+    padding-top: 0px;
+    position:relative;    
+}
+#HEADER-BOTTOMDIV{
+    display: flex;
+    justify-content: center;
+    top: 210px;
+    position: relative;
+    font-style: italic;
+    color: rgb(81, 26, 26);
+    font-size:0.9rem;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    text-align: center;
+    font-weight:lighter;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#BOTTOM-WRAPPER{
+    background-color: black;
+    width: 90%;
+    height: 500px;
+    margin-top: 0px;
+    display: flex;
+    width:  100vw;
+    height: 24rem;
+    overflow: hidden;
+    padding-top: 10px;
+}
+#FLOGO{
+    background: url("/mediafiles/moiSpaceImage.png");
+    width: 36%;
+    height: 100%;
+    top: 5px;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: 0px;
+    z-index: 0;
+}
+#SIGNUP-FORM{
+    background-color: rgb(0, 0, 0);
+    width: 550px;
+    height: 400px;
+    display: flex;
+    flex: 0 0 550px ;
+    align-items: start;
+    padding-top: 9px;
+    margin-bottom: 10px;
+    justify-content: center;
+
+}
+#SIGNUP-FORM-WRAPPER{
+    padding: 0%;
+    height: 75%;
+    width: 60%;
+    background-color: rgb(27, 8, 41);
+    margin-top: 24px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgb(159, 4, 164);
+    display: flex;
+    flex-direction: column;
+    animation: signupshadow 20s ease infinite;
+    z-index: 1;
+}
+@keyframes signupshadow {
+    0%{border: solid 1px black;}
+    25%{box-shadow: 0px 0 20px rgb(13, 174, 228); border: solid 1px black;}
+    50%{box-shadow: 0px 0 20px rgb(49, 27, 10); border: solid 1px rgb(116, 105, 105);}
+    75%{box-shadow: 0px 0 20px rgb(228, 13, 210);border: solid 1px rgb(0, 0, 0);}
+    100%{border: solid 1px black;}
+}
+#SIGNUP-TEXT{
+    margin-top: 0px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Oleo Script';
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+    font-size: 30px;
+    color: white;
+}
+#ERROR-TEXT{
+    color: rgb(208, 28, 28);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-weight: lighter;
+    margin-bottom: 0px;
+    text-align: center;
+    margin-top: 35px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+#INPUTS-WRAPPER{
+    background-color: rgba(50, 25, 40, 0.305);
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    padding-top: 10px;
+    padding-left: 15px;
+    border: 1px solid rgb(46, 46, 41);
+    height: unset;
+    padding-bottom: 10px;
+    align-items: end;
+    gap: 7px;
+    justify-content: center;
+    padding-right: 5px;
+    align-self: center;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    justify-self: flex-end;
+    margin-top: 25px;
+}
+.SIGNUP-INPUTS{
+    background-color: rgba(155, 144, 155, 0.489);
+    width: 150px;
+    outline-offset: 0px;
+    height: 26px;
+    border: none;
+    margin-top: 0px;
+    padding-left: 10px;
+    border-radius: 10px;
+    margin-bottom: 0px;
+}
+#usernameL{
+ border-top-left-radius: 40%;
+}
+#passwordL{
+ border-bottom-left-radius: 40%;
+}
+.SIGNUP-INPUTS:hover {
+    background-color: rgb(88, 103, 91);
+    color: rgb(228, 201, 226);
+    scale: 1.05;
+}
+#usernameS {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 20%;
+}
+#passwordCS{
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 20%;
+}
+.SIGNUP-INPUTS::placeholder{
+    color: rgb(12, 20, 104);
+}
+.SIGNUP-INPUTS:focus{
+outline: none;
+text-align: center;
+background-color: rgb(201, 186, 186);
+color: black;
+}
+.SIGNUP-INPUTS:focus::placeholder{
+    color: black;
+}
+.SIGNUP-INPUTS-DIVS{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 4px;
+    border-left: solid 2px rgb(127, 41, 127);
+    padding-left: 4px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.SIGNUP-INPUTS-LABELS{
+    color: white;
+    width: 130px;
+    align-self: center;
+    font-family:Tahoma, sans-serif;
+    font-style: italic;
+    font-size: small;
+    text-align: start;
+}
+#SUBMIT-BTN{
+    align-self: center;
+    width: 50%;
+    font-size: 15px;
+    font-weight: light;
+    color: rgb(4, 66, 4);
+    border: none;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px black;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(139, 137, 116);
+    height: 40px;
+    margin-top: 15px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: center;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    padding: 0px;
+}
+#SUBMIT-BTN:hover{
+    transform: scale(1.05);
+    background-color:  rgb(107, 97, 8);
+    color: white;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    transition: 1s ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+    animation: submit 1s ease-in ;
+}
+@keyframes submit {
+    0%{}
+    100%{background-color: rgb(97, 176, 110);
+    transform: scale(1);}
+}
+
+
+#BOTTOM-DIVS-RTEXTS{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 36%;
+    height: 100%;
+    font-size: 15px;
+    margin-right: 40px;
+    font-weight: light;
+}
+#BOTTOM-DIVS-RTEXTS h4 {
+    width: 55%;
+    font-family: Calibri,Courier New, Courier, monospace;
+    color: rgb(73, 140, 233);
+    font-style: italic;
+    text-shadow: 5px -6px 15px rgb(59, 255, 10);
+    min-width: 100px;
+}}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: black;
+}
+#SIGNUP-PAGE{
+ width: 100vw;
+ height: 100vh;
+ overflow: hidden;
+}
+#TOP-WRAPPER{
+    width: 100%;
+    height: 30vh;
+    background: url("/mediafiles/signupBackground.jpg");
+    background-size: 100% 100%;
+    object-fit: cover;
+    position: relative;
+    border: solid 1px black;
+    padding: 25px;
+    background-repeat: no-repeat;
+    margin: -24px;
+    justify-content:flex-start;
+    display: block;
+    
+}
+#HEADER{
+width: 98.8vw;
+height: 3rem;
+align-items:start;
+display: flex;
+}
+#HAPPNAMELOGO{
+    width: 250px;
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    padding-right: 20px;
+    align-items: center;
+
+}
+#headerLogo{
+    width: 60px;
+    height: 60px;
+}
+#HAPPNAME{
+    font-family: 'Trade Winds';
+    font-size: 1.3rem;
+    font-weight:800;
+    color:  rgba(42, 13, 64, 0.845);
+    text-shadow: 0 0 15px rgb(179, 11, 126);
+    width: 130px;
+}
+#HSPACE{
+width:64rem;
+height: inherit;
+}
+#HPAGELINKS {
+  max-width: 180px;   
+  flex: 0 0 300px;     /* don’t grow or shrink */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 18px;
+  padding-right: 10px;
+}
+
+.HPAGELINKS-ITEMS{
+    text-decoration: none;
+    padding-right: 10px;
+    color: rgb(131, 33, 33);
+    font-size: .7rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+}
+#HEADER-TOPDIV{
+    display: flex;
+    justify-content: center;
+    color: rgb(6, 82, 6);
+    font-size: small;
+    font-style: italic;
+    
+    
+}
+#HEADER-BOTTOMDIV{
+    display: flex;
+    margin-left: 50px;
+    text-align: center;
+    position: relative;
+    font-style: italic;
+    color: rgb(81, 26, 26);
+    font-size:0.7rem;
+    width: 80%;
+    font-weight:lighter;
+    padding-top: 42px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+}
+
+#BOTTOM-WRAPPER{
+    position: relative;
+    max-width: 100%;
+    background-color: black;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    right: 1px;
+    height: 24rem;
+}
+#FLOGO{
+    background:url("/mediafiles/moiSpaceImage.png");
+    background-size: cover;
+    width: 280px;
+    align-self: center;
+    top: 300px;
+    z-index: 1;
+    right: 94px;
+    justify-self: center;
+    min-height: 220px;
+    position: absolute;
+    left: 78px
+
+}
+#SIGNUP-FORM{
+    background-color: rgb(0, 0, 0);
+    width: 550px;
+    height: 400px;
+    display: flex;
+    flex: 0 0 550px ;
+    align-items: start;
+    padding-top: 9px;
+    margin-bottom: 10px;
+    position: absolute;
+    justify-content: center;
+    bottom: 330px;
+
+}
+#SIGNUP-FORM-WRAPPER{
+    padding: 0%;
+    height: 75%;
+    width: 60%;
+    background-color: rgb(27, 8, 41);
+    margin-top: 24px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgb(95, 4, 164);
+    display: flex;
+    flex-direction: column;
+    animation: signupshadow 20s ease infinite;
+    z-index: 1;
+}
+@keyframes signupshadow {
+    0%{border: solid 1px black;}
+    25%{box-shadow: 0px 0 20px rgb(13, 174, 228); border: solid 1px black;}
+    50%{box-shadow: 0px 0 20px rgb(49, 27, 10); border: solid 1px rgb(116, 105, 105);}
+    75%{box-shadow: 0px 0 20px rgb(228, 13, 153);border: solid 1px rgb(0, 0, 0);}
+    100%{border: solid 1px black;}
+}
+#SIGNUP-TEXT{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Oleo Script';
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+    font-size: 30px;
+    color: white;
+}
+#ERROR-TEXT{
+    color: rgb(208, 28, 28);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-weight: lighter;
+    margin-bottom: 0px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+#INPUTS-WRAPPER{
+    background-color: rgba(50, 25, 40, 0.305);
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    padding-top: 10px;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    border: 1px solid rgb(46, 46, 41);
+    height: unset;
+    padding-bottom: 10px;
+    align-items: end;
+    gap: 15px;
+    justify-content: center;
+    padding-right: 5px;
+    align-self: center;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    justify-self: flex-end;
+    margin-top: 20px;
+}
+.SIGNUP-INPUTS{
+    background-color: rgba(155, 144, 155, 0.489);
+    width: 150px;
+    outline-offset: 0px;
+    height: 26px;
+    border: none;
+    margin-top: 0px;
+    padding-left: 10px;
+    border-radius: 10px;
+    margin-bottom: 0px;
+}
+#usernameL{
+ border-top-left-radius: 40%;
+}
+#passwordL{
+ border-bottom-left-radius: 40%;
+}
+.SIGNUP-INPUTS:hover {
+    background-color: rgb(88, 103, 91);
+    color: rgb(228, 201, 226);
+    scale: 1.05;
+}
+#usernameS {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 20%;
+}
+#passwordCS{
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 20%;
+}
+.SIGNUP-INPUTS::placeholder{
+    color: rgb(12, 20, 104);
+}
+.SIGNUP-INPUTS:focus{
+outline: none;
+text-align: center;
+background-color: rgb(201, 186, 186);
+color: black;
+}
+.SIGNUP-INPUTS:focus::placeholder{
+    color: black;
+}
+.SIGNUP-INPUTS-DIVS{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 4px;
+    border-left: solid 2px rgb(127, 41, 127);
+    padding-left: 4px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.SIGNUP-INPUTS-LABELS{
+    color: white;
+    width: 130px;
+    align-self: center;
+    font-family:Tahoma, sans-serif;
+    font-style: italic;
+    font-size: small;
+    text-align: start;
+}
+#SUBMIT-BTN{
+    align-self: center;
+    width: 50%;
+    font-size: 15px;
+    font-weight: light;
+    color: rgb(4, 66, 4);
+    border: none;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px black;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(139, 137, 116);
+    height: 40px;
+    margin-top: 15px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: center;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    padding: 0px;
+}
+#SUBMIT-BTN:hover{
+    transform: scale(1.05);
+    background-color:  rgb(107, 97, 8);
+    color: white;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    transition: 1s ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+    animation: submit 1s ease-in ;
+}
+@keyframes submit {
+    0%{}
+    100%{background-color: rgb(97, 176, 110);
+    transform: scale(1);}
+}
+
+
+#BOTTOM-DIVS-RTEXTS{
+    background-color: rgb(0, 0, 0);
+    display: none;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 36%;
+    height: 100%;
+    font-size: 15px;
+    font-weight: light;
+}
+#BOTTOM-DIVS-RTEXTS h4 {
+    width: 55%;
+    font-family: Calibri,Courier New, Courier, monospace;
+    color: rgb(73, 140, 233);
+    font-style: italic;
+    text-shadow: 5px -6px 15px rgb(59, 255, 10);
+    min-width: 100px;
+}
+@media (max-width: 390px) {
+ #HEADER-BOTTOMDIV{
+    display: flex;
+    margin-left: 50px;
+    text-align: center;
+    position: relative;
+    font-style: italic;
+    color: rgb(81, 26, 26);
+    font-size:0.7rem;
+    width: 80%;
+    top: 8px;
+    font-weight:lighter;
+    padding-top: 50px;
+    padding-bottom: 0px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+} 
+}
+}
+.unload{
+    display: none;
+}
+.loads{
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    margin: 0 40px;
+    justify-content: end;
+     animation: signupshadow1 20s ease infinite;
+     border-radius: 40px;
+     transition: 1s ease;
+}
+@keyframes signupshadow1 {
+    0%{border-bottom: solid 3px rgb(27, 11, 93);}
+    25%{border-bottom: solid 3px rgb(7, 112, 122);}
+    50%{border-bottom: solid 3px rgb(160, 163, 112);}
+    75%{border-bottom: solid 3px rgb(159, 16, 102);}
+    100%{border-bottom: solid 3px rgb(78, 10, 114);}
+}
+#loadA{
+    width: 20px;
+    height: 30px;
+    background: radial-gradient(white,rgb(47, 5, 62));
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    align-self: center;
+    border-bottom: solid 2px cyan;
+    border-bottom-style:double;
+    border-top: solid 2px cyan;
+    border-top-style:double;
+    animation: load 1.5s ease infinite;
+}
+#loadB{
+    width: 20px;
+    height: 30px;
+    background: radial-gradient(white,rgb(24, 1, 39));
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    align-self: center;
+    border: none;
+    position: relative;
+    border-bottom: solid 2px cyan;
+    border-bottom-style:double;
+    border-top: solid 2px cyan;
+    border-top-style:double;
+    animation: load 1.5s ease infinite;
+}
+@keyframes load {
+    0%{}
+    65%{transform: rotateZ(-1080deg) scale(1);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 0px;}
+    100%{}
+}
+.HPAGELINKS-ITEMS:hover{
+    color: rgb(55, 210, 35);
+    text-shadow: 0 0 15px black, 
+    0 0 15px black, 0 0 15px black, 0 0 15px black;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-style: double;
+    transition: .4s ease-out;
+    border-top: solid 3px rgb(101, 21, 5);
+    text-align: center;
+    border-radius: 20px;
+    padding-left: 5px;
+    animation: zoom 2s ease infinite;
+    
+}
+#HPAGELINKS:hover{
+    border: none;
+}
+@keyframes zoom {
+    0%{}
+    50%{padding:4px 0; color: antiquewhite; border-top: solid 3px rgb(87, 5, 5); text-decoration-style: none;}
+    100%{}
+}
+
+
+
+
+
+

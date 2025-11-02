@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/login.css">
+  </head>
+  <body>
+    <div id="SIGNUP-PAGE">
+    <!---Top Div Wrapper has header, top div, and header bottom div-->
+    <div id="TOP-WRAPPER">
+        <!--This is header-->
+      <div id="HEADER">
+        <div id="HAPPNAMELOGO">
+          <div><img id="headerLogo" src="/mediafiles/HeaderLogo.png" alt=""></div>
+          <div><h1 id="HAPPNAME">Moi Space</h1></div>
+        </div>
+        <div id="HSPACE"></div>
+        <div id="HPAGELINKS">
+          <a class="HPAGELINKS-ITEMS" href="/signup">Signup</a>
+          <a class="HPAGELINKS-ITEMS" href="#">Contacts</a>
+          <a class="HPAGELINKS-ITEMS" href="#">Policy</a>
+          <a class="HPAGELINKS-ITEMS" href="#">About</a>
+        </div>
+      </div>
+      <div id="HEADER-TOPDIV">
+        <h3 id="TOPDIV-TEXT">Made for Moi University</h3>
+      </div>
+      <div id="HEADER-BOTTOMDIV">
+        <h3 id="BOTTOMDIV-TEXT">
+          Our platfom is built for social connection a place to meet new people,
+          share ideas and grow together through meaningful interactions
+        </h3>
+      </div>
+    </div>
+    <div id="BOTTOM-WRAPPER">
+
+        <!---FLOGO-->
+        <div id="FLOGO">this is the logo</div>
+    
+        <!---LOGIN-FORM-->
+        <form id="SIGNUP-FORM" action="/login" method="POST" autocomplete="on">
+          <div id="SIGNUP-FORM-WRAPPER">
+             <div id="loader" class="loads">
+            <div id="loadA" class="unload"></div><h2 id="SIGNUP-TEXT">Login</h2>
+            <div id="loadB" class="unload"></div></div>
+            <h4 id="ERROR-TEXT"><% errors.forEach((error)=>{if (error == "Your Account has been created") {%><h4 style="color: yellow; text-align: center; padding: 0px; margin: 0px; align-self: center; font-family: Arial, Helvetica, sans-serif; font-size: small;"><%= error%><br></h4><%}else{ %> <%= error%> <br><%}}); setTimeout(()=>{error = ''},5000) %></h4>
+            <div id="INPUTS-WRAPPER">
+                
+
+
+                <div class="SIGNUP-INPUTS-DIVS"><label for="usernameL" class="SIGNUP-INPUTS-LABELS" >Username</label>
+
+                <input class="SIGNUP-INPUTS" type="text" id="usernameL" name="usernameL" placeholder="Enter your username..." /></div>
+
+
+                <div class="SIGNUP-INPUTS-DIVS"><label for="passwordL" class="SIGNUP-INPUTS-LABELS"  >Password</label>
+
+                <input type="password" class="SIGNUP-INPUTS" id="passwordL" name="passwordL" placeholder="Enter password..."></div>
+
+                <button id="SUBMIT-BTN" type="submit">Submit</button>
+
+            </div>
+            </div>
+          </form>
+
+        <!---BOTTOM-DIVS-RTEXTs-->
+        <div id="BOTTOM-DIVS-RTEXTS">
+            <h4>Your username must be unique to ensure full ownership of your account</h4>
+            <h4>Your password must be strong and match the confirmation to secure your account</h4>
+        </div>
+
+    </div>
+    </div>
+  </body>
+  <script>
+const submitBtn = document.getElementById('SUBMIT-BTN');
+const loadA = document.getElementById('loadA');
+const loadB = document.getElementById('loadB');
+submitBtn.addEventListener('click', ()=>{
+loadB.classList.remove('unload')
+setTimeout(() => {
+    loadA.classList.remove('unload')
+}, 3000);
+});
+  </script>
+</html>

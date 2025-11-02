@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Kranky&family=Lora:ital,wght@0,400..700;1,400..700&family=Offside&family=Oleo+Script:wght@400;700&family=Rubik+Wet+Paint&family=Trade+Winds&display=swap');
+body{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    background-color: rgb(3, 1, 1);
+    width: 100vw;
+    overflow: hidden;
+}
+
+    #CHATS-PAGE{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 100vh;
+    min-width: 100vw;
+   }
+    #HEADER{
+        background: linear-gradient(45deg, rgb(0, 0, 0), rgb(74, 9, 61));
+        color: white;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        z-index: 100;
+        border-bottom: solid 1px salmon;
+        position: fixed;
+    }
+    #HEADER-TOP-DIV{
+        display: flex;
+        place-content: space-between;
+        align-items: start;
+        justify-content: start;
+        gap: 5px;
+        height: 2.8rem;
+        place-content: space-between;
+    }
+    #APP-DETAILS{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        height: 95%;
+        width:12em;
+        justify-content: center;
+    }
+    #HEADER-LOGO{
+        background: url("/mediafiles/HeaderLogo.png");
+        width: 45px;
+        height: 45px;
+        background-size: cover;
+        padding-right: 5px;
+        background-repeat: no-repeat;
+    }
+    #HEADER-APPNAME{
+        font-size: 0.9rem;
+        align-self: center;
+        color: rgb(230, 139, 206);
+        font-family: 'Trade Winds';
+        padding-right: 5px;
+        padding-bottom: 8px;
+        width: 150px;
+    }
+     #HEADER-APPNAME h2{
+        text-align: center;
+        margin: 0px;
+        padding-top: 10px;
+    }
+      #HEADER-MIDDLE-DIV{
+        align-self: center;
+        justify-self: start;
+        height: 20px;    
+    }
+    #HEADER-MIDDLE-DIV H3{
+        text-align: center;
+        margin-top: 0px;
+        font-family: 'Oleo script';
+        font-weight:100;
+        letter-spacing: 1px;
+        font-size: small;   
+    }
+    #HEADER-BTNS{
+        height: inherit;
+        width: 100px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .HEADER-BTNS{
+        width: 1.5em;
+        height: 50%;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        font-size: 1.5rem;
+        background-color: rgb(30, 3, 29);
+        padding-bottom: 5px;
+        padding: 0px;
+        padding-left: 9px;
+        
+    }
+    #USER-DETAILS{
+        display: flex;
+        flex-direction: row;
+        width: 100px;
+        gap: 10px;
+        justify-content: end;
+    }
+
+    #HEADER-PROFILEPIC{
+        background-color: yellowgreen;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-top: 2px;
+        margin-right: 5px;
+    }
+
+    #HEADER-BOTTOM-DIV{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 5px;
+        width: 100%;
+        max-height: 50px;
+        padding-left: 10px;
+        justify-content: start;
+        
+    }
+     #HEADER-USERNAME{
+        font-family: 'lora';
+        font-size: 0.7em;
+        font-style: italic;
+        padding-left: 10px;
+    }
+    #HEADER-BOTTOM-DIV h4{
+       font-size: 0.8re m;
+        font-weight: lighter;
+    }
+
+
+    #MAIN-SECTION{
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(33, 6, 27);
+        margin-top: 105px;
+        display: block;
+         overflow-y: scroll;  
+    }
+    .CHAT-BODY{
+        padding-top: 10px;
+        width: 100%;
+        min-height: 100%;
+        background: linear-gradient(60deg, rgb(7, 23, 4), rgb(30, 2, 39));
+        row-gap: 10px;
+        color: rgb(0, 0, 0);
+        margin-top: auto;
+        padding-bottom: 90px;
+        bottom: 0;
+           
+
+    }
+
+    .SENDER-TEXT{
+        min-width: 1px;
+        height: unset;
+        max-width: 50%;
+        min-height: 20px;
+        display: flex;
+        border-left: 1px solid rgb(26, 6, 22);
+        padding-top: 4px;
+        flex-direction: column;
+        font-size: 0.6rem;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 100;
+        padding-left: 5px;
+        line-height: 0.9rem;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        text-align: start;
+        margin-left: 5px;
+        padding-right: 10px;
+        border-radius: 10px;
+        border-bottom-left-radius: 30%;
+        border-right: solid 1px rgb(81, 7, 63);
+        border-bottom: solid 1px rgb(75, 4, 18);
+        border-top-right-radius: 25px;
+        border-top-left-radius: 5px;
+        border-bottom-right-radius:10px;
+        background: linear-gradient(45deg, rgb(65, 14, 53), rgb(16, 4, 6));
+        color: white;
+        font-style: oblique;
+
+    }
+    .SENDER-TEXT h3{
+        padding: 0px;
+        margin: 0px;
+    }
+    .RECEPIENT-TEXT h3{
+        padding: 0px;
+        margin: 0px;
+    }
+    .TIME{
+        color: rgb(127, 196, 17);
+        text-align: end;
+       
+        
+    }
+    .RECEPIENT-TEXT{
+        min-width: 20px;
+        max-width: 50%;
+        min-height: 20px;
+        display: flex;
+        padding-top: 4px;
+        flex-direction: column;
+        font-size: 0.6rem;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 100;
+        padding-left: 5px;
+        margin-right: 10px;
+        line-height: 1rem;
+        text-align: start;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        border-radius: 10px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 20%;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 15px;
+        background:linear-gradient(45deg, rgb(19, 1, 5), rgb(76, 5, 14));
+        color: white;
+        align-self: flex-end;
+        justify-self: flex-end;
+        padding-right: 8px;
+        border-left: 1px solid rgb(121, 6, 98);
+        border-top: 1px solid rgb(83, 10, 58);
+        font-style: oblique;
+
+    }
+    #BOTTOMBAR{
+        background: linear-gradient(45deg, rgb(8, 8, 82), rgb(107, 13, 13));
+        display: flex;
+        min-height: 40px;
+        flex-direction: row;
+        align-items: center;
+        place-content: space-between;
+        width: unset;
+        background-color: red;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        position: fixed;
+        align-self: end;
+        justify-self: start;
+        width: 100%;
+        gap: 20px;
+        bottom: 0;
+        align-items: end;
+
+        
+    }
+    #FILE{
+        width: 80px;
+        border-radius: 8px;
+        color: white;
+        text-align: center;
+        background: linear-gradient(50deg, rgb(106, 10, 10), darkblue);
+        background-color: black;
+        border: solid 1px white;
+        min-height: 20px;
+        margin-left: 20px;
+    }
+    #MESSAGE-DIV{
+        margin-right: 10px;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: end;
+        justify-self: flex-start;
+        gap: 15px;
+       }
+    #MESSAGE-INPUT{
+        min-height: 20px;
+        width: 100%;
+        border-radius: 13px;
+        border: none;
+        border: solid 1px rgb(18, 6, 6) ;
+        color: black;
+        background-color: rgb(176, 120, 15);
+        justify-self: center;
+        align-content: center;
+        padding-left: 10px;
+        overflow-y: auto;
+        font-family: 'lora';
+    }
+
+    #MESSAGE-INPUT:focus{
+        background-color: rgb(11, 106, 24);
+        color: rgb(212, 205, 205);
+        border: none;
+        outline: none;
+    }
+     #MESSAGE-INPUT:focus::placeholder{
+        font-size: 0rem;
+     }
+    #MESSAGE-INPUT::placeholder {
+        color: rgb(52, 24, 9);
+        font-style: italic;
+        font-weight: 100;
+        text-shadow: 0 0 10px,
+        0px 0px 10px rgb(13, 5, 44);
+    }
+    #SEND-BTN{
+        height: 25px;
+        border-radius: 10px;
+        border: solid 1px rgb(138, 156, 18) ;
+        background-color: rgb(36, 26, 6);
+        border-left: none;
+        align-self: flex-end;
+        width: 40px;
+        padding-bottom: 2.5px;
+    }

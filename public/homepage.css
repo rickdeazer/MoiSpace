@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Kranky&family=Lora:ital,wght@0,400..700;1,400..700&family=Offside&family=Oleo+Script:wght@400;700&family=Rubik+Wet+Paint&family=Trade+Winds&display=swap');
+@media (max-width: 450px) {
+
+
+   #HOME-PAGE{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   justify-content: flex-start;
+   height: 100%;
+   }
+    /*This is the beginning of the main section*/
+
+  #MAIN-SECTION {
+    height: 100%;
+    color: white;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1);/*auto-fit, minmax(160px, 1fr*/
+    grid-auto-rows: 430px;
+    padding-top: 110px;
+}
+
+    .MAIN-USERS{
+     width: 98%;
+     height: 420px;
+     margin-top: 15px;
+     margin-left: 5px;
+     border-radius: 15px;
+     align-items: center;
+     display: flex;
+     gap: 5px;
+     flex-direction: column;
+    }
+    .MAIN-USERS-IMG{
+        width: 98%;
+        height: 350px;
+        background: url('/mediafiles/users/p5.jpg');
+        background-size: cover;
+        outline: solid 1px rgb(124, 2, 106);
+        border-radius: 15px;
+        z-index: 1;
+        padding-right: 5px;
+    }
+    .MAIN-USERS-USERNAME{
+        font-family: 'Lora';
+        font-weight: 600;
+        font-size: small;
+        font-style: italic;
+        padding-top: 15px;
+        letter-spacing: 1px;
+        text-shadow: 
+            0 0 15px black,
+            0 0 35px black,
+            0 0 45px black,
+            0 0 55px black,
+            0 0 55px black,
+            0 0 15px green,
+            0 0 15px purple,
+            0 0 55px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black;
+           
+
+    }
+
+
+
+}
+@media (min-width: 451px) {
+
+   #HOME-PAGE{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+   }
+    /*This is the beginning of the main section*/
+
+  #MAIN-SECTION {
+    height: 100%;
+    color: white;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+    grid-auto-rows: 40%;
+    padding-top: 110px;
+}
+
+
+    .MAIN-USERS{
+     width: 98%;
+     min-height: 15%;
+     align-self: center;
+     justify-self: center;
+     margin-top: 15px;
+     border-radius: 15px;
+     align-items: center;
+     display: flex;
+     gap: 5px;
+     margin-left: 15px;
+     flex-direction: column;
+    }
+    .MAIN-USERS-IMG{
+        width: 98%;
+        height: 35vh;
+        background: url('/mediafiles/users/p5.jpg');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        outline: solid 1px rgb(124, 2, 106);
+        border-radius: 15px;
+        z-index: 1;
+    }
+    .MAIN-USERS-USERNAME{
+        font-family: 'Lora';
+        font-weight: 600;
+        font-size: small;
+        font-style: italic;
+        text-shadow: 
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px green,
+            0 0 15px purple,
+            0 0 15px green,
+            0 0 15px black,
+            0 0 25px black,
+            0 0 35px black,
+            0 0 45px black,
+            0 0 55px black;
+
+    }
+
+}
+@media (min-width: 768px) {
+ #MAIN-SECTION {
+    height: 100%;
+    color: white;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(33.3%, 1fr));
+    grid-auto-rows: 45%;
+    padding-top: 110px;
+}
+ #HEADER-BOTTOM-DIV #HOME-SEARCH{
+        width: 50%;
+        margin-bottom:2px;
+        height: 25px;
+        border: none;
+        outline: none;
+        border-top-left-radius:15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius:30px;
+        text-align: center;
+        color: darkblue;
+        font-weight: bold;
+        font-family: 'lora';
+    }
+.MAIN-USERS-IMG{
+         box-shadow: 0 0 10px rgb(33, 167, 71),
+         0 0 20px rgb(74, 19, 19),
+         0 0 20px rgb(55, 4, 34);
+}}
+@media (min-width: 1000px){
+ #MAIN-SECTION {
+    height: 100%;
+    color: white;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(33.3%, 1fr));
+    grid-auto-rows: 55%;
+    padding-top: 110px;
+}
+    .MAIN-USERS{
+     width: 98%;
+     min-height: 20%;
+     align-self: center;
+     justify-self: center;
+     margin-top: 15px;
+     border-radius: 15px;
+     align-items: center;
+     display: flex;
+     gap: 5px;
+     margin-left: 15px;
+     flex-direction: column;
+    }
+    .MAIN-USERS-IMG{
+        width: 98%;
+        height: 50vh;
+        background: url('/mediafiles/users/p5.jpg');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        outline: solid 1px rgb(124, 2, 106);
+        border-radius: 15px;
+        z-index: 1;
+    }
+    .MAIN-USERS-USERNAME{
+        font-family: 'Lora';
+        font-weight: 600;
+        font-size: small;
+        font-style: italic;
+        text-shadow: 
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px black,
+            0 0 15px green,
+            0 0 15px purple,
+            0 0 15px green;
+
+}
+ #HEADER-BOTTOM-DIV #HOME-SEARCH{
+        width: 50%;
+        margin-bottom:2px;
+        height: 30px;
+        border: none;
+        outline: none;
+        border-top-left-radius:15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius:30px;
+        text-align: center;
+        color: darkblue;
+        font-weight: bold;
+        font-family: 'lora';
+    }
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+    box-sizing: border-box;
+    background-color: rgb(227, 223, 214);
+    background-attachment: fixed;
+   
+}
+ #HEADER{
+        background: linear-gradient(45deg, rgb(0, 0, 0), rgb(74, 9, 61));
+        color: white;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+    }
+    #HEADER-TOP-DIV{
+        display: flex;
+        place-content: space-between;
+        align-items: center;
+        gap: 3px;
+        height: 3.5rem;
+        place-content: space-between;
+    }
+    #APP-DETAILS{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        height: inherit;
+        width:12em;
+    }
+    #HEADER-LOGO{
+        background: url("/mediafiles/HeaderLogo.png");
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+    }
+    #HEADER-APPNAME{
+        font-size: 0.7rem;
+        align-self: center;
+        color: rgb(230, 139, 206);
+        font-family: 'Trade Winds';
+        padding-right: 5px;
+    }
+   
+    #HEADER-APPNAME h2{
+        margin: 0px;
+        padding: 0px;
+    }
+    #HEADER-MIDDLE-DIV{
+        align-self: center;
+        justify-self: start;
+        height: 30px;      
+    }
+    #HEADER-MIDDLE-DIV H3{
+        text-align: center;
+        margin-top: 0px;
+        font-family: 'Oleo script';
+        font-weight:100;
+        letter-spacing: 1px;
+        font-size: small;   
+    }
+    #HEADER-BTNS{
+        height: inherit;
+        width: 100px;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+    .BADGE{
+        background-color: red;
+        border-radius: 50%;
+        width: 13px;
+        height: 13px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding-right: 1px;
+        bottom: 2.8em;
+        left: 2em;
+        position: relative;
+    }
+    #USER-DETAILS{
+        display: flex;
+        flex-direction: row;
+        width: 180px;
+        gap: 10px;
+        justify-content: end;
+    }
+    #HEADER-USERNAME{
+        font-family: 'lora';
+        font-size: 0.6em;
+        font-style: italic;
+    }
+    #HEADER-BOTTOM-DIV{
+        align-self: center;
+        justify-self: center;
+        display: flex;
+        margin-bottom: 5px;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    #HEADER-BOTTOM-DIV #HOME-SEARCH{
+        width: 50%;
+        margin-bottom:2px;
+        height: 20px;
+        border: none;
+        outline: none;
+        border-top-left-radius:15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius:30px;
+        text-align: center;
+        color: darkblue;
+        font-weight: bold;
+        font-family: 'lora';
+    }
+    #HOME-SEARCH::placeholder {
+        font-style: italic;
+        font-weight: normal;
+    }
+     #headerLine{
+        animation: transit 5s ease ;
+        opacity: 0;
+        transition: 4s ease;
+    }
+    @keyframes transit{
+        0%{width: 0px; opacity: 1; }
+        15%{transform: rotate(720deg);}
+        99%{opacity: 1;}
+        100%{transform: rotate(720deg); opacity: 0;}
+    }
+    #HEADER-BTNS{
+        height: inherit;
+        width: 100px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .HEADER-BTNS{
+        width: 4em;
+        height: 50%;
+        border-radius: 30px;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        background-color: rgb(108, 13, 89);
+    }
+    .HEADER-BTNS a{
+        text-decoration:none;
+    }
+    .HEADER-BTNS:hover{
+        border: solid 2px rgb(11, 5, 9);
+        background: radial-gradient(rgb(46, 9, 31), rgb(173, 106, 106));
+        border-left: none;
+        border-right: none;
+        scale: 1.1;
+        height: 55%;
+    }
+    .HEADER-BTNS a:hover{
+        text-decoration: none;
+    }
+    #HEADER-PROFILEPIC{
+        background: radial-gradient(rgb(1, 39, 1), rgb(207, 98, 173));
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-top: 2px;
+        justify-self: center;
+        border: 1px solid rgb(23, 29, 4);
+        margin-right: 5px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
