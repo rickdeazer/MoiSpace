@@ -54,11 +54,16 @@ const findUser = async (username, password)=>{
 if (User){
     const correctPassword = await bcrypt.compare(password, User.password)
     if (correctPassword){
+
         return{
         statusCode: 200,
         status: 'success',
         message: 'Valid credentials',
-        user: User
+        user: {
+            id: User._id,
+            username: User.username,
+            phone: User.phone
+        }
     }} else {
         return{
             statusCode: 401,

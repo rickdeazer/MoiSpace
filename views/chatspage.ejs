@@ -14,7 +14,7 @@
             <!--Header Top Div Begins Here-->
             <div id="HEADER-TOP-DIV">
                  <div id="HEADER-BTNS">
-                    <button id="CHATSH-BTN" class="HEADER-BTNS">⬅️</button>
+                    <button id="CHATSH-BTN" class="HEADER-BTNS" onclick="window.location.href='/chats'">⬅️</button>
                 </div>
                 <div id="APP-DETAILS">
                     <div id="HEADER-APPNAME"><h2>Moi Space</h2></div>
@@ -31,7 +31,7 @@
             <!--Header Bottom Div Begins Here-->
             <div id="HEADER-BOTTOM-DIV">
                 <div id="HEADER-PROFILEPIC"></div>
-                <div id="HEADER-USERNAME"><h3>Amani_Kibet</h3></div>
+                <div id="HEADER-USERNAME"><h3 id="H-USERNAME">Amani_Kibet</h3></div>
             </div>
         </section>
 
@@ -41,65 +41,8 @@
 
         <!--Main section Begins Here-->
 <section id="MAIN-SECTION">
-    <div class="CHAT-BODY">
-        <div class="SENDER-TEXT"><h3>Hello friend. am waiting for you to come online</h3><span class="TIME">11:00</span>
-        </div>
-            
-        <div class="RECEPIENT-TEXT"><h3>Hello too. Am already online. Hope you day's good.</h3><span class="TIME">12:00</span>
-       </div>
-
-        <div class="SENDER-TEXT"><h3>Hello friend. am waiting for you to come online</h3><span class="TIME">11:00</span>
-        </div>
-            
-        <div class="RECEPIENT-TEXT"><h3>Hello too. Am already online. Hope you day's good.</h3><span class="TIME">12:00</span>
-       </div>
-
-        <div class="SENDER-TEXT"><h3>Hello friend. am waiting for you to come online</h3><span class="TIME">11:00</span>
-        </div>
-            
-        <div class="RECEPIENT-TEXT"><h3>Hello too. Am already online. Hope you day's good.</h3><span class="TIME">12:00</span>
-       </div>
-
-        <div class="SENDER-TEXT"><h3>Hello friend. am waiting for you to come online</h3><span class="TIME">11:00</span>
-        </div>
-            
-        <div class="RECEPIENT-TEXT"><h3>Hello too. Am already online. Hope you day's good.</h3><span class="TIME">12:00</span>
-       </div>
-
-        <div class="SENDER-TEXT"><h3>Hello friend. am waiting for you to come online</h3><span class="TIME">11:00</span>
-        </div>
-            
-        <div class="RECEPIENT-TEXT"><h3>Hello too. Am already online. Hope you day's good.</h3><span class="TIME">12:00</span>
-       </div>
-
-        <div class="SENDER-TEXT"><h3>Hello friend. am waiting for you to come online</h3><span class="TIME">11:00</span>
-        </div>
-            
-        <div class="RECEPIENT-TEXT"><h3>Hello too. Am already online. Hope you day's good.</h3><span class="TIME">12:00</span>
-       </div>
-
-        <div class="SENDER-TEXT"><h3>Hello friend. am waiting for you to come online</h3><span class="TIME">11:00</span>
-        </div>
-            
-        <div class="RECEPIENT-TEXT"><h3>Hello too. Am already online. Hope you day's good.</h3><span class="TIME">12:00</span>
-       </div>
-
-        <div class="SENDER-TEXT"><h3>Hello friend. am waiting for you to come online</h3><span class="TIME">11:00</span>
-        </div>
-            
-        <div class="RECEPIENT-TEXT"><h3>Hello too. Am already online. Hope you day's good.</h3><span class="TIME">12:00</span>
-       </div>
-
-        <div class="SENDER-TEXT"><h3>Hello friend. am waiting for you to come online</h3><span class="TIME">11:00</span>
-        </div>
-            
-        <div class="RECEPIENT-TEXT"><h3>Hello too. Am already online. Hope you day's good.</h3><span class="TIME">12:00</span>
-       </div>
-
-        <div class="SENDER-TEXT"><h3>Hello friend. am waiting for you to come online Hello world this is Rick Deazer. Hope you day's good. I am the chief executive officer of the relay programming company.</h3><span class="TIME">11:00</span>
-        </div>
-            
-        <div class="RECEPIENT-TEXT"><h3>Hello too. Am already online. Hello world this is Rick Deazer. Hope you day's good. I am the chief executive officer of the relay programming company. Hello world this is Rick Deazer. Hope you day's good. I am the chief executive officer of the relay programming company.</h3><span class="TIME">12:00</span>
+    <div class="CHAT-BODY" id="chatBody">
+        
         </div>
     </div>
 </section>
@@ -109,20 +52,9 @@
             <input id="FILE-INPUT" name="FILE" type="file" placeholder="Upload" hidden></input>
 
         <div id="MESSAGE-DIV" ><textarea id="MESSAGE-INPUT" name="MESSAGE-DIV" type="text" placeholder="Send a message..." ></textarea>
-        <button id="SEND-BTN" type="submit" onclick="
-            textArea.style.height = 20 + 'px';
-            ">➡️</button></div>
+        <button id="SEND-BTN" type="submit">➡️</button></div>
     </div>
-    <script>
-        const textArea = document.getElementById('MESSAGE-INPUT')
-        textArea.addEventListener('input', ()=>{
-            if (textArea.scrollHeight < 95) {
-                textArea.style.height = 'auto';
-                textArea.style.height = textArea.scrollHeight + 'px';
-            } else {
-                textArea.style.height = 95 + 'px'
-            }
-        });
-    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/chatspage.js"></script>
 </body>
 </html>

@@ -2,6 +2,10 @@ import { findUser} from "./saveFunctions.js";
 import { validate } from "./saveFunctions.js";
 import jwt from "jsonwebtoken"
 let errors = [];
+let localuser = {}
+let localUser = ()=>{
+  return {user: localuser.username}
+}
 const validateUser = async (userData, res)=>{
 const {usernameS, passwordS, phoneS, passwordCS } = userData
 
@@ -73,28 +77,18 @@ if (errors.length) {
        const token = jwt.sign({
         userId: user._id,
         username: user.username
-       }, process.env.JWT_SECRET, {expiresIn: '3m'});
-        user = {
-            ...user._doc, // keep other fields
-            createdAt: new Date(user.createdAt).toLocaleString('en-US', {timeZone: 'Africa/Nairobi'}),
-            updatedAt: new Date(user.updatedAt).toLocaleString('en-US', {timeZone: 'Africa/Nairobi'})
-        };
+       }, process.env.JWT_SECRET, {expiresIn: '30m'});
+        // user = {
+        //     ...user._doc, // keep other fields
+        //     createdAt: new Date(user.createdAt).toLocaleString('en-US', {timeZone: 'Africa/Nairobi'}),
+        //     updatedAt: new Date(user.updatedAt).toLocaleString('en-US', {timeZone: 'Africa/Nairobi'})
+        // };
+        localuser = user;
         console.log(user)
         return {status: 'success', token, user}
       } else { return {status: 'failed',errors: ["401 Unauthorized", "invalid username or password"]}}}}
 
-
-const authenticate = (req,res,next)=>{
-  const token = req.cookies.token
-  if (!token){return res.render("login", {errors: ['Please log in, session expired']})}
-  try {
-    req.user = jwt.verify(token,process.env.JWT_SECRET)
-    next();
-  } catch (error) {
-    res.render("login", {errors: ['Expired login token']})
-  }
-}
-export {validateUser, validateLogin, errors, authenticate}
+export {validateUser, validateLogin, errors, localUser}
 
 
 
