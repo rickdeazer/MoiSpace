@@ -17,7 +17,16 @@ phone:
 
 }, {timestamps: true});
 
+const messageL= new mongoose.Schema({
+        from: String,
+        to: String,
+        text: String,
+        time: String
+})
+
+const Messages= mongoose.model("Messages", messageL)
+
 const userModel = mongoose.model("Users", userSchema);
 
 
-export default userModel;
+export {userModel, Messages}

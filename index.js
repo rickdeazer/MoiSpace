@@ -2,7 +2,7 @@ import dotenv, { config } from "dotenv"
 import express from "express"
 import cors from "cors";
 import mongoose from "mongoose"
-import userModel from "./models/models.js"
+import {Messages} from "./models/models.js"
 import connectionDb from "./Database/database.js"
 import { Router } from "./Routes/routes.js"
 import cookieParser from "cookie-parser";
@@ -37,8 +37,19 @@ io.on("connection", (socket) => {
       from: msg.from,
       to: msg.to,
       text: `${msg.text}`,
+    
     });
+    new Messages.create({
+         from: msg.from,
+      to: msg.to,
+      text: `${msg.text}`,
+      time: `${new Date().getHours}: ${new Date().getMinutes}`
+    
+      })
   });
+  io.on("disconnect", ()=>{
+    console.log("Device Disconnected");
+  })
 });
  
 

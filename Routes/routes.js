@@ -1,5 +1,5 @@
 import express from "express"
-import userModel from "../models/models.js"
+import {userModel} from "../models/models.js"
 import {validateLogin, validateUser} from "../models/validation.js"
 import { authenticate } from "../middlewares/validations.js"
 import { giveMainUser, issueData } from "../middlewares/giver.js"

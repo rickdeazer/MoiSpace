@@ -1,4 +1,4 @@
-import userModel from "../models/models.js";
+import {userModel} from "../models/models.js";
 import { localUser } from "../models/validation.js";
 const issueData = async (req,res,next)=>{
     try {
