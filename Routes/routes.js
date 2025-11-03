@@ -8,7 +8,7 @@ let errors = [];
 
 Router.get("/",(req,res)=>{
     res.render("login", {errors})
-})
+})//hello 
 Router.get("/login", (req,res)=>{
     res.render("login", {errors});
 })
