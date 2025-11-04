@@ -153,6 +153,7 @@ body{
         margin-top: auto;
         padding-bottom: 90px;
         bottom: 0;
+        overflow-y: scroll;
     }
 
     .SENDER-TEXT{
