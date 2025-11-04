@@ -2,7 +2,7 @@ import express from "express"
 import {userModel} from "../models/models.js"
 import {validateLogin, validateUser} from "../models/validation.js"
 import { authenticate } from "../middlewares/validations.js"
-import { giveMainUser, issueData } from "../middlewares/giver.js"
+import { giveMainUser, issueData,markAsRead,obtainHistory } from "../middlewares/giver.js"
 const Router = express.Router()
 let errors = [];
 
@@ -49,4 +49,6 @@ Router.post("/login",  async (req, res)=>{
     res.render("login",{errors})
    }
 })
+Router.post("/markAsRead", markAsRead)
+Router.post("/chat/path4", obtainHistory)
 export { Router};

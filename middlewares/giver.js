@@ -1,4 +1,4 @@
-import {userModel} from "../models/models.js";
+import {userModel, Messages} from "../models/models.js";
 import jwt from "jsonwebtoken";
 const issueData = async (req,res,next)=>{
     try {
@@ -25,4 +25,25 @@ const giveMainUser = async (req,res,next)=>{
         }
     }
 }
-export { issueData,giveMainUser };
+
+const obtainHistory= async (req,res)=>{
+      let arr1 = await Messages.find({
+    from: req.body.name2,
+    to: req.body.name1,
+  });
+  let arr2 = await Messages.find({
+    from: req.body.name1,
+    to: req.body.name2,
+  });
+  res.json({ msgReceivedH: arr1, msgSentH: arr2 });
+}
+const markAsRead = async (req,res)=>{
+      const { mainUser, receiver } = req.body;
+
+await Messages.updateMany(
+    { from: receiver, to: mainUser, read: false },
+    { $set: { read: true } }
+  );
+ 
+}
+export { issueData,giveMainUser,obtainHistory,markAsRead };

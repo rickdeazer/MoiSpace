@@ -21,7 +21,8 @@ const messageL= new mongoose.Schema({
         from: String,
         to: String,
         text: String,
-        time: String
+        time: String,
+        read: {type: Boolean, default: false}
 })
 
 const Messages= mongoose.model("Messages", messageL)
