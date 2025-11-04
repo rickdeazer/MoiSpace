@@ -2,10 +2,6 @@ import { findUser} from "./saveFunctions.js";
 import { validate } from "./saveFunctions.js";
 import jwt from "jsonwebtoken"
 let errors = [];
-let localuser = {}
-let localUser = ()=>{
-  return {user: localuser.username}
-}
 const validateUser = async (userData, res)=>{
 const {usernameS, passwordS, phoneS, passwordCS } = userData
 
@@ -83,12 +79,10 @@ if (errors.length) {
         //     createdAt: new Date(user.createdAt).toLocaleString('en-US', {timeZone: 'Africa/Nairobi'}),
         //     updatedAt: new Date(user.updatedAt).toLocaleString('en-US', {timeZone: 'Africa/Nairobi'})
         // };
-        localuser = user;
-        console.log(user)
         return {status: 'success', token, user}
       } else { return {status: 'failed',errors: ["401 Unauthorized", "invalid username or password"]}}}}
 
-export {validateUser, validateLogin, errors, localUser}
+export {validateUser, validateLogin, errors}
 
 
 

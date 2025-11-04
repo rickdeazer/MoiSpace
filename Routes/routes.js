@@ -16,6 +16,7 @@ Router.get('/chats',authenticate,(req,res)=>{
     res.render("chats", {user: req.user})
 })
 Router.get('/chats/users', issueData)
+
 Router.get('/chats/main', giveMainUser)
 
 Router.get('/chatspage', authenticate, (req,res)=>{
@@ -40,7 +41,8 @@ Router.post("/login",  async (req, res)=>{
        res.cookie("token",token,{
         httpOnly: true,
         secure: true,
-        maxAge: 24*60*60*1000})
+        sameSite: 'strict',
+        maxAge: 24*60*60*1000},)
        res.redirect("home")
    } else {
     const {errors} = Login

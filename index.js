@@ -39,11 +39,11 @@ io.on("connection", (socket) => {
       text: `${msg.text}`,
     
     });
-    new Messages.create({
+    Messages.create({
          from: msg.from,
       to: msg.to,
       text: `${msg.text}`,
-      time: `${new Date().getHours}: ${new Date().getMinutes}`
+      time: `${new Date().getHours()}:${new Date().getMinutes()}`
     
       })
   });

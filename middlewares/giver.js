@@ -1,5 +1,5 @@
 import {userModel} from "../models/models.js";
-import { localUser } from "../models/validation.js";
+import jwt from "jsonwebtoken";
 const issueData = async (req,res,next)=>{
     try {
         const userData = await userModel.find().select('-password -createdAt');
@@ -13,7 +13,16 @@ const issueData = async (req,res,next)=>{
 }
 
 const giveMainUser = async (req,res,next)=>{
-    const User = await localUser()
-    return res.json(User.user)
+    const token = req.cookies.token
+    if (!token){
+        console.log("we found no token")
+    } else {
+        try {
+            const user = jwt.verify(token,process.env.JWT_SECRET)            
+            return res.status(200).json({userDetails: user})
+        } catch (error) {
+            return res.status(401).json({error: "an error loading your details"})
+        }
+    }
 }
 export { issueData,giveMainUser };
