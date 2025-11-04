@@ -56,11 +56,11 @@ fetch("/chat/path4", {
         if (msg.type === "sent") {
           bubble.className = "SENDER-TEXT";
           bubble.innerHTML = `<span class="msgText">${msg.text}</span>
-          <span class="msgTime">${msg.time}</span>`;
+          <span class="TIME">${msg.time}</span>`;
         } else {
           bubble.className = "RECEPIENT-TEXT";
           bubble.innerHTML = `<span class="msgText">${msg.text}</span>
-          <span class="msgTime">${msg.time}</span>`;
+          <span class="TIME">${msg.time}</span>`;
         }
 
         chat.appendChild(bubble);

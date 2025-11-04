@@ -172,6 +172,12 @@ body{
         text-align: end;
         background: linear-gradient(45deg, rgb(36, 138, 25), rgb(9, 66, 13));
         color: white;
+        border-radius: 10px;
+        border-top-right-radius: 3px;
+        margin-left: 4px;
+        margin-top: 5px;
+        padding-right: 8px;
+        line-height: 20px;
 
     }
     .SENDER-TEXT h3{
@@ -183,14 +189,14 @@ body{
         margin: 0px;
     }
     .TIME{
-        color: rgb(127, 196, 17);
+        color: rgb(141, 215, 21);
         text-align: end;
        
         
     }
     .RECEPIENT-TEXT{
         min-height: 25px;
-        width: 50%;
+        width: 55%;
         display: flex;
         flex-direction: column;
         font-size: 0.8rem;
@@ -205,6 +211,12 @@ body{
         color: white;
         border-left: 1px solid rgb(121, 6, 98);
         border-top: 1px solid rgb(83, 10, 58);
+        border-radius: 10px;
+        border-top-right-radius: 3px;
+        margin-left: 4px;
+        margin-top: 5px;
+        padding-right: 8px;
+        line-height: 20px;
 
     }
     #BOTTOMBAR{
