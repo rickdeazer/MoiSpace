@@ -573,5 +573,14 @@ body{
         background: linear-gradient( 90deg, rgb(57, 10, 37), black)
     }
 }
-
-
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  color: rgb(12, 198, 222);
+}
+#INTERESTSH-BTN span{
+    margin-top: 1px;
+}

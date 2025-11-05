@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 </head>
 <body>
     <div id="HOME-PAGE">
@@ -19,13 +20,15 @@
                 </div>
 
                 <div id="HEADER-BTNS">
-                <button id="CHATSH-BTN" class="HEADER-BTNS" ><a href="/chats">💬</a><div id="MSG-BADGE" class="BADGE">3</div></button>
-                <button id="INTERESTSH-BTN" class="HEADER-BTNS"><a href="/interests">🩵</a></button>
+                <button id="CHATSH-BTN" class="HEADER-BTNS" ><a href="/chats"><span class="material-symbols-outlined" id="mat2">chat_bubble</span></a><div id="MSG-BADGE" class="BADGE">3</div></button>
+                <button id="INTERESTSH-BTN" class="HEADER-BTNS"><a href="/interests"><span class="material-symbols-outlined">
+heart_check
+</span></a></button>
                 </div>
 
                 <div id="USER-DETAILS">
-                    <div id="HEADER-USERNAME"><h3><%= user.username %></h3></div>
-                    <div id="HEADER-PROFILEPIC"></div>
+                    <div id="HEADER-USERNAME"><h3><%= user.username %></h3></div><a href="/userProfile">
+                    <div id="HEADER-PROFILEPIC"></div></a>
                 </div>
             </div>
 

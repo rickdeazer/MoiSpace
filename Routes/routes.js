@@ -34,6 +34,11 @@ Router.post("/signup", (req,res)=>{
 Router.get("/signup", (req,res)=>{
     res.render("index",{errors})
 })
+Router.get("/userProfile",authenticate, (req,res)=>{
+    const user = req.user
+    console.log(user)
+    res.render("userProfile",{user})
+})
 Router.post("/login",  async (req, res)=>{
    const Login = await validateLogin(req.body, res)
    if (Login.status == 'success'){

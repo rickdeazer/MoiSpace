@@ -2,6 +2,7 @@ let sendBtn = document.getElementById("SEND-BTN");
 let txtInput = document.getElementById("MESSAGE-INPUT");
 let userName = document.getElementById("H-USERNAME");
 let chat = document.getElementById("chatBody");
+let mainSection= document.getElementById("MAIN-SECTION")
 let userPic = document.getElementById("HEADER-PROFILEPIC");
 let info2 = JSON.parse(localStorage.getItem("chatInfo2"));
 let page = io();
@@ -64,7 +65,6 @@ fetch("/chat/path4", {
         }
 
         chat.appendChild(bubble);
-        chat.scrollTop = chat.scrollHeight;
 
         k++;
         setTimeout(showNext, 20);
@@ -84,12 +84,13 @@ userPic.style.backgroundSize = "cover";
 function send() {
   txtInput.style.height = 20 + "px";
   let text = txtInput.value;
+  let time= `${new Date().getHours()}${new Date().getMinutes()}`
   if (text === "") return;
   let bubble = document.createElement("div");
   bubble.className = "SENDER-TEXT";
-  bubble.innerHTML = text;
-  chat.appendChild(bubble);
-  chat.scrollTop = chat.scrollHeight;
+          bubble.innerHTML = `<span class="msgText">${text}</span>
+          <span class="TIME">${time}</span>`;
+          chat.appendChild(bubble);
   txtInput.value = "";
 
   page.emit("message", {
@@ -105,12 +106,13 @@ sendBtn.addEventListener("click", () => {
 page.on("serverReply", (data) => {
   console.log(data);
   if (data.to == info1 && data.from == info2.username) {
+    let time= `${new Date().getHours()}${new Date().getMinutes()}`
     markAsRead()
     let bubble = document.createElement("div");
     bubble.className = "RECEPIENT-TEXT";
-    bubble.innerHTML = data.text;
+          bubble.innerHTML = `<span class="msgText">${data.text}</span>
+          <span class="TIME">${time}</span>`;
     chat.appendChild(bubble);
-    chat.scrollTop = chat.scrollHeight;
   }
 });
 

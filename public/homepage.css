@@ -285,6 +285,7 @@ html, body {
         color: rgb(230, 139, 206);
         font-family: 'Trade Winds';
         padding-right: 5px;
+        text-align: center;
     }
    
     #HEADER-APPNAME h2{
@@ -415,9 +416,46 @@ html, body {
         justify-self: center;
         border: 1px solid rgb(23, 29, 4);
         margin-right: 5px;
+        background: url('/mediafiles/chalk-4829602_1280.jpg');
+        background-size: cover;
     }
-
-
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  color: rgb(13, 255, 0);
+  text-shadow: 0 0 20px red;
+}
+#CHATSH-BTN span{
+    padding: 0;
+    margin-top: 1.5px;
+}
+#INTERESTSH-BTN span{
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+    margin-top: 1px;
+}
+.HEADER-BTNS{
+    background:transparent;
+}
+#HEADER-USERNAME{
+    padding-top: 8px;
+}
+#HOME-SEARCH{
+    background: linear-gradient(45deg,darkblue,purple);
+}
+#HOME-SEARCH::placeholder{
+    color: whitesmoke;
+}
+#MAIN-SECTION{
+    background: url('/mediafiles/roseFlower.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+}
 
 
 
