@@ -22,11 +22,11 @@
           </div>
 
           <div id="HEADER-BTNS">
-            <button id="CHATSH-BTN" class="HEADER-BTNS">
-                <span class="material-symbols-outlined">chat</span>
+            <button id="INTERESTSH-BTN" class="HEADER-BTNS"><a href="/home"><span class="material-symbols-outlined">home_app_logo</span></a></button>
+            <button id="CHATSH-BTN" class="HEADER-BTNS"><a href="/chats">
+                <span class="material-symbols-outlined">chat_bubble</span></a>
               <div id="MSG-BADGE" class="BADGE">3</div>
             </button>
-            <button id="INTERESTSH-BTN" class="HEADER-BTNS"><span class="material-symbols-outlined">heart_check</span></button>
           </div>
 
           <div id="USER-DETAILS">
@@ -75,7 +75,7 @@
             <input type="file" accept="image/*" class="photo-input" hidden="" />
           </div>
           <div class="item">
-            <img src="/mediafiles/africanGirl.jpg" alt="pic 2" />
+            <img src="/mediafiles/darkishImagegirl.jpg" alt="pic 2" />
             <span class="edit-icon" title="Change image">✏️</span>
             <input type="file" accept="image/*" class="photo-input" hidden="" />
           </div>
@@ -87,7 +87,7 @@
         </section>
 
         <p class="desc-title">About Me</p>
-        <textarea class="desc-box">
+        <textarea class="desc-box" id="aboutMe">
           A heart that believes in magic, connection, and the little sparks that make life beautiful. I wander through the world with curiosity and an open soul, always drawn to moments that make me smile, laugh, or feel deeply.
 
            I’m a dreamer at heart — cherishing sunsets, long conversations, and the quiet warmth of shared moments. Love, in all its forms, inspires me to be kind, patient, and endlessly hopeful. I thrive on genuine connections, sweet surprises, and the joy of discovering beauty in the ordinary.
@@ -95,41 +95,94 @@
           Life feels like a story waiting to be written, and I embrace it with a tender heart, a little bit of courage, and a lot of hope that every day brings a chance to love and be loved. 💖🌹
 </textarea>
           <p class="desc-title">About You</p>
-        <textarea class="desc-box">
+        <textarea class="desc-box" id="aboutYou">
           You should be someone who can make me laugh even on the dullest days, someone who loves deep conversations as much as spontaneous adventures. You’re thoughtful, kind, and confident without being arrogant — a heart that’s big enough to care and gentle enough to listen.
 
           You should enjoy little moments — like holding hands, sharing secrets, or just staring at the stars together. A sense of humor is essential, and bonus points if you can tease me just enough to keep me on my toes.
 
           You should be passionate about something — anything that makes your eyes light up — and be excited to explore life with a little curiosity and a lot of heart. Basically, you’re someone who can be my partner-in-crime, my safe space, and maybe even the reason I believe in magic. 💖✨
         </textarea>
+        <button id="submit">Submit Changes</button>
       </main>
     </div>
 
     <script>
+    
+      let submit = document.getElementById("submit");
+      let changedImages = [];
+      let aboutMe = document.getElementById("aboutMe").value;
+      let aboutYou = document.getElementById("aboutYou").value;
+      let username = localStorage.getItem("mainUser");
+      console.log(username)
+
       document.querySelectorAll(".edit-icon").forEach((icon) => {
         icon.addEventListener("click", () => {
-          const fileInput = icon.nextElementSibling;
+          let fileInput = icon.nextElementSibling;
           fileInput.click();
 
-          fileInput.addEventListener("change", () => {
-            const file = fileInput.files[0];
+          fileInput.addEventListener("change", (e) => {
+            let file = e.target.files[0];
             if (file) {
-              const reader = new FileReader();
+              let reader = new FileReader();
               reader.onload = (e) => {
-                const img = icon.parentElement.querySelector("img");
+                let img = icon.parentElement.querySelector("img");
                 img.src = e.target.result;
               };
               reader.readAsDataURL(file);
+
+              let imageId =
+                icon.parentElement.querySelector("img").alt || "unnamed";
+              let existingIndex = changedImages.findIndex(
+                (item) => item.id === imageId
+              );
+
+              if (existingIndex >= 0) {
+                changedImages[existingIndex].file = file;
+              } else {
+                changedImages.push({ id: imageId, file });
+              }
+
+              console.log("Changed images:", changedImages);
             }
           });
         });
       });
+
+    async function uploadChangedImages() {
+  if (changedImages.length === 0) {
+    alert("No images changed!");
+    return;
+  }
+
+
+  let formData = new FormData();
+  formData.append("username", username);
+  changedImages.forEach((item) => {
+    if (item.id.startsWith("pic") || item.id.includes("gallery")) {
+      formData.append("gallery_" + item.id, item.file);
+    } else {
+      formData.append("prof_" + item.id, item.file);
+    }
+  });
+  
+  let resPics = await fetch("/profile/update/pics", {
+    method: "POST",
+    body: formData,
+  });
+
+  let data1 = await resPics.json();
+
+
+  alert(data1.message || "Pictures updated!");
+}
+
+      submit.addEventListener("click", uploadChangedImages);
+    
       const box1e = [...document.querySelectorAll(".desc-box")]
 let box1 = box1e[0]
 let box2 = box1e[1]
 let height;
 let height1;
-console.log(box1)
 
 // Box1 events
 box1.addEventListener('focus', () => {

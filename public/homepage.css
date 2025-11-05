@@ -426,7 +426,10 @@ html, body {
   'GRAD' 0,
   'opsz' 24;
   color: rgb(13, 255, 0);
-  text-shadow: 0 0 20px red;
+  text-shadow: 0 0 20px rgb(4, 12, 153),
+  0 0 20px rgb(4, 12, 153),
+  0 0 20px rgb(153, 4, 44),
+  0 0 20px rgb(13, 13, 25);
 }
 #CHATSH-BTN span{
     padding: 0;
@@ -447,15 +450,19 @@ html, body {
 #HOME-SEARCH{
     background: linear-gradient(45deg,darkblue,purple);
 }
-#HOME-SEARCH::placeholder{
-    color: whitesmoke;
-}
 #MAIN-SECTION{
     background: url('/mediafiles/roseFlower.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-blend-mode: darken;
 }
+#HOME-SEARCH:focus{
+    background: none;
+    background-color: rgb(108, 69, 104);
+    color: rgb(238, 223, 195);
+}
+#HOME-SEARCH::placeholder{
+    color: whitesmoke;}
 
 
 
