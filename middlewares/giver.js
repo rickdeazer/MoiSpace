@@ -31,9 +31,9 @@ const issueData = async (req, res) => {
             count[item.from].message = item.message
         }
     })
-    count = Object.entries(count).map(([from, count])=>({from,count}))
+    // count = Object.entries(count).map(([from, count])=>({from,count}))
     res.json({ status: 'success', userData, count});
-
+    console.log(count)
   } catch (err) {
     console.error(err);
     res.status(500).json({

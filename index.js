@@ -17,6 +17,7 @@ let server = http.createServer(app);
 let io = new Server(server);
 
 dotenv.config()
+app.use(express.json())
 app.use(cookieParser())
 app.use(cors());
 app.use(express.json());
@@ -25,7 +26,7 @@ app.use("/", Router)
 app.use(express.static("public"))
 app.use("/", express.static("html"))
 app.use("/mediafiles", express.static("mediafiles"))
-
+app.use("/uploads", express.static("uploads"))
 
 app.set("view engine", "ejs")
 connectionDb()
@@ -71,8 +72,7 @@ const storage1 = multer.diskStorage({
     }
   },
   filename: (req, file, cb) => {
-    const prefix = file.fieldname.startsWith("prof") ? "prof_" : "gal_";
-    cb(null, prefix + Date.now() + "_" + file.originalname);
+    cb(null, new Date().getMinutes()+".jpeg");
   },
 });
 
@@ -85,10 +85,10 @@ app.post("/profile/update/pics", upload.any(), async (req, res) => {
     let profilePics = req.files.filter(f => f.fieldname.startsWith("prof"));
     const galleryPics = req.files.filter(f => f.fieldname.startsWith("gallery"));
 
-    const profilePicLink = profilePics.length > 0 ? profilePics[0].path : "";
-    const galleryLinks = galleryPics.map(f => f.path).join(",");
-
-    let data= await userModel.updateOne(
+    const profilePicLink = profilePics.length > 0 ? `/uploads/profile/${new Date().getMinutes()+".jpeg"}` : "";
+    const galleryLinks = galleryPics.map(f => `/uploads/gallery/${new Date().getMinutes()+".jpeg"}`).join(",");
+console.log(galleryLinks)
+    await userModel.updateOne(
       { username: username },
       {
         $set: {
@@ -112,7 +112,28 @@ app.post("/profile/update/pics", upload.any(), async (req, res) => {
 
 });
 
+app.post("/profile/update/Text", async (req, res) => {
+   let {username, course, year, aboutMe, aboutYou}= req.body
 
- 
+ await userModel.updateOne(
+      { username:JSON.parse(username) },
+      {
+        $set: {
+          year: year,
+          course: course,
+          aboutMe: aboutMe,
+          aboutYou: aboutYou
+        }
+      }
+    );
+
+  })
+
+ app.post("/everyone", async (req, res)=>{
+  let data= await userModel.find({}).select('-password -_id -phone -updatedAt -createdAt')
+  res.json({data: data})
+
+
+ })
 
 server.listen(3000, console.log("listening on port 3000"));

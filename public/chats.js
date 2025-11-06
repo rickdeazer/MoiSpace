@@ -11,36 +11,66 @@ async function loadContacts() {
         let contBody = document.getElementById("CONTACTS-BODY");
         const info = userInfo.userData// wrap single object in array
         const unRead = userInfo.count
-        console.log(unRead)
-        console.log(info)
         info.forEach((u) => {
-            let cont = document.createElement("div");
-            cont.className = "CONTACTS";
-            let imgCont = document.createElement("div");
-            imgCont.classList.add("CONTACTS-PROFILEPIC");
-            let infoCont = document.createElement("div");
-            infoCont.classList.add("CONTACTS-INFO");
-            let nameCont = document.createElement("h3");
-            nameCont.classList.add("CONTACTS-USERNAME");
-            let noteCont = document.createElement("div");
-            noteCont.classList.add("CONTACTS-NOTE");
+        let unseen = undefined;
+        let noOfUnread = undefined;
+        const unreadDetails = (unRead[u.username])
+        if (unreadDetails){
+           noOfUnread = (unreadDetails.value)
+           unseen = (unreadDetails.message)
+        }
+    let cont = document.createElement("div");
+    cont.className = "CONTACTS";
 
-            imgCont.style.background = `url('${u.piclink || "/default-pic.jpg"}')`;
-            imgCont.style.backgroundSize = "cover";
-            nameCont.innerHTML = `${u.username}`;  // changed from u.name to u.username
-            noteCont.innerHTML = `${u.note || ""}`; // if you have a note field
+    let imgCont = document.createElement("div");
+    imgCont.classList.add("CONTACTS-PROFILEPIC");
+    imgCont.style.background = `url(${u.piclink })`;
 
-            contBody.appendChild(cont);
-            cont.appendChild(imgCont);
-            cont.appendChild(infoCont);
-            infoCont.appendChild(nameCont);
-            infoCont.appendChild(noteCont);
+  
+    let infoCont = document.createElement("div");
+    infoCont.classList.add("CONTACTS-INFO");
 
-            infoCont.addEventListener("click", () => {
-                localStorage.setItem("chatInfo2", JSON.stringify(u));
-                window.location.href = "/chatspage";
-            });
-        });
+    let pageTexts = document.createElement("div");
+    pageTexts.classList.add("pageTexts");
+
+    let topItems = document.createElement("div");
+    topItems.classList.add("topItems");
+
+    let nameCont = document.createElement("h3");
+    nameCont.classList.add("CONTACTS-USERNAME");
+    nameCont.textContent = u.username;
+
+
+    topItems.appendChild(nameCont);
+    pageTexts.appendChild(topItems);
+    
+    if (noOfUnread) {
+    let msgCont = document.createElement("h4");
+    msgCont.textContent = unseen;
+
+    let badge = document.createElement("span");
+    badge.classList.add("BADGE");
+    badge.textContent = noOfUnread;
+    pageTexts.appendChild(msgCont);
+    topItems.appendChild(badge);
+    }
+
+    let noteCont = document.createElement("div");
+    noteCont.classList.add("CONTACTS-NOTE");
+    noteCont.textContent = u.note || "Share your note";
+
+    infoCont.appendChild(pageTexts);
+    infoCont.appendChild(noteCont);
+    cont.appendChild(imgCont);
+    cont.appendChild(infoCont);
+    contBody.appendChild(cont);
+
+    infoCont.addEventListener("click", () => {
+        localStorage.setItem("chatInfo2", JSON.stringify(u));
+        window.location.href = "/chatspage";
+    });
+});
+
     } catch (err) {
         console.error("Error loading contacts:", err);
     }

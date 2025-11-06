@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kranky&family=Lora:ital,wght@0,400..700;1,400..700&family=Offside&family=Oleo+Script:wght@400;700&family=Rubik+Wet+Paint&family=Josefin+Sans=Inter&family=Trade+Winds&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kranky&family=Lora:ital,wght@0,400..700;1,400..700&family=Offside&family=Oleo+Script:wght@400;700&family=Rubik+Wet+Paint&family=Stack+Sans+Notch:wght@200..700&family=Trade+Winds&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 body{
     box-sizing: border-box;
     padding: 0px;
@@ -148,7 +148,7 @@ body{
     }
 
 /*Main Section Starts here*/
-#MAIN-SECTION{
+#mainSection{
     width: 98%;
     height: 100%;
     display: flex;
@@ -162,7 +162,7 @@ body{
     background: linear-gradient(50deg, rgb(110, 56, 56), #24011d);
 
 }
-#MAIN-SECTION-HEADER{
+#mainSection-HEADER{
     width: 100%;
     height: 35px;
     display:flex;
@@ -397,7 +397,7 @@ body{
     }
 
 /*Main Section Starts here*/
-#MAIN-SECTION{
+#mainSection{
     width: 98%;
     height: 100%;
     display: flex;
@@ -411,7 +411,7 @@ body{
     background: linear-gradient(45deg, rgb(0, 0, 0), rgb(74, 9, 61));
 
 }
-#MAIN-SECTION-HEADER{
+#mainSection-HEADER{
     width: 100%;
     height: 35px;
     display:flex;
@@ -493,14 +493,6 @@ body{
         border-left: 1px solid rgb(78, 30, 25);
         
     }
-
-    .CONTACTS-PROFILEPIC{
-        background: url("/mediafiles/users/p5.jpg");
-        background-size: cover;
-        width: 60px;
-        height: 55px;
-        border-radius: 60%;
-    }
     .CONTACTS-NOTE{
         width: 100px;
         height: 80%;
@@ -536,20 +528,21 @@ body{
     height: 100%;
     align-items: start;
     justify-content: flex-start;
-    max-width: 100%;
     overflow: hidden;
-    max-width: 60%;
     gap: 3px;
-
+    align-items: stretch;
+    width: 100%;
 }
 .pageTexts h4{
     padding: 0px;
     margin: 0px;
-    color: rgb(13, 152, 78);
+    color: green;
     padding-left: 8px;
     font-size:11px;
+    min-height: 20px;
     max-height: 33px;
-    font-family: 'Inter';
+    font-family: 'Work Sans';
+    align-content: center;
     letter-spacing: 0.3px;
     padding-bottom: 2px; 
 }
@@ -557,15 +550,22 @@ body{
         width: 60%;
         height: 20px;
         border-radius: 8px;
-        margin-left: 15px;
-        font-family: 'Oleo Script';
-        color: white;
-        font-weight: lighter;
-        font-size: 1rem;
+        font-family: 'Offside';
+        font-style: normal;
+        color: rgb(227, 207, 217);
+        font-weight:20px;
+        font-size: .9rem;
+        line-height: 20px;
+        text-align: start;
+        background-color: rgb(30, 3, 33);
+        height: 22px;
+        max-width: 115px;
+        overflow:hidden;
     }
       .CONTACTS-INFO{
         background: linear-gradient( 120deg, rgb(51, 9, 33), black);
-        width: 86%;
+        max-width: 80%;
+        min-width: 80%;
         height: 98%;
         border-radius: 10px;
         display: flex;
@@ -580,26 +580,38 @@ body{
      .CONTACTS-INFO H3{
      padding: 0px;
      margin: 0px;
-     padding-left: 10px;
+     padding-left: 5px;
      margin-top: 3px;
+     margin-left: 3px;
     }
     .BADGE{
         border-radius: 50%;
-        width: 13px;
-        height: 13px;
+        width: 15px;
+        height: 15px;
         font-size: 0.7rem;
         font-weight: bold;
         padding-right: 1px;
         margin-right: 5px;
-        margin-top: 5px;
-        align-self: flex-end;
-        color: white;
-        border: solid 1px rgb(128, 0, 75);
+        margin-top: 2px;
+        align-self: center;
+        color: salmon;
+        border: none;
         text-align: center;
+        align-content: center;
+        border: solid 1px salmon;
+
     }
     .topItems{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 100%;
+        align-self: stretch;
+    }
+    .CONTACTS-PROFILEPIC{
+        background: url("/mediafiles/autumn-7517221_1920.jpg");
+        background-size: cover;
+        width: 60px;
+        height: 55px;
+        border-radius: 60%;
+        background-color: wheat;
     }

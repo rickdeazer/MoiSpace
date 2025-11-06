@@ -148,7 +148,7 @@ body{
     }
 
 
-    #MAIN-SECTION{
+    #mainSection{
         width: 100%;
         min-height: 80vh;
         background-color: rgb(33, 6, 27);

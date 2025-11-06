@@ -11,7 +11,7 @@
    }
     /*This is the beginning of the main section*/
 
-  #MAIN-SECTION {
+  #mainSection {
     height: 100%;
     color: white;
     width: 100%;
@@ -35,7 +35,7 @@
     .MAIN-USERS-IMG{
         width: 98%;
         height: 350px;
-        background: url('/mediafiles/users/p5.jpg');
+        background: cyan;
         background-size: cover;
         outline: solid 1px rgb(124, 2, 106);
         border-radius: 15px;
@@ -85,7 +85,7 @@
    }
     /*This is the beginning of the main section*/
 
-  #MAIN-SECTION {
+  #mainSection {
     height: 100%;
     color: white;
     width: 100%;
@@ -112,7 +112,7 @@
     .MAIN-USERS-IMG{
         width: 98%;
         height: 35vh;
-        background: url('/mediafiles/users/p5.jpg');
+        background: cyan;
         background-size: 100% 100%;
         background-repeat: no-repeat;
         outline: solid 1px rgb(124, 2, 106);
@@ -143,7 +143,7 @@
 
 }
 @media (min-width: 768px) {
- #MAIN-SECTION {
+ #mainSection {
     height: 100%;
     color: white;
     width: 100%;
@@ -173,7 +173,7 @@
          0 0 20px rgb(55, 4, 34);
 }}
 @media (min-width: 1000px){
- #MAIN-SECTION {
+ #mainSection {
     height: 100%;
     color: white;
     width: 100%;
@@ -450,7 +450,7 @@ html, body {
 #HOME-SEARCH{
     background: linear-gradient(45deg,darkblue,purple);
 }
-#MAIN-SECTION{
+#mainSection{
     background: url('/mediafiles/roseFlower.jpg');
     background-size: cover;
     background-attachment: fixed;

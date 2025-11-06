@@ -22,6 +22,18 @@ const userSchema = new mongoose.Schema({
   },
   profileLink: {
     type: String
+  },
+  aboutMe: {
+    type: String
+  },
+  aboutYou: {
+    type: String
+  },
+  course: {
+    type: String
+  },
+  year: {
+    type: String
   }
 }, 
 { timestamps: true });
