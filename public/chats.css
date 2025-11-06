@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kranky&family=Lora:ital,wght@0,400..700;1,400..700&family=Offside&family=Oleo+Script:wght@400;700&family=Rubik+Wet+Paint&family=Trade+Winds&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kranky&family=Lora:ital,wght@0,400..700;1,400..700&family=Offside&family=Oleo+Script:wght@400;700&family=Rubik+Wet+Paint&family=Josefin+Sans=Inter&family=Trade+Winds&display=swap');
 body{
     box-sizing: border-box;
     padding: 0px;
@@ -254,33 +254,6 @@ body{
         border-radius: 60%;
         border: solid 1px rgb(66, 12, 53);
     }
-    .CONTACTS-INFO{
-        background: linear-gradient( 120deg, rgb(51, 9, 33), black);
-        width: 86%;
-        height: 98%;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-self: center;
-        align-items: end;
-        padding-right: 0px;
-        align-self: end;
-        gap: 10px;
-        place-content: space-between;
-    }
-    .CONTACTS-USERNAME{
-        width: 60%;
-        height: 50%;
-        border-radius: 8px;
-        margin-left: 8px;
-        padding-left: 5px;
-        padding-top: 5px;
-        font-family: 'Oleo Script';
-        color: white;
-        font-weight: lighter;
-        font-style: normal;
-        font-size: 1rem;
-    }
     .CONTACTS-NOTE{
         width: 100px;
         height: 80%;
@@ -528,34 +501,6 @@ body{
         height: 55px;
         border-radius: 60%;
     }
-    .CONTACTS-INFO{
-        background: linear-gradient( 90deg, rgb(57, 10, 37), black);
-        width: 86%;
-        height: 98%;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-self: center;
-        align-items: end;
-        padding-right: 0px;
-        align-self: end;
-        gap: 10px;
-        place-content: space-between;
-    }
-    .CONTACTS-USERNAME{
-        width: 60%;
-        height: 50%;
-        border-radius: 8px;
-        margin-left: 8px;
-        padding-left: 5px;
-        padding-top: 5px;
-        font-family: 'Oleo Script';
-        color: white;
-        font-weight: lighter;
-        font-style: normal;
-        font-size: 1rem;
-        letter-spacing: .6px;
-    }
     .CONTACTS-NOTE{
         width: 100px;
         height: 80%;
@@ -584,3 +529,77 @@ body{
 #INTERESTSH-BTN span{
     margin-top: 1px;
 }
+.pageTexts{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    height: 100%;
+    align-items: start;
+    justify-content: flex-start;
+    max-width: 100%;
+    overflow: hidden;
+    max-width: 60%;
+    gap: 3px;
+
+}
+.pageTexts h4{
+    padding: 0px;
+    margin: 0px;
+    color: rgb(13, 152, 78);
+    padding-left: 8px;
+    font-size:11px;
+    max-height: 33px;
+    font-family: 'Inter';
+    letter-spacing: 0.3px;
+    padding-bottom: 2px; 
+}
+ .CONTACTS-USERNAME{
+        width: 60%;
+        height: 20px;
+        border-radius: 8px;
+        margin-left: 15px;
+        font-family: 'Oleo Script';
+        color: white;
+        font-weight: lighter;
+        font-size: 1rem;
+    }
+      .CONTACTS-INFO{
+        background: linear-gradient( 120deg, rgb(51, 9, 33), black);
+        width: 86%;
+        height: 98%;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-self: center;
+        align-items: end;
+        padding-right: 0px;
+        align-self: end;
+        gap: 10px;
+        place-content: space-between;
+    }
+     .CONTACTS-INFO H3{
+     padding: 0px;
+     margin: 0px;
+     padding-left: 10px;
+     margin-top: 3px;
+    }
+    .BADGE{
+        border-radius: 50%;
+        width: 13px;
+        height: 13px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding-right: 1px;
+        margin-right: 5px;
+        margin-top: 5px;
+        align-self: flex-end;
+        color: white;
+        border: solid 1px rgb(128, 0, 75);
+        text-align: center;
+    }
+    .topItems{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }

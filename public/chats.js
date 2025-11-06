@@ -10,6 +10,9 @@ async function loadContacts() {
         const userInfo = await response.json();
         let contBody = document.getElementById("CONTACTS-BODY");
         const info = userInfo.userData// wrap single object in array
+        const unRead = userInfo.count
+        console.log(unRead)
+        console.log(info)
         info.forEach((u) => {
             let cont = document.createElement("div");
             cont.className = "CONTACTS";

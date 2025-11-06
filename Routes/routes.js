@@ -1,8 +1,8 @@
 import express from "express"
-import {userModel} from "../models/models.js"
+import {userModel,Messages} from "../models/models.js"
 import {validateLogin, validateUser} from "../models/validation.js"
 import { authenticate } from "../middlewares/validations.js"
-import { giveMainUser, issueData,markAsRead,obtainHistory } from "../middlewares/giver.js"
+import { giveMainUser, issueData,markAsRead,obtainHistory, unreadFinder } from "../middlewares/giver.js"
 const Router = express.Router()
 let errors = [];
 
@@ -15,9 +15,9 @@ Router.get("/login", (req,res)=>{
 Router.get('/chats',authenticate,(req,res)=>{
     res.render("chats", {user: req.user})
 })
-Router.get('/chats/users', issueData)
+Router.get('/chats/users',authenticate,issueData)
 
-Router.get('/chats/main', giveMainUser)
+Router.get('/chats/main',authenticate,giveMainUser)
 
 Router.get('/chatspage', authenticate, (req,res)=>{
     res.render("chatspage", {user: req.user})
@@ -25,9 +25,7 @@ Router.get('/chatspage', authenticate, (req,res)=>{
 Router.get('/interests',authenticate, (req,res)=>{
     res.render("interests",{user: req.user})
 })
-Router.get('/home',authenticate, (req,res)=>{
-    res.render("home",{user: req.user})
-})
+Router.get('/home',authenticate,unreadFinder)
 Router.post("/signup", (req,res)=>{
     validateUser(req.body, res)
 })

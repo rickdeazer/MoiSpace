@@ -1,16 +1,50 @@
 import {userModel, Messages} from "../models/models.js";
 import jwt from "jsonwebtoken";
-const issueData = async (req,res,next)=>{
-    try {
-        const userData = await userModel.find().select('-password -createdAt');
-        res.json({status: 'success', userData});  // send data to frontend
-        next()
-    } catch(err){
-        console.error(err);
-        res.json({status: 'failed', error: "Server error", statusCode: 500 });
-        res.send(" 501; error")
-    }
-}
+
+const issueData = async (req, res) => {
+  try {
+    const getUnread = async () => {
+      try {
+        const notread = await Messages.find({ to: req.user.username, read: false });
+        return {
+          status: 'success',
+          fromUsers: notread.map(user => ({
+            from: user.from,
+            message: user.text,
+          }))
+        };
+      } catch {
+        return { status: 'failed', error: "Couldn't load new messages" };
+      }
+    };
+
+    const [userData, unread] = await Promise.all([
+      userModel.find().select('-password -createdAt'),
+      getUnread()
+    ]);
+    console.log(unread.fromUsers)
+    let count = {}
+    unread.fromUsers.forEach((item)=>{
+        if (!count[item.from]){count[item.from]={value: 1, message: item.message}
+        } else {
+            count[item.from].value +=1
+            count[item.from].message = item.message
+        }
+    })
+    count = Object.entries(count).map(([from, count])=>({from,count}))
+    res.json({ status: 'success', userData, count});
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      status: 'failed',
+      error: "Server error",
+      statusCode: 500
+    });
+  }
+};
+
+
 
 const giveMainUser = async (req,res,next)=>{
     const token = req.cookies.token
@@ -46,4 +80,14 @@ await Messages.updateMany(
   );
  
 }
-export { issueData,giveMainUser,obtainHistory,markAsRead };
+
+const unreadFinder = async (req,res)=>{
+        try {
+            let unread = await Messages.find({to: req.user.username, read:false}).countDocuments()
+            return res.render("home",{user:req.user,unread})
+        } catch (error) {
+            return res.render("login",{errors: ['The server experienced an error','Please try again']})
+        }}
+
+
+export { issueData,giveMainUser,unreadFinder,obtainHistory,markAsRead };
