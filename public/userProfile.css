@@ -21,8 +21,8 @@
 
       .app {
         width: 100%;
-        height: 134vh;
-        background: rgb(20, 0, 0);
+        height: max-content;
+        background: rgb(26, 14, 7);
         border-radius: 10px;
         overflow: hidden;
         border: 1px solid rgba(0, 0, 0, 0.45);
@@ -30,6 +30,8 @@
         display: flex;
         flex-direction: column;
         padding: 0px;
+        justify-content: space-around;
+        align-items: center;
         margin: 0px;
       }
       .sub-bar {
@@ -60,7 +62,9 @@
         padding: 6px;
         gap: 6px;
       }
-
+      .main,.middles{
+        width: 98%;
+      }
       .profile-card {
         background: linear-gradient(rgb(3, 148, 32), #028911);
         border-radius: 10px;
@@ -208,7 +212,7 @@
       .desc-box {
         background: linear-gradient(20deg, rgb(41, 6, 6), rgb(1, 22, 1));
         width: 100%;
-        min-height: 200px;
+        min-height: 130px;
         border-radius: 8px;
         border: 1px solid #32533b;
         padding: 6px;
@@ -324,7 +328,7 @@
         padding-left: 15px;
       }
       .anim {
-        animation: submitAnim 10s ease-in-out infinite;
+        animation: submitAnim 5s ease-in-out infinite;
       }
       @keyframes submitAnim {
         0%{}
