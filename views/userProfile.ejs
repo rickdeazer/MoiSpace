@@ -13,32 +13,6 @@
   <body>
     <div class="app">
       <!--Header Starts Here-->
-      <section id="HEADER">
-        <!--Header Top Div Begins Here-->
-        <div id="HEADER-TOP-DIV">
-          <div id="APP-DETAILS">
-            <div id="HEADER-LOGO"></div>
-            <div id="HEADER-APPNAME"><h2>Moi Space</h2></div>
-          </div>
-
-          <div id="HEADER-BTNS">
-            <button id="INTERESTSH-BTN" class="HEADER-BTNS"><a href="/home"><span class="material-symbols-outlined">home_app_logo</span></a></button>
-            <button id="CHATSH-BTN" class="HEADER-BTNS"><a href="/chats">
-                <span class="material-symbols-outlined">chat_bubble</span></a>
-              <div id="MSG-BADGE" class="BADGE">3</div>
-            </button>
-          </div>
-
-          <div id="USER-DETAILS">
-            <div id="HEADER-USERNAME"><h3><%= user.username%></h3></div>
-            <div id="HEADER-PROFILEPIC"></div>
-          </div>
-        </div>
-
-        <!--Header Middle Div Begins Here-->
-        <div id="HEADER-MIDDLE-DIV"><h3>Made for Moi University</h3></div>
-      </section>
-
       <main class="content">
         <section class="profile-card">
           <div class="info">
@@ -62,12 +36,10 @@
               <input id="course" type="text" class="change" value="Computer Science" />
               <input id="year" type="text" class="change" value="First Year" />
             </div>
-            <button class="log-out">Log Out</button>
+            <button class="log-out" ><a href="/logout">Log Out</a></button>
           </div>
         </section>
-
-        <div class="slogan">Personal slogan will appear here...</div>
-
+        <div class="slogan"><a href="/home"><span class="material-symbols-outlined">arrow_back</span></a>Personal slogan will appear here <a href="/interests"><span class="material-symbols-outlined">heart_check</span></a></div>
         <section class="gallery">
           <div class="item">
             <img src="/mediafiles/darkgirl.jpg"/>
@@ -102,7 +74,7 @@
 
           You should be passionate about something — anything that makes your eyes light up — and be excited to explore life with a little curiosity and a lot of heart. Basically, you’re someone who can be my partner-in-crime, my safe space, and maybe even the reason I believe in magic. 💖✨
         </textarea>
-        <button id="submit">Submit Changes</button>
+        <button id="submit" class="">Save Profile Changes <div id="items" class="hidden"><div id="insideBtn"></div><span id="saving">saving</span><div id="insideBtn"></div></div></button>
       </main>
     </div>
 
@@ -154,6 +126,10 @@
     alert("No images changed!");
     return;
   }
+  let items = document.getElementById("items")
+  let submtBtn = document.getElementById("submit")
+  submtBtn.classList.add("anim")
+  items.style.display = 'flex';
 
   let formData = new FormData();
   formData.append("username", username);
@@ -172,7 +148,8 @@
 
   let data1 = await resPics.json();
   alert(data1.message || "Pictures updated!");
-
+  submtBtn.classList.remove("anim")
+  items.style.display = 'none';
   setTimeout(async () => {
     let resText = await fetch("/profile/update/text", {
       method: "POST",
@@ -204,7 +181,7 @@ box1.addEventListener('focus', () => {
   // Reset box2 height if you want
   box2.style.height = 'auto'
   box2.style.minHeight = '0px'
-  box2.style.height = '50px'  // you had auto then 50px, simplified
+  box2.style.height = '75px'  // you had auto then 50px, simplified
 
   // Store current box1 height correctly
   height = box1.offsetHeight + 'px'
@@ -216,6 +193,7 @@ box1.addEventListener('focus', () => {
 
 box1.addEventListener('blur', () => {
   box1.style.height = height
+  box2.style.height = '200px'
 })
 
 // Box2 events
@@ -224,14 +202,15 @@ box2.addEventListener('focus', () => {
   height1 = box2.offsetHeight + 'px'
   box1.style.minHeight = '0px'
   box1.style.height = 'auto'
-  box2.style.height = '20px'
+  box2.style.height = '25px'
   // Auto-resize box2
   box2.style.height = 'auto'
   box2.style.height = box2.scrollHeight + 'px'
 })
 
 box2.addEventListener('blur', () => {
-  box2.style.height = height1
+  box2.style.height = '200px'
+  box1.style.height = '200px'
 })
 
     </script>

@@ -38,7 +38,7 @@
         background: cyan;
         background-size: cover;
         outline: solid 1px rgb(124, 2, 106);
-        border-radius: 15px;
+        border-radius: 5px;
         z-index: 1;
         padding-right: 5px;
     }
@@ -243,7 +243,7 @@ html, body {
     padding: 0;
     max-width: 100vw;
     box-sizing: border-box;
-    background-color: rgb(227, 223, 214);
+    background-color: rgb(17, 14, 9);
     background-attachment: fixed;
    
 }
@@ -463,6 +463,7 @@ html, body {
 }
 #HOME-SEARCH::placeholder{
     color: whitesmoke;}
+
 
 
 

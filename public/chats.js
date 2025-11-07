@@ -50,7 +50,7 @@ async function loadContacts() {
 
     let badge = document.createElement("span");
     badge.classList.add("BADGE");
-    badge.textContent = noOfUnread;
+    badge.textContent = noOfUnread +' new';
     pageTexts.appendChild(msgCont);
     topItems.appendChild(badge);
     }

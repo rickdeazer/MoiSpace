@@ -37,6 +37,14 @@ Router.get("/userProfile",authenticate, (req,res)=>{
     console.log(user)
     res.render("userProfile",{user})
 })
+Router.get("/logout",authenticate,(req,res)=>{
+    res.cookie("token","Logged out User",{
+        secure: true,
+        httpOnly: true,
+        sameSite: 'strict',
+        maxAge: 24*60*60*1000
+    })
+    res.render("login",{errors:['You Logged Out']})})
 Router.post("/login",  async (req, res)=>{
    const Login = await validateLogin(req.body, res)
    if (Login.status == 'success'){
