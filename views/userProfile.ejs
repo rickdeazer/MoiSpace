@@ -99,9 +99,7 @@
         
       </div>
 
-      <button id="submit">
-        Save Profile Changes
-      </button>
+      <button id="submit" class="anim">Save Profile Changes <div id="items" class=""><div id="insideBtn"></div><span id="saving">saving</span><div id="insideBtn"></div></div></button>
     </div>
 
     <script>
@@ -232,6 +230,10 @@
       }
 
       submitBtn.addEventListener("click", async () => {
+        const submitBn = document.getElementById("submit")
+          const items = document.getElementById("items")
+          submitBn.classList.add('anim')
+          items.style.display = 'flex'
         const promises = [];
         if (changedImages.length > 0) promises.push(uploadChangedImages());
         if (
@@ -245,11 +247,14 @@
         }
 
         if (promises.length === 0) {
-          alert("No changes detected.");
+          alert("Make atleast 1 change to update.");
         } else {
           const results = await Promise.all(promises);
-          console.log("update results:", results);
           alert(results.map((r) => r.message || JSON.stringify(r)).join("\n"));
+          const submitBn = document.getElementById("submit")
+          const items = document.getElementById("items")
+          submitBn.classList.remove('anim')
+          items.style.display = 'none'
           changedImages.length = 0;
           [aboutMeBox, aboutYouBox, courseInput, yearInput].forEach(
             (el) => (el.dataset.modified = "false")

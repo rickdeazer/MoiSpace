@@ -24,7 +24,6 @@
         height: max-content;
         background: rgb(26, 14, 7);
         border-radius: 10px;
-        overflow: hidden;
         border: 1px solid rgba(0, 0, 0, 0.45);
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
         display: flex;
@@ -72,9 +71,10 @@
         gap: 8px;
         align-items: center;
         border: 1px solid #401b1b;
-        width: 98%;
+        width: 100%;
         position: fixed;
-        top: 5px;
+        top: 1px;
+        padding: 0 1px;
         z-index: 1;
         box-shadow: 0 0 10px rgb(40, 7, 7),
         0 0 25px rgb(40, 7, 7),
@@ -309,16 +309,16 @@
         width: 97%;
         height: 35px;
         margin-top: 10px;
-        border-radius: 5px;
+        border-radius: 10px;
         background:linear-gradient(50deg, rgb(5, 56, 1),rgb(38, 1, 1));
         border: none;
         box-shadow: 0 0 5px  rgb(191, 58, 224);
         color: rgb(163, 15, 134);
         position:-ms-page;
         align-self: center;
-        text-shadow: 0 0 15px rgb(103, 3, 103),
+        /* text-shadow: 0 0 15px rgb(103, 3, 103),
         5px 0 15px rgb(96, 3, 96),
-        0 0 15px rgb(3, 72, 24);
+        0 0 15px rgb(3, 72, 24); */
         justify-self: end;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-weight: lighter;
@@ -334,7 +334,7 @@
       }
       @keyframes submitAnim {
         0%{}
-        50%{border: solid 1px rgb(156, 11, 118); color: rgb(204, 34, 153); box-shadow: 0 0 5px pink; border-radius: 10px;}
+        50%{ color: rgb(234, 55, 180); box-shadow: 0 0 5px pink; border-radius: 10px;}
         100%{}
       }
       #insideBtn{

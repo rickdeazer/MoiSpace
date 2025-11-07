@@ -15,6 +15,9 @@ body{
   color: whitesmoke;
   background: transparent;
   margin-top: 7px;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
 }
 .material-symbols-outlined:hover{
     scale: 1.2;
@@ -103,7 +106,7 @@ body{
         outline: none;
         border: none;
         font-size: 1.5rem;
-        background-color: rgb(30, 3, 29);
+        background:transparent;
         padding-bottom: 5px;
         padding: 0px;
         padding-left: 9px;
@@ -332,20 +335,16 @@ body{
     }
     #SEND-BTN{
         height: 38px;
-        border-radius: 5px;
-        border-top-right-radius: 80%;
-        border-bottom-right-radius: 80%;
-        border-bottom-left-radius: 5px;
         user-select: none;
         border: solid 1px rgb(149, 125, 16);
-        background: radial-gradient(rgb(84, 65, 10), rgb(2, 4, 57));
         border-left: none;
         align-self: flex-end;
         width: 60px;
         align-content: center;
+        background:transparent;
         letter-spacing: 0px;
         font-weight: bold;
-        padding-bottom: 2.5px;
+        padding-bottom: 3px;
         color: rgb(14, 238, 14);
         font-family: Arial, Helvetica, sans-serif;
         font-size: large;
@@ -353,6 +352,7 @@ body{
         0 0 11px rgb(5, 6, 27),
         0 0 11px rgb(2, 2, 2),
         0 0 11px rgb(0, 0, 0);
+        border: none;
     }
     #SEND-BTN:hover{
         animation: sendBtn .5s ease ;

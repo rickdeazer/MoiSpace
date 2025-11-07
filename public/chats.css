@@ -12,7 +12,7 @@ body{
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     background: linear-gradient(180deg, rgb(184, 116, 158), rgb(1, 50, 156));
     background-attachment: fixed;
@@ -252,7 +252,7 @@ body{
 
     .CONTACTS-PROFILEPIC{
         width: 60px;
-        height: 55px;
+        height: 60px;
         border-radius: 60%;
         border: solid 1px rgb(82, 10, 65);
     }
