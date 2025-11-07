@@ -74,7 +74,7 @@
         border: 1px solid #401b1b;
         width: 98%;
         position: fixed;
-        top: 3px;
+        top: 5px;
         z-index: 1;
         box-shadow: 0 0 10px rgb(40, 7, 7),
         0 0 25px rgb(40, 7, 7),
@@ -296,23 +296,24 @@
        color: white;
        text-align: center;
        justify-content: center;
-       text-shadow: 0 0 black,
-       0 0 black,
-       0 0 black,
-       0 0 black;
+       text-shadow: 0 0 rgb(9, 17, 111),
+       0 0 rgb(24, 7, 107),
+       0 0 rgb(5, 18, 100),
+       0 0 rgb(17, 8, 110);
       }
       .material-symbols-outlined:hover{
         color: cyan;
         scale: 1.05;
       }
       #submit{
-        width: 100%;
+        width: 97%;
         height: 35px;
         margin-top: 10px;
         border-radius: 5px;
         background:linear-gradient(50deg, rgb(5, 56, 1),rgb(38, 1, 1));
-        border: solid 1px rgb(49, 88, 4);
-        color: rgb(150, 197, 110);
+        border: none;
+        box-shadow: 0 0 5px #b109c0;
+        color: rgb(163, 15, 134);
         position:-ms-page;
         align-self: center;
         text-shadow: 0 0 15px rgb(103, 3, 103),
