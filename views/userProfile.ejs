@@ -1,205 +1,270 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)https://moi31.netlify.app/edit%20profile.html -->
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Moi Space</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
-    <link rel="stylesheet" href="/userProfile.css">
+    <title>Moi Space - Edit Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link rel="stylesheet" href="/userProfile.css" />
+    <style></style>
   </head>
 
   <body>
     <div class="app">
-      <!--Header Starts Here-->
       <main class="content">
         <section class="profile-card">
           <div class="info">
-            <div class="editable-photo">
+            <div class="editable-photo" data-field="profile">
               <img
                 class="profile-photo"
-                src='<% if(user.profileLink){%><%= user.profileLink%><% } else {%><%= '/mediafiles/roseFlower.jpg'%><%}%>'
-                alt="profile"
+                data-field="profile"
+                src='<% if(user.profileLink){%><%= user.profileLink%><% } else {%><%= "/mediafiles/roseFlower.jpg"%><%}%>'
+                alt="profile-photo"
               />
               <span class="edit-icon" title="Change photo">✏️</span>
-              <input
-                type="file"
-                accept="image/*"
-                class="photo-input"
-                hidden=""
-              />
+              <input type="file" accept="image/*" class="photo-input" hidden />
             </div>
 
             <div id="infos">
-              <div class="change" id="profName"><%=user.username%></div>
-              <input id="course" type="text" class="change" value="<% if(user.course){%><%= user.course%><% } else {%>Computer Science<%}%> " />
-              <input id="year" type="text" class="change" value="<% if(user.year){%><%= user.year%><% } else {%>First year<%}%> " />
+              <div class="change" id="profName"><%= user.username %></div>
+              <input
+                id="course"
+                type="text"
+                class="change"
+                value="<% if(user.course){%><%= user.course%><% } else {%>Computer Science<%}%>"
+              />
+              <input
+                id="year"
+                type="text"
+                class="change"
+                value="<% if(user.year){%><%= user.year%><% } else {%>First year<%}%>"
+              />
             </div>
-            <button class="log-out" ><a href="/logout">Log Out</a></button>
+            <button class="log-out"><a href="/logout">Log Out</a></button>
           </div>
         </section>
-        <div class="slogan" ><a href="/home"><span class="material-symbols-outlined">arrow_back</span></a><span contenteditable="true" id="sloganValue"><% if(user.slogan){%><%= user.slogan%><% } else {%>Slogan!<%}%> </span><a href="/interests"><span class="material-symbols-outlined">heart_check</span></a></div>
-        <section class="gallery">
-          <div class="item">
-            <img src='<% if(links[0]){%><%= links[0]%><% } else {%><%= '/mediafiles/darkgirl.jpg'%><%}%>'/>
-            <span class="edit-icon" title="Change image">✏️</span>
-            <input type="file" accept="image/*" class="photo-input" hidden="" />
-          </div>
-          <div class="item">
-            <img src='<% if(links[1]){%><%= links[1]%><% } else {%><%= '/mediafiles/africanGirl.jpg'%><%}%>' alt="pic 2" />
-            <span class="edit-icon" title="Change image">✏️</span>
-            <input type="file" accept="image/*" class="photo-input" hidden="" />
-          </div>
-          <div class="item">
-            <img src='<% if(links[2]){%><%= links[2]%><% } else {%><%= '/mediafiles/darkishImagegirl.jpg'%><%}%>' alt="pic 3" />
-            <span class="edit-icon" title="Change image">✏️</span>
-            <input type="file" accept="image/*" class="photo-input" hidden="" />
-          </div>
-        </section></main>
 
-        <div class="middles"><p class="desc-title">About Me</p>
+        <div class="slogan">
+          <a href="/home"
+            ><span class="material-symbols-outlined">arrow_back</span></a>
+          <span contenteditable="true" id="sloganValue"
+            ><% if(user.slogan){%><%= user.slogan%><% } else
+            {%>Slogan!<%}%></span>
+          <a href="/interests"
+            ><span class="material-symbols-outlined">heart_check</span></a>
+        </div>
+
+        <section class="gallery">
+          <div class="item" data-index="0" data-field="gallery">
+            <img
+              src='<% if(links && links[0]){%><%= links[0]%><% } else {%><%= "/mediafiles/darkgirl.jpg"%><%}%>'
+              alt="gallery-0"
+            />
+            <span class="edit-icon" title="Change image">✏️</span>
+            <input type="file" accept="image/*" class="photo-input" hidden />
+          </div>
+          <div class="item" data-index="1" data-field="gallery">
+            <img
+              src='<% if(links && links[1]){%><%= links[1]%><% } else {%><%= "/mediafiles/africanGirl.jpg"%><%}%>'
+              alt="gallery-1"
+            />
+            <span class="edit-icon" title="Change image">✏️</span>
+            <input type="file" accept="image/*" class="photo-input" hidden />
+          </div>
+          <div class="item" data-index="2" data-field="gallery">
+            <img
+              src='<% if(links && links[2]){%><%= links[2]%><% } else {%><%= "/mediafiles/darkishImagegirl.jpg"%><%}%>'
+              alt="gallery-2"
+            />
+            <span class="edit-icon" title="Change image">✏️</span>
+            <input type="file" accept="image/*" class="photo-input" hidden />
+          </div>
+        </section>
+      </main>
+
+      <div class="middles">
+        <p class="desc-title">About Me</p>
         <textarea class="desc-box" id="aboutMe">
-          <% if (user.aboutMe){%><%=user.aboutMe%><%} else {%><%='A heart that believes in magic, connection, and the little sparks that make life beautiful. I wander through the world with curiosity and an open soul, always drawn to moments that make me smile, laugh, or feel deeply.    I’m a dreamer at heart — cherishing sunsets, long conversations, and the quiet warmth of shared moments. Love, in all its forms, inspires me to be kind, patient, and endlessly hopeful. I thrive on genuine connections, sweet surprises, and the joy of discovering beauty in the ordinary.        Life feels like a story waiting to be written, and I embrace it with a tender heart, a little bit of courage, and a lot of hope that every day brings a chance to love and be loved. 💖🌹'%><%} %>
-        </textarea></div>
-          <div class="middles"><p class="desc-title">About You</p>
+<% if (user.aboutMe){%><%= user.aboutMe%><%} else {%>No changeges<%} %></textarea>
+        
+      </div>
+
+      <div class="middles">
+        <p class="desc-title">About You</p>
         <textarea class="desc-box" id="aboutYou">
-          <% if (user.aboutMe){%><%=user.aboutMe%><%} else {%><%='You should be someone who can make me laugh even on the dullest days, someone who loves deep conversations as much as spontaneous adventures. You’re thoughtful, kind, and confident without being arrogant — a heart that’s big enough to care and gentle enough to listen.          You should enjoy little moments — like holding hands, sharing secrets, or just staring at the stars together. A sense of humor is essential, and bonus points if you can tease me just enough to keep me on my toes.          You should be passionate about something — anything that makes your eyes light up — and be excited to explore life with a little curiosity and a lot of heart. Basically, you’re someone who can be my partner-in-crime, my safe space, and maybe even the reason I believe in magic. 💖✨'%><%} %>
-        </textarea></div>
-        <button id="submit" class="">Save Profile Changes <div id="items" class="hidden"><div id="insideBtn"></div><span id="saving">saving</span><div id="insideBtn"></div></div></button>
+<% if (user.aboutYou){%><%= user.aboutYou%><%} else {%>No changes<%} %></textarea>
+        
+      </div>
+
+      <button id="submit">
+        Save Profile Changes
+      </button>
     </div>
 
     <script>
-    
-      let submit = document.getElementById("submit");
-      let changedImages = [];
-      let aboutMe = document.getElementById("aboutMe").value;
-      let aboutYou = document.getElementById("aboutYou").value;
-      let username = localStorage.getItem("mainUser");
-      let course=document.getElementById("course").value
-      let year=document.getElementById("year").value
-      document.querySelectorAll(".edit-icon").forEach((icon) => {
-        icon.addEventListener("click", () => {
-          let fileInput = icon.nextElementSibling;
-          fileInput.click();
+      const submitBtn = document.getElementById("submit");
+      const savingSpan = document.getElementById("saving");
+      let username = localStorage.getItem("mainUser") || "<%= user.username %>";
+      const changedImages = [];
+      const changedFields = {};
+      document
+        .querySelectorAll(".item, .editable-photo")
+        .forEach((container) => {
+          const editIcon = container.querySelector(".edit-icon");
+          const fileInput = container.querySelector(".photo-input");
+          const img = container.querySelector("img");
 
-          fileInput.addEventListener("change", (e) => {
-            let file = e.target.files[0];
-            if (file) {
-              let reader = new FileReader();
-              reader.onload = (e) => {
-                let img = icon.parentElement.querySelector("img");
-                img.src = e.target.result;
-              };
-              reader.readAsDataURL(file);
+          const field =
+            container.dataset.field ||
+            img.dataset.field ||
+            (img.alt && img.alt.includes("profile") ? "profile" : "gallery");
+          const index =
+            container.dataset.index !== undefined
+              ? parseInt(container.dataset.index, 10)
+              : null;
 
-              let imageId =
-                icon.parentElement.querySelector("img").alt || "unnamed";
-              let existingIndex = changedImages.findIndex(
-                (item) => item.id === imageId
+          editIcon?.addEventListener("click", () => {
+            fileInput.click();
+          });
+
+          fileInput?.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+              img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+
+            if (field === "profile") {
+              const idx = changedImages.findIndex(
+                (ci) => ci.field === "prof" && ci.index === null
               );
-
-              if (existingIndex >= 0) {
-                changedImages[existingIndex].file = file;
-              } else {
-                changedImages.push({ id: imageId, file });
-              }
-
-              console.log("Changed images:", changedImages);
+              const obj = { field: "prof", index: null, file };
+              if (idx >= 0) changedImages[idx] = obj;
+              else changedImages.push(obj);
+            } else {
+              const idx = changedImages.findIndex(
+                (ci) => ci.field === "gallery" && ci.index === index
+              );
+              const obj = { field: "gallery", index, file };
+              if (idx >= 0) changedImages[idx] = obj;
+              else changedImages.push(obj);
             }
+
+            console.log("changedImages:", changedImages);
           });
         });
+
+      let aboutMeBox = document.getElementById("aboutMe");
+      let aboutYouBox = document.getElementById("aboutYou");
+      let courseInput = document.getElementById("course");
+      let yearInput = document.getElementById("year");
+      let sloganSpan = document.getElementById("sloganValue");
+      function computeChangedText() {
+        const changed = {};
+
+        let aboutMeVal = aboutMeBox.value.trim();
+        let aboutYouVal = aboutYouBox.value.trim();
+        let courseVal = courseInput.value.trim();
+        let yearVal = yearInput.value.trim();
+        let sloganVal = sloganSpan.innerText.trim();
+
+        if (aboutMeBox.dataset.modified === "true")
+          changed.aboutMe = aboutMeVal;
+        if (aboutYouBox.dataset.modified === "true")
+          changed.aboutYou = aboutYouVal;
+        if (courseInput.dataset.modified === "true") changed.course = courseVal;
+        if (yearInput.dataset.modified === "true") changed.year = yearVal;
+        if (sloganSpan.dataset.modified === "true") changed.slogan = sloganVal;
+
+        return changed;
+      }
+
+      [aboutMeBox, aboutYouBox, courseInput, yearInput].forEach((el) => {
+        el.addEventListener("input", () => (el.dataset.modified = "true"));
       });
+      sloganSpan.addEventListener(
+        "input",
+        () => (sloganSpan.dataset.modified = "true")
+      );
 
-   async function uploadChangedImages() {
-  let items = document.getElementById("items")
-  let submtBtn = document.getElementById("submit")
-  submtBtn.classList.add("anim")
-  items.style.display = 'flex';
+      async function uploadChangedImages() {
+        if (changedImages.length === 0)
+          return { ok: true, message: "no images changed" };
 
-  let formData = new FormData();
-  formData.append("username", username);
-  changedImages.forEach((item) => {
-    if (item.id.startsWith("pic") || item.id.includes("gallery")) {
-      formData.append("gallery_" + item.id, item.file);
-    } else {
-      formData.append("prof_" + item.id, item.file);
-    }
-  });
+        const formData = new FormData();
+        formData.append("username", username);
 
-  let resPics = await fetch("/profile/update/pics", {
-    method: "POST",
-    body: formData,
-  });
+        for (const ci of changedImages) {
+          if (ci.field === "prof") {
+            formData.append(`prof_main`, ci.file);
+          } else if (ci.field === "gallery") {
+            formData.append(`gallery_${ci.index}`, ci.file);
+          }
+        }
 
-  let data1 = await resPics.json();
-  alert(data1.message || "Pictures updated!");
-  submtBtn.classList.remove("anim")
-  items.style.display = 'none';
-  let slogan = document.getElementById("sloganValue").innerHTML
-  setTimeout(async () => {
-    let resText = await fetch("/profile/update/text", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" }, 
-      body: JSON.stringify({
-        username: username,
-        aboutMe: aboutMe,
-        aboutYou: aboutYou,
-        course: course,
-        year: year,
-        slogan: slogan
-      }),
-    });
+        const res = await fetch("/profile/update/pics", {
+          method: "POST",
+          body: formData,
+        });
 
-    let textData = await resText.json();
-    console.log("Text response:", textData);
-  }, 10);
-}
+        const data = await res.json();
+        return data;
+      }
+      async function updateChangedText() {
+        const changed = computeChangedText();
+        if (Object.keys(changed).length === 0)
+          return { ok: true, message: "no text changed" };
 
-      submit.addEventListener("click",uploadChangedImages);
-      const box1e = [...document.querySelectorAll(".desc-box")]
-let box1 = box1e[0]
-let box2 = box1e[1]
-let height;
-let height1;
+        changed.username = username;
 
-// Box1 events
-box1.addEventListener('focus', () => {
-  // Reset box2 height if you want
-  box2.style.height = 'auto'
-  box2.style.minHeight = '0px'
-  box2.style.height = '75px'  // you had auto then 50px, simplified
+        const res = await fetch("/profile/update/text", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(changed),
+        });
+        const data = await res.json();
+        return data;
+      }
 
-  // Store current box1 height correctly
-  height = box1.offsetHeight + 'px'
+      submitBtn.addEventListener("click", async () => {
+        const promises = [];
+        if (changedImages.length > 0) promises.push(uploadChangedImages());
+        if (
+          aboutMeBox.dataset.modified === "true" ||
+          aboutYouBox.dataset.modified === "true" ||
+          courseInput.dataset.modified === "true" ||
+          yearInput.dataset.modified === "true" ||
+          sloganSpan.dataset.modified === "true"
+        ) {
+          promises.push(updateChangedText());
+        }
 
-  // Auto-resize box1
-  box1.style.height = 'auto'
-  box1.style.height = box1.scrollHeight + 'px'
-})
-
-box1.addEventListener('blur', () => {
-  box1.style.height = height
-  box2.style.height = '200px'
-})
-
-// Box2 events
-box2.addEventListener('focus', () => {
-  // Store current box2 height correctly
-  height1 = box2.offsetHeight + 'px'
-  box1.style.minHeight = '0px'
-  box1.style.height = 'auto'
-  box2.style.height = '25px'
-  // Auto-resize box2
-  box2.style.height = 'auto'
-  box2.style.height = box2.scrollHeight + 'px'
-})
-
-box2.addEventListener('blur', () => {
-  box2.style.height = '200px'
-  box1.style.height = '200px'
-})
-
+        if (promises.length === 0) {
+          alert("No changes detected.");
+        } else {
+          const results = await Promise.all(promises);
+          console.log("update results:", results);
+          alert(results.map((r) => r.message || JSON.stringify(r)).join("\n"));
+          changedImages.length = 0;
+          [aboutMeBox, aboutYouBox, courseInput, yearInput].forEach(
+            (el) => (el.dataset.modified = "false")
+          );
+          sloganSpan.dataset.modified = "false";
+        }
+      });
+      const textareas = document.querySelectorAll(".desc-box");
+      textareas.forEach((t) => {
+        t.style.height = t.scrollHeight + "px";
+        t.addEventListener("input", () => {
+          t.style.height = "auto";
+          t.style.height = t.scrollHeight + "px";
+        });
+      });
     </script>
   </body>
 </html>

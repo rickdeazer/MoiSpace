@@ -69,3 +69,4 @@ Router.post("/everyone",authenticate,async (req, res) => {
     .select("-password -_id -phone -updatedAt -createdAt");
   res.json({ data: data });
 });
+
