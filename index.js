@@ -115,7 +115,7 @@ app.post("/profile/update/pics", upload.any(), async (req, res) => {
 });
 
 app.post("/profile/update/Text", async (req, res) => {
-  let { username, course, year, aboutMe, aboutYou } = req.body;
+  let { username, course, year, aboutMe, aboutYou , slogan} = req.body;
 
   await userModel.updateOne(
     { username: JSON.parse(username) },
@@ -125,17 +125,10 @@ app.post("/profile/update/Text", async (req, res) => {
         course: course,
         aboutMe: aboutMe,
         aboutYou: aboutYou,
+        slogan: slogan
       },
     }
   );
-});
-
-app.post("/everyone", async (req, res) => {
-  console.log(req.body)
-  let data = await userModel
-    .find({})
-    .select("-password -_id -phone -updatedAt -createdAt");
-  res.json({ data: data });
 });
 
 server.listen(3000, console.log("listening on port 3000"));

@@ -19,7 +19,7 @@
             <div class="editable-photo">
               <img
                 class="profile-photo"
-                src='/mediafiles/darkishImagegirl.jpg'
+                src='<% if(user.profileLink){%><%= user.profileLink%><% } else {%><%= '/mediafiles/roseFlower.jpg'%><%}%>'
                 alt="profile"
               />
               <span class="edit-icon" title="Change photo">✏️</span>
@@ -33,26 +33,26 @@
 
             <div id="infos">
               <div class="change" id="profName"><%=user.username%></div>
-              <input id="course" type="text" class="change" value="Computer Science" />
-              <input id="year" type="text" class="change" value="First Year" />
+              <input id="course" type="text" class="change" value="<% if(user.course){%><%= user.course%><% } else {%>Computer Science<%}%> " />
+              <input id="year" type="text" class="change" value="<% if(user.year){%><%= user.year%><% } else {%>First year<%}%> " />
             </div>
             <button class="log-out" ><a href="/logout">Log Out</a></button>
           </div>
         </section>
-        <div class="slogan"><a href="/home"><span class="material-symbols-outlined">arrow_back</span></a>Personal slogan will appear here <a href="/interests"><span class="material-symbols-outlined">heart_check</span></a></div>
+        <div class="slogan" ><a href="/home"><span class="material-symbols-outlined">arrow_back</span></a><span contenteditable="true" id="sloganValue"><% if(user.slogan){%><%= user.slogan%><% } else {%>Slogan!<%}%> </span><a href="/interests"><span class="material-symbols-outlined">heart_check</span></a></div>
         <section class="gallery">
           <div class="item">
-            <img src="/mediafiles/darkgirl.jpg"/>
+            <img src='<% if(links[0]){%><%= links[0]%><% } else {%><%= '/mediafiles/darkgirl.jpg'%><%}%>'/>
             <span class="edit-icon" title="Change image">✏️</span>
             <input type="file" accept="image/*" class="photo-input" hidden="" />
           </div>
           <div class="item">
-            <img src="/mediafiles/darkishImagegirl.jpg" alt="pic 2" />
+            <img src='<% if(links[1]){%><%= links[1]%><% } else {%><%= '/mediafiles/africanGirl.jpg'%><%}%>' alt="pic 2" />
             <span class="edit-icon" title="Change image">✏️</span>
             <input type="file" accept="image/*" class="photo-input" hidden="" />
           </div>
           <div class="item">
-            <img src="/mediafiles/roseFlower.jpg" alt="pic 3" />
+            <img src='<% if(links[2]){%><%= links[2]%><% } else {%><%= '/mediafiles/darkishImagegirl.jpg'%><%}%>' alt="pic 3" />
             <span class="edit-icon" title="Change image">✏️</span>
             <input type="file" accept="image/*" class="photo-input" hidden="" />
           </div>
@@ -60,19 +60,11 @@
 
         <div class="middles"><p class="desc-title">About Me</p>
         <textarea class="desc-box" id="aboutMe">
-          A heart that believes in magic, connection, and the little sparks that make life beautiful. I wander through the world with curiosity and an open soul, always drawn to moments that make me smile, laugh, or feel deeply.
-
-           I’m a dreamer at heart — cherishing sunsets, long conversations, and the quiet warmth of shared moments. Love, in all its forms, inspires me to be kind, patient, and endlessly hopeful. I thrive on genuine connections, sweet surprises, and the joy of discovering beauty in the ordinary.
-
-          Life feels like a story waiting to be written, and I embrace it with a tender heart, a little bit of courage, and a lot of hope that every day brings a chance to love and be loved. 💖🌹
-</textarea></div>
+          <% if (user.aboutMe){%><%=user.aboutMe%><%} else {%><%='A heart that believes in magic, connection, and the little sparks that make life beautiful. I wander through the world with curiosity and an open soul, always drawn to moments that make me smile, laugh, or feel deeply.    I’m a dreamer at heart — cherishing sunsets, long conversations, and the quiet warmth of shared moments. Love, in all its forms, inspires me to be kind, patient, and endlessly hopeful. I thrive on genuine connections, sweet surprises, and the joy of discovering beauty in the ordinary.        Life feels like a story waiting to be written, and I embrace it with a tender heart, a little bit of courage, and a lot of hope that every day brings a chance to love and be loved. 💖🌹'%><%} %>
+        </textarea></div>
           <div class="middles"><p class="desc-title">About You</p>
         <textarea class="desc-box" id="aboutYou">
-          You should be someone who can make me laugh even on the dullest days, someone who loves deep conversations as much as spontaneous adventures. You’re thoughtful, kind, and confident without being arrogant — a heart that’s big enough to care and gentle enough to listen.
-
-          You should enjoy little moments — like holding hands, sharing secrets, or just staring at the stars together. A sense of humor is essential, and bonus points if you can tease me just enough to keep me on my toes.
-
-          You should be passionate about something — anything that makes your eyes light up — and be excited to explore life with a little curiosity and a lot of heart. Basically, you’re someone who can be my partner-in-crime, my safe space, and maybe even the reason I believe in magic. 💖✨
+          <% if (user.aboutMe){%><%=user.aboutMe%><%} else {%><%='You should be someone who can make me laugh even on the dullest days, someone who loves deep conversations as much as spontaneous adventures. You’re thoughtful, kind, and confident without being arrogant — a heart that’s big enough to care and gentle enough to listen.          You should enjoy little moments — like holding hands, sharing secrets, or just staring at the stars together. A sense of humor is essential, and bonus points if you can tease me just enough to keep me on my toes.          You should be passionate about something — anything that makes your eyes light up — and be excited to explore life with a little curiosity and a lot of heart. Basically, you’re someone who can be my partner-in-crime, my safe space, and maybe even the reason I believe in magic. 💖✨'%><%} %>
         </textarea></div>
         <button id="submit" class="">Save Profile Changes <div id="items" class="hidden"><div id="insideBtn"></div><span id="saving">saving</span><div id="insideBtn"></div></div></button>
     </div>
@@ -86,7 +78,6 @@
       let username = localStorage.getItem("mainUser");
       let course=document.getElementById("course").value
       let year=document.getElementById("year").value
-
       document.querySelectorAll(".edit-icon").forEach((icon) => {
         icon.addEventListener("click", () => {
           let fileInput = icon.nextElementSibling;
@@ -121,10 +112,6 @@
       });
 
    async function uploadChangedImages() {
-  if (changedImages.length === 0) {
-    alert("No images changed!");
-    return;
-  }
   let items = document.getElementById("items")
   let submtBtn = document.getElementById("submit")
   submtBtn.classList.add("anim")
@@ -149,6 +136,7 @@
   alert(data1.message || "Pictures updated!");
   submtBtn.classList.remove("anim")
   items.style.display = 'none';
+  let slogan = document.getElementById("sloganValue").innerHTML
   setTimeout(async () => {
     let resText = await fetch("/profile/update/text", {
       method: "POST",
@@ -158,7 +146,8 @@
         aboutMe: aboutMe,
         aboutYou: aboutYou,
         course: course,
-        year: year
+        year: year,
+        slogan: slogan
       }),
     });
 
@@ -167,8 +156,7 @@
   }, 10);
 }
 
-      submit.addEventListener("click", uploadChangedImages);
-    
+      submit.addEventListener("click",uploadChangedImages);
       const box1e = [...document.querySelectorAll(".desc-box")]
 let box1 = box1e[0]
 let box2 = box1e[1]

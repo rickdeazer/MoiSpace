@@ -88,6 +88,34 @@ const unreadFinder = async (req,res)=>{
         } catch (error) {
             return res.render("login",{errors: ['The server experienced an error','Please try again']})
         }}
+const giveUserPage = async (req,res)=>{
+  let username = req.body.username
+  try {
+    const userInfo = await userModel.findOne({username}).select('username profileLink aboutMe aboutYou course year gallaryLinks');
+    let links = [];
+    if (userInfo.gallaryLinks){
+    links = userInfo.gallaryLinks.split(",")
+    } else {links = []}
+    res.render("foreignUser",{user:userInfo,links})
+  } catch (error) {
+    console.log(error)
+    return {error}
+  }}
+const giveUserProfile = async(req,res)=>{
+      let username = req.user.username
+  try {
+    const userInfo = await userModel.findOne({username}).select('username profileLink aboutMe aboutYou course year gallaryLinks slogan');
+    console.log(userInfo)
+    let links = [];
+    if (userInfo.gallaryLinks){
+    links = userInfo.gallaryLinks.split(",")
+    } else {links = []}
+    console.log(links)
+    res.render("userProfile",{user:userInfo,links})
+  } catch (error) {
+    console.log(error)
+    return {error}
+  }
+}
 
-
-export { issueData,giveMainUser,unreadFinder,obtainHistory,markAsRead };
+export { issueData,giveMainUser,unreadFinder,obtainHistory,markAsRead,giveUserPage,giveUserProfile };

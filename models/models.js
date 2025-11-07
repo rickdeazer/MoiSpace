@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  gallarieLinks: {
+  gallaryLinks: {
     type: String
   },
   profileLink: {
@@ -33,6 +33,9 @@ const userSchema = new mongoose.Schema({
     type: String
   },
   year: {
+    type: String
+  },
+  slogan: {
     type: String
   }
 }, 
