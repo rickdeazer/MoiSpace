@@ -54,5 +54,12 @@ const Messages= mongoose.model("Messages", messageL)
 
 const userModel = mongoose.model("Users", userSchema);
 
+const interestSchema= new mongoose.Schema({
+        from: String,
+        to: String,
+        status: String,
+        time: String,
+})
+const interests = mongoose.model("Interests", interestSchema)
 
-export {userModel, Messages}
+export {userModel, Messages, interests}

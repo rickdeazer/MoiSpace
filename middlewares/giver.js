@@ -1,4 +1,4 @@
-import {userModel, Messages} from "../models/models.js";
+import {userModel, Messages, interests} from "../models/models.js";
 import jwt from "jsonwebtoken";
 
 const issueData = async (req, res) => {
@@ -117,5 +117,9 @@ const giveUserProfile = async(req,res)=>{
     return {error}
   }
 }
-
-export { issueData,giveMainUser,unreadFinder,obtainHistory,markAsRead,giveUserPage,giveUserProfile };
+const interestGiver = async (req,res)=>{
+  const received = await interests.find({to: req.body.mainUser})
+  const sent = await interests.find({from: req.body.mainUser}).select('-_id')
+  return res.json({received: received, sent: sent})
+}
+export { issueData,giveMainUser,unreadFinder,obtainHistory,markAsRead,giveUserPage,giveUserProfile,interestGiver };

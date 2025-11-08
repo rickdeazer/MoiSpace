@@ -361,10 +361,6 @@ html, body {
         font-weight: bold;
         font-family: 'lora';
     }
-    #HOME-SEARCH::placeholder {
-        font-style: italic;
-        font-weight: normal;
-    }
      #headerLine{
         animation: transit 5s ease ;
         opacity: 0;
@@ -448,7 +444,11 @@ html, body {
     padding-top: 8px;
 }
 #HOME-SEARCH{
-    background: linear-gradient(45deg,darkblue,purple);
+    background: linear-gradient(45deg,rgb(0, 53, 139),rgb(3, 165, 14));
+}
+#searchInputBtn{
+    margin-bottom: 4px;
+    margin-left: 5px;
 }
 #mainSection{
     background: url('/mediafiles/roseFlower.jpg');

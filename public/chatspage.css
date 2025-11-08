@@ -249,9 +249,6 @@ body{
         flex-direction: column;
 
     }
-    .RECEPIENT-TEXT .msgText{
-       
-    }
     #BOTTOMBAR{
         background: linear-gradient(45deg, rgb(8, 8, 82), rgb(107, 13, 13));
         display: flex;
@@ -307,7 +304,6 @@ body{
         overflow-y: auto;
         font-family:Arial, Helvetica, sans-serif;
         letter-spacing: 1px;
-        font-weight: lighter;
         line-height: 18px;
     }
 

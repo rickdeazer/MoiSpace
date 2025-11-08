@@ -1,8 +1,9 @@
 import express from "express"
-import {userModel,Messages} from "../models/models.js"
+import {userModel,Messages, interests} from "../models/models.js"
 import {validateLogin, validateUser} from "../models/validation.js"
 import { authenticate,sanity } from "../middlewares/validations.js"
-import { giveMainUser, giveUserPage, giveUserProfile, issueData,markAsRead,obtainHistory, unreadFinder } from "../middlewares/giver.js"
+import { giveMainUser, giveUserPage, giveUserProfile, interestGiver, issueData,markAsRead,obtainHistory, unreadFinder } from "../middlewares/giver.js"
+import { stat } from "fs"
 const Router = express.Router()
 let errors = [];
 
@@ -60,13 +61,40 @@ Router.post("/login",  async (req, res)=>{
     res.render("login",{errors})
    }
 })
+Router.post('/sendInterest',authenticate,async(req,res)=>{
+    const save = await interests.create({from: req.body.mainUser,
+        to: req.body.foreignUser, status: 'pending'
+    })
+})
+Router.post('/getStatus',authenticate,async(req,res)=>{
+    const status = await interests.find({from: req.body.mainUser, to: req.body.foreignUser})
+        if (status.length == 0){
+        return res.json({state: false})
+    } return res.json({state: true})
+})
 Router.post("/markAsRead", markAsRead)
+
+Router.post('/interests',authenticate,interestGiver)
+
 Router.post("/chat/path4", obtainHistory)
 export { Router};
-Router.post("/everyone",authenticate,async (req, res) => {
-  let data = await userModel
-    .find({})
-    .select("-password -_id -phone -updatedAt -createdAt");
-  res.json({ data: data });
+Router.get("/everyone",authenticate,async (req, res) => {
+
+   const data = await userModel.aggregate([
+  { $sample: { size: 20 } },
+  { 
+    $project: { 
+      password: 0, 
+      _id: 0, 
+      phone: 0, 
+      updatedAt: 0, 
+      createdAt: 0 
+    } 
+  }
+]);
+
+res.json({ data });
+console.log(data);
 });
+
 

@@ -70,10 +70,10 @@
         display: flex;
         gap: 8px;
         align-items: center;
-        border: 1px solid #401b1b;
-        width: 100%;
+        border-top: solid 1px green;
+        width: 98%;
         position: fixed;
-        top: 1px;
+        top: 3px;
         padding: 0 1px;
         z-index: 1;
         box-shadow: 0 0 10px rgb(40, 7, 7),
@@ -115,47 +115,100 @@
       }
 
       .info {
-        width: 100%;
+        width:100%;
         flex: 1;
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        gap: 0px;
         align-items: start;
         background: linear-gradient(40deg, rgb(40, 2, 54), rgb(4, 46, 4));
         padding: 6px;
         border-radius: 20px;
         text-align: center;
+        justify-content: center;
+        align-items: center;
         border: 1px solid rgb(2, 69, 2);
+       
       }
       #infos {
         margin-left: 10px;
         display: flex;
         flex-direction: column;
-        width: 240px;
         align-items: flex-start;
         align-self: center;
-        width: stretch;
-        gap: 10px;
+        width: 35%;
+        gap: 8px;
+        
+      }
+      #profName {
+        font-weight: bold;
+        font-family: 'Rubik Wet Paint';
+        letter-spacing: 1px;
+        font-weight: 100;
+        border-left: solid 2px rgb(20, 182, 11);
+        border-radius: 4px;
+        padding-left: 4px;
+        font-size: small;
+        height: 20px;
       }
 
       .info input {
         background: transparent;
         justify-self: center;
         border: none;
-        border-bottom: 1px solid #afb7af;
-        padding-bottom: 3px;
+        
+        padding-bottom: 4px;
         color: #fff;
         font-size: 12px;
         padding-left: 5px;
         border-radius: 4px;
-        border-left: solid 2px white;
+        border-left: solid 2px rgb(20, 182, 11);
         outline: none;
-        width: 100%;
+        height: 20px;
+        width: 90%;
         max-width: 200px;
       }
-
+      #outSet{
+        display: flex;
+        flex-direction: row;
+        width: 40%;
+        align-items: center;
+        height: stretch;
+        justify-content: start;
+        place-content:space-between;
+      }
+      #insetA{
+        display: flex;
+        flex-direction: column;
+        width: 57%;
+        align-items: center;
+        justify-content: flex-start;
+        border-left: solid 1px gray;
+        border-right: solid 1px gray;
+        border-top: solid 1px gray;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-size: medium;
+      
+        color: rgb(6, 184, 24);
+      }
+      #insetA span{
+        color: wheat;
+        font-size: small;
+        letter-spacing: 2px;
+        width: 100%;
+        border-bottom: solid 1px gray;
+        border-top: solid 1px gray;
+      }
+      #insetB{
+        display: flex;
+        flex-direction: column;
+        height: stretch;
+        place-content: space-between;
+        align-content: end;
+      }
       .log-out {
-        width: 150px;
+        width: 70px;
         height: 30px;
         margin-top: 4px;
         background:linear-gradient(50deg,rgb(2, 93, 2),rgb(49, 2, 66));
@@ -165,20 +218,25 @@
         font-weight: bold;
         font-family: 'Trade Winds';
         cursor: pointer;
-        font-size: 11px;
-        align-self: flex-start;
-        justify-self: end;
+        margin-left: 5px;
+        font-size: 10px;
+        align-self: center;
+        justify-self: center;
         transition: all 0.3s;
         letter-spacing: 0px;
+        border: solid 1px gray;
       }
       .log-out a {
-        color: #c8b4ff;
+        color: wheat;
       }
       .log-out:hover {
         transform: scale(1.05);
         box-shadow: 0 0 10px #da00f7, 0 0 10px #270247;
       }
+      #Edit{
+        color: wheat;
 
+      }
       .slogan {
         text-align: center;
         font-style: normal;
@@ -193,13 +251,15 @@
         width: 90%;
         place-content: space-between;
         text-align: center;
-        padding-top: 5px;
         color: #c8b6f6;
         text-shadow: 0 0 5px black,
         0 0 5px black,
         0 0 5px black;
-        padding-top: 85px;
+        margin-top: 93px;
         font-family: Georgia, 'Times New Roman', Times, serif;
+      }
+      #sloganValue{
+        min-width: 40px;
       }
 
       .desc-title {
@@ -234,7 +294,7 @@
         gap: 20px;
         width: 100%;
         padding-bottom: 6px;
-        margin-top: 120px;
+        margin-top: 125px;
         height: 500px;
       }
 
@@ -278,16 +338,6 @@
         cursor: pointer;
         font-size: 14px;
       }
-      #profName {
-        font-weight: bold;
-        font-family: 'Rubik Wet Paint';
-        letter-spacing: 1px;
-        font-weight: 100;
-        border-left: solid 2px white;
-        border-radius: 4px;
-        padding-left: 4px;
-        font-size: small;
-      }
       #HEADER-USERNAME{
         margin-top: 13px;
       }
@@ -300,6 +350,7 @@
        0 0 rgb(24, 7, 107),
        0 0 rgb(5, 18, 100),
        0 0 rgb(17, 8, 110);
+       cursor: pointer;
       }
       .material-symbols-outlined:hover{
         color: cyan;

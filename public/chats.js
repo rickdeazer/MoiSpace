@@ -4,7 +4,6 @@ async function loadContacts() {
         const mainUserDetails = await main.json();
         const userDetails = mainUserDetails.userDetails
         const mainUser = userDetails.username
-        localStorage.clear()
         localStorage.setItem('mainUser',JSON.stringify(mainUser))
         const response = await fetch("/chats/users");
         const userInfo = await response.json();

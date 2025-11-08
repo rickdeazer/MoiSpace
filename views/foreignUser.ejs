@@ -42,13 +42,13 @@
             <span id="followers">followers <span id="followersCount">1000</span></span></div>
 
             <div id="actionBtns">
-              <button class="interestFollow" id="intestBtn"><a href="/logout">Interested</a></button>
-            <button class="interestFollow" id="followBtn"><a href="/logout">follow</a></button>
+              <button class="interestFollow" id="intestBtn">Interested</button>
+            <button class="interestFollow" id="followBtn">follow</button>
             </div>
             </div>
           </div>
         </section>
-        <div class="slogan"><a href="/home"><span class="material-symbols-outlined">arrow_back</span></a>Personal slogan will appear here <a href="/interests"><span class="material-symbols-outlined"></span></a></div>
+        <div class="slogan"><span class="material-symbols-outlined" onclick="window.history.back()">arrow_back</span>Personal slogan will appear here <a href="/interests"><span class="material-symbols-outlined"></span></a></div>
         <section class="gallery">
           <div class="item">
             <img src='<% if(links[0]){%><%= links[0]%><% } else {%><%= '/mediafiles/darkgirl.jpg'%><%}%> '/>
@@ -71,144 +71,10 @@
         <div class="desc-box" id="aboutYou">
           <% if (user.aboutMe){%><%=user.aboutMe%><%} else {%><%='You should be someone who can make me laugh even on the dullest days, someone who loves deep conversations as much as spontaneous adventures. You’re thoughtful, kind, and confident without being arrogant — a heart that’s big enough to care and gentle enough to listen.          You should enjoy little moments — like holding hands, sharing secrets, or just staring at the stars together. A sense of humor is essential, and bonus points if you can tease me just enough to keep me on my toes.          You should be passionate about something — anything that makes your eyes light up — and be excited to explore life with a little curiosity and a lot of heart. Basically, you’re someone who can be my partner-in-crime, my safe space, and maybe even the reason I believe in magic. 💖✨'%><%} %>
         </div>
-       <div><button>exit</button></div></div>
+       <div><button id="exit" onclick="window.history.back()"></button></div></div>
     </div>
 
-    <script>
-    
-      let submit = document.getElementById("submit");
-      let changedImages = [];
-      let aboutMe = document.getElementById("aboutMe").value;
-      let aboutYou = document.getElementById("aboutYou").value;
-      let username = localStorage.getItem("mainUser");
-      let course=document.getElementById("course").value
-      let year=document.getElementById("year").value
-
-      document.querySelectorAll(".edit-icon").forEach((icon) => {
-        icon.addEventListener("click", () => {
-          let fileInput = icon.nextElementSibling;
-          fileInput.click();
-
-          fileInput.addEventListener("change", (e) => {
-            let file = e.target.files[0];
-            if (file) {
-              let reader = new FileReader();
-              reader.onload = (e) => {
-                let img = icon.parentElement.querySelector("img");
-                img.src = e.target.result;
-              };
-              reader.readAsDataURL(file);
-
-              let imageId =
-                icon.parentElement.querySelector("img").alt || "unnamed";
-              let existingIndex = changedImages.findIndex(
-                (item) => item.id === imageId
-              );
-
-              if (existingIndex >= 0) {
-                changedImages[existingIndex].file = file;
-              } else {
-                changedImages.push({ id: imageId, file });
-              }
-
-              console.log("Changed images:", changedImages);
-            }
-          });
-        });
-      });
-
-   async function uploadChangedImages() {
-  if (changedImages.length === 0) {
-    alert("No images changed!");
-    return;
-  }
-  let items = document.getElementById("items")
-  let submtBtn = document.getElementById("submit")
-  submtBtn.classList.add("anim")
-  items.style.display = 'flex';
-
-  let formData = new FormData();
-  formData.append("username", username);
-  changedImages.forEach((item) => {
-    if (item.id.startsWith("pic") || item.id.includes("gallery")) {
-      formData.append("gallery_" + item.id, item.file);
-    } else {
-      formData.append("prof_" + item.id, item.file);
-    }
-  });
-
-  let resPics = await fetch("/profile/update/pics", {
-    method: "POST",
-    body: formData,
-  });
-
-  let data1 = await resPics.json();
-  alert(data1.message || "Pictures updated!");
-  submtBtn.classList.remove("anim")
-  items.style.display = 'none';
-  setTimeout(async () => {
-    let resText = await fetch("/profile/update/text", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" }, 
-      body: JSON.stringify({
-        username: username,
-        aboutMe: aboutMe,
-        aboutYou: aboutYou,
-        course: course,
-        year: year
-      }),
-    });
-
-    let textData = await resText.json();
-    console.log("Text response:", textData);
-  }, 10);
-}
-
-      submit.addEventListener("click", uploadChangedImages);
-    
-      const box1e = [...document.querySelectorAll(".desc-box")]
-let box1 = box1e[0]
-let box2 = box1e[1]
-let height;
-let height1;
-
-// Box1 events
-box1.addEventListener('focus', () => {
-  // Reset box2 height if you want
-  box2.style.height = 'auto'
-  box2.style.minHeight = '0px'
-  box2.style.height = '75px'  // you had auto then 50px, simplified
-
-  // Store current box1 height correctly
-  height = box1.offsetHeight + 'px'
-
-  // Auto-resize box1
-  box1.style.height = 'auto'
-  box1.style.height = box1.scrollHeight + 'px'
-})
-
-box1.addEventListener('blur', () => {
-  box1.style.height = height
-  box2.style.height = '200px'
-})
-
-// Box2 events
-box2.addEventListener('focus', () => {
-  // Store current box2 height correctly
-  height1 = box2.offsetHeight + 'px'
-  box1.style.minHeight = '0px'
-  box1.style.height = 'auto'
-  box2.style.height = '25px'
-  // Auto-resize box2
-  box2.style.height = 'auto'
-  box2.style.height = box2.scrollHeight + 'px'
-})
-
-box2.addEventListener('blur', () => {
-  box2.style.height = '200px'
-  box1.style.height = '200px'
-})
-
+    <script src="foreignUser.js">
     </script>
   </body>
 </html>

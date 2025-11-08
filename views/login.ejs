@@ -80,6 +80,8 @@ const loadA = document.getElementById('loadA');
 const loadB = document.getElementById('loadB');
 submitBtn.addEventListener('click', ()=>{
 loadB.classList.remove('unload')
+const mainUser = document.getElementById('usernameL').value
+localStorage.setItem('mainUser',JSON.stringify(mainUser))
 setTimeout(() => {
     loadA.classList.remove('unload')
 }, 3000);

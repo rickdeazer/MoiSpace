@@ -12,7 +12,8 @@
         align-items: start;
         padding-left: 3px;
         border-radius: 5%;
-        height: 100%;
+        gap: 6px;
+        height: stretch;
         border-left: solid 2px rgb(6, 170, 9);
       }
       #views{
@@ -35,11 +36,16 @@
         color: bisque;
       }
       #actionBtns{
-        width: 20px;
+        width: 80px;
+        padding:0 2px;
         position: relative;
+        justify-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
       }
       .interestFollow {
-        width: 65px;
+        width: stretch;
         height: 30px;
         margin-top: 4px;
         background:linear-gradient(50deg,rgb(2, 93, 2),rgb(49, 2, 66));
@@ -58,4 +64,18 @@
       .interestFollow a {
         color: white;
         text-decoration: none;
+      }
+      #exit{
+        width: 30px;
+        height: 30px;
+        margin: 5px 0 3px 0;
+        background-color: transparent;
+        border: none;
+        box-shadow: 0 0 10px rgb(0, 255, 0);
+        border-radius: 20%;
+        color: gray;
+        position: fixed;
+        bottom: 4px;
+        right: 46%;
+        cursor: pointer;
       }
