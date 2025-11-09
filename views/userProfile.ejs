@@ -51,7 +51,7 @@
         </section>
 
         <div class="slogan">
-          <a href="/home"
+          <a onclick="window.history.back()"
             ><span class="material-symbols-outlined">arrow_back</span></a>
           <span contenteditable="true" id="sloganValue"
             ><% if(user.slogan){%><%= user.slogan%><% } else
@@ -90,14 +90,14 @@
 
       <div class="middles">
         <p class="desc-title">About Me</p>
-        <textarea class="desc-box" id="aboutMe">
+        <textarea disabled class="desc-box" id="aboutMe">
 <% if (user.aboutMe){%><%= user.aboutMe%><%} else {%>No changeges<%} %></textarea>
         
       </div>
 
       <div class="middles">
         <p class="desc-title">About You</p>
-        <textarea class="desc-box" id="aboutYou">
+        <textarea disabled class="desc-box" id="aboutYou">
 <% if (user.aboutYou){%><%= user.aboutYou%><%} else {%>No changes<%} %></textarea>
         
       </div>
@@ -233,10 +233,12 @@
       }
 
       submitBtn.addEventListener("click", async () => {
-        const submitBn = document.getElementById("submit")
+          const submitBn = document.getElementById("submit")
           const items = document.getElementById("items")
-          submitBn.classList.add('anim')
-          items.style.display = 'flex'
+          const edits = document.querySelectorAll('.edit-icon')
+          edits.forEach((edit)=>{
+          edit.classList.add('unhide')
+        })
         const promises = [];
         if (changedImages.length > 0) promises.push(uploadChangedImages());
         if (
@@ -252,10 +254,16 @@
         if (promises.length === 0) {
           alert("Make atleast 1 change to update.");
         } else {
+          submitBn.classList.add('anim')
+          items.style.display = 'flex'
           const results = await Promise.all(promises);
+          document.getElementById('submit').style.display = 'none'
+          document.querySelectorAll('.desc-box').forEach((item)=>{
+          item.disabled = true});
+          edits.forEach((edit)=>{
+          edit.classList.remove('unhide')
+          });
           alert(results.map((r) => r.message || JSON.stringify(r)).join("\n"));
-          const submitBn = document.getElementById("submit")
-          const items = document.getElementById("items")
           submitBn.classList.remove('anim')
           items.style.display = 'none'
           changedImages.length = 0;
@@ -273,6 +281,16 @@
           t.style.height = t.scrollHeight + "px";
         });
       });
+      document.getElementById('Edit').addEventListener('click',()=>{
+        const edits = document.querySelectorAll('.edit-icon')
+        edits.forEach((edit)=>{
+          edit.classList.add('unhide')
+        })
+        document.getElementById('submit').style.display = 'flex'
+        document.querySelectorAll('.desc-box').forEach((item)=>{
+          item.disabled = false
+        })
+      })
     </script>
   </body>
 </html>
