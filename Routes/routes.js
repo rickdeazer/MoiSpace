@@ -13,11 +13,9 @@ Router.get("/",(req,res)=>{
 Router.get("/login", (req,res)=>{
     res.render("login", {errors});
 })
-Router.get("/chat/contacts", authenticate, findContacts)
 Router.get('/chats',authenticate,(req,res)=>{
     res.render("chats", {user: req.user})
 })
-Router.get('/chats/users',authenticate,issueData)
 
 Router.get('/chats/main',authenticate,giveMainUser)
 
@@ -37,6 +35,7 @@ Router.get("/signup", (req,res)=>{
 Router.get("/user",authenticate,(req,res)=>{
     res.render("foreignUser",{user:req.user})
 })
+Router.get('/chats/contacts',authenticate,issueData)
 Router.get("/userProfile",authenticate,giveUserProfile)
 Router.post("/user",authenticate,sanity,giveUserPage);
 Router.get("/logout",authenticate,(req,res)=>{

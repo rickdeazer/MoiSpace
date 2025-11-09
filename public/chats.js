@@ -1,17 +1,10 @@
 let mainUser;
 async function loadContacts() {
-    try {
-
-        fetch("/chat/contacts")
-        .then(type=> type.json())
-        .then(data=>{
-            console.log(data)
-        })
-       
+    try {       
         const response = await fetch("/chats/contacts");
         const userInfo = await response.json();
         let contBody = document.getElementById("CONTACTS-BODY");
-        const info = userInfo.userData
+        const info = userInfo.userData.contacts
         const unRead = userInfo.count
         info.forEach((u) => {
         let unseen = undefined;
@@ -26,9 +19,10 @@ async function loadContacts() {
 
     let imgCont = document.createElement("div");
     imgCont.classList.add("CONTACTS-PROFILEPIC");
-    imgCont.style.background = `url(${u.piclink })`;
+    imgCont.style.background = `url(${u.profileLink })`;
+    imgCont.style.backgroundSize = 'cover'
 
-  
+    
     let infoCont = document.createElement("div");
     infoCont.classList.add("CONTACTS-INFO");
 
@@ -59,7 +53,7 @@ async function loadContacts() {
 
     let noteCont = document.createElement("div");
     noteCont.classList.add("CONTACTS-NOTE");
-    noteCont.textContent = u.note || "Share your note";
+    noteCont.textContent = u.slogan || "";
 
     infoCont.appendChild(pageTexts);
     infoCont.appendChild(noteCont);
@@ -73,9 +67,9 @@ async function loadContacts() {
     });
 });
 
-    } catch (err) {
-        console.error("Error loading contacts:", err);
-    }
+} catch (err) {
+    console.error("Error loading contacts:", err);
+}
 }
 
 // Call the function

@@ -2,14 +2,32 @@ import {userModel, Messages, interests} from "../models/models.js";
 import jwt from "jsonwebtoken";
 
 const findContacts = async (req,res)=>{
-    let contacts= await interests.find({
-      from: req.user.username,
-      status: "interested"
-    }).select("to -_id")
-    return contacts}
-contactsData = await findContacts()  
+  console.log('hello')
+   try {
+     let contacts = await userModel.aggregate([
+      {$lookup: {
+        from: 'interests',
+        localField: 'username',
+        foreignField: 'to',
+        as: 'matches'
+      }},
+      {$unwind: '$matches'},
+      {$match: {'matches.status': 'interested'}},
+      {$project: {
+        _id: 0,
+        username: 1,
+        profileLink: 1,
+        slogan: 1
 
-contactsData.forEach((user)=>{
+      }}
+     ]);
+    return {contacts};
+   } catch (error) {
+    console.log(error)
+   }}
+
+const issueData = async (req, res) => {
+  try {
     const getUnread = async () => {
       try {
         const notread = await Messages.find({ to: req.user.username, read: false });
@@ -24,13 +42,11 @@ contactsData.forEach((user)=>{
         return { status: 'failed', error: "Couldn't load new messages" };
       }
     };
-const issueData = async (req, res) => {
-  try {
-    const [userData, unread] = await Promise.all([
-      userModel.find().select('-password -createdAt'),
+
+    const [userData, unread] = await Promise.all([findContacts(),
       getUnread()
     ]);
-    console.log(unread.fromUsers)
+    console.log(userData)
     let count = {}
     unread.fromUsers.forEach((item)=>{
         if (!count[item.from]){count[item.from]={value: 1, message: item.message}
@@ -39,18 +55,13 @@ const issueData = async (req, res) => {
             count[item.from].message = item.message
         }
     })
-    // count = Object.entries(count).map(([from, count])=>({from,count}))
-    res.json({ status: 'success', userData, count});
-    console.log(count)
+
+    res.json({ status: 'success',userData, count});
   } catch (err) {
     console.error(err);
-    res.status(500).json({
-      status: 'failed',
-      error: "Server error",
-      statusCode: 500
-    });
+    
   }
-};})
+};
 
 
 const giveMainUser = async (req,res,next)=>{
