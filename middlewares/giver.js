@@ -1,8 +1,15 @@
 import {userModel, Messages, interests} from "../models/models.js";
 import jwt from "jsonwebtoken";
 
-const issueData = async (req, res) => {
-  try {
+const findContacts = async (req,res)=>{
+    let contacts= await interests.find({
+      from: req.user.username,
+      status: "interested"
+    }).select("to -_id")
+    return contacts}
+contactsData = await findContacts()  
+
+contactsData.forEach((user)=>{
     const getUnread = async () => {
       try {
         const notread = await Messages.find({ to: req.user.username, read: false });
@@ -17,7 +24,8 @@ const issueData = async (req, res) => {
         return { status: 'failed', error: "Couldn't load new messages" };
       }
     };
-
+const issueData = async (req, res) => {
+  try {
     const [userData, unread] = await Promise.all([
       userModel.find().select('-password -createdAt'),
       getUnread()
@@ -42,8 +50,7 @@ const issueData = async (req, res) => {
       statusCode: 500
     });
   }
-};
-
+};})
 
 
 const giveMainUser = async (req,res,next)=>{
@@ -122,4 +129,4 @@ const interestGiver = async (req,res)=>{
   const sent = await interests.find({from: req.body.mainUser}).select('-_id')
   return res.json({received: received, sent: sent})
 }
-export { issueData,giveMainUser,unreadFinder,obtainHistory,markAsRead,giveUserPage,giveUserProfile,interestGiver };
+export { issueData,giveMainUser,unreadFinder,obtainHistory,markAsRead,giveUserPage,giveUserProfile,interestGiver,findContacts };

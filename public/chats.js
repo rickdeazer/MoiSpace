@@ -1,14 +1,17 @@
+let mainUser;
 async function loadContacts() {
     try {
-        const main = await fetch('/chats/main');
-        const mainUserDetails = await main.json();
-        const userDetails = mainUserDetails.userDetails
-        const mainUser = userDetails.username
-        localStorage.setItem('mainUser',JSON.stringify(mainUser))
-        const response = await fetch("/chats/users");
+
+        fetch("/chat/contacts")
+        .then(type=> type.json())
+        .then(data=>{
+            console.log(data)
+        })
+       
+        const response = await fetch("/chats/contacts");
         const userInfo = await response.json();
         let contBody = document.getElementById("CONTACTS-BODY");
-        const info = userInfo.userData// wrap single object in array
+        const info = userInfo.userData
         const unRead = userInfo.count
         info.forEach((u) => {
         let unseen = undefined;

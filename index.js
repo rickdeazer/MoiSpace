@@ -8,7 +8,7 @@ import { Server } from "socket.io";
 import multer from "multer";
 import fs from "fs";
 import connectionDb from "./Database/database.js";
-import { Messages, userModel } from "./models/models.js";
+import { interests, Messages, userModel } from "./models/models.js";
 import { Router } from "./Routes/routes.js";
 import { authenticate } from "./middlewares/validations.js";
 
@@ -182,4 +182,41 @@ app.post("/profile/update/text",authenticate, async (req, res) => {
   return res.json({ message: "Profile updated", update: updateObj });
 });
 
+app.post("/interest/info/sent", async (req, res)=>{
+  let arr1= await userModel.find({    
+    username: req.body.username
+  }).select("username profileLink")
+  console.log("arr1")
+  res.json({info: arr1})
+})
+
+app.post("/interest/info/received", async (req, res)=>{
+  let arr1= await userModel.find({
+    username: req.body.username
+  }).select("username profileLink")
+  
+  res.json({info: arr1})
+})
+
+app.post("/interests/accept", async (req, res)=>{
+  try{
+  const {to,from} = req.body
+  const updateState = await interests.updateMany({to: to, from: from},{$set: {status: "interested"}})
+  res.json({status: true})
+  } catch{error=>{
+    res.json({status: false, error: error})
+
+  }}
+  })
+
+  app.post("/interests/decline", async (req, res)=>{
+  try{
+  const {to,from} = req.body
+  const updateState = await interests.updateMany({to: to, from: from},{$set: {status: "declined"}})
+  res.json({status: true})
+  } catch{error=>{
+    res.json({status: false, error: error})
+
+  }}
+  })
 server.listen(3000, console.log("listening on port 3000"));

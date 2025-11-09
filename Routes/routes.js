@@ -2,7 +2,7 @@ import express from "express"
 import {userModel,Messages, interests} from "../models/models.js"
 import {validateLogin, validateUser} from "../models/validation.js"
 import { authenticate,sanity } from "../middlewares/validations.js"
-import { giveMainUser, giveUserPage, giveUserProfile, interestGiver, issueData,markAsRead,obtainHistory, unreadFinder } from "../middlewares/giver.js"
+import { findContacts, giveMainUser, giveUserPage, giveUserProfile, interestGiver, issueData,markAsRead,obtainHistory, unreadFinder } from "../middlewares/giver.js"
 import { stat } from "fs"
 const Router = express.Router()
 let errors = [];
@@ -13,6 +13,7 @@ Router.get("/",(req,res)=>{
 Router.get("/login", (req,res)=>{
     res.render("login", {errors});
 })
+Router.get("/chat/contacts", authenticate, findContacts)
 Router.get('/chats',authenticate,(req,res)=>{
     res.render("chats", {user: req.user})
 })

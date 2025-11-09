@@ -177,7 +177,7 @@ html,body{
 }
 #mainSection-HEADER{
     width: 100%;
-    height: 100%;
+    height: 50px;
     display:flex;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -232,6 +232,7 @@ html,body{
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: start;
         gap: 8px;
         padding-top: 4px;
         animation: transitA .6s ease-out;
@@ -307,34 +308,34 @@ html,body{
         padding-bottom: 2px;
         overflow: hidden;
     }
-    #INTERESTS-BTN-CONTAINER{
+    .INTERESTS-BTN-CONTAINER{
         display: flex;
         flex-direction: row;
         place-content: space-between;
         width: 94%;
     }
-    #Interested{
-        width: 100px;
-        color: rgb(16, 40, 88);
-        background-color: rgb(19, 198, 73);
-        font-weight: bold;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    #Decline{
-        background-color: rgb(148, 9, 9);
-        width: 120px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        color:rgb(10, 121, 248);
-        border: solid  1px rgb(21, 21, 21);
-    }
+    
     .INTERESTS-BTN{
         border-radius: 10px;
         height: 24px;
         border: solid 1px rgb(55, 53, 53);
         margin-bottom: 3px;
     }
-
+    .InterestedBtn{
+        width: 100px;
+        color: black;
+        background-color: rgb(19, 198, 73);
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .Decline{
+            background-color: rgb(148, 9, 9);
+            width: 120px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color:rgb(10, 121, 248);
+            border: solid  1px rgb(21, 21, 21);
+        }
     .INTERESTS-STATUS{
         margin: 0px;
         background-color: rgb(22, 53, 22);
