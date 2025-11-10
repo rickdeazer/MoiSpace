@@ -1,30 +1,30 @@
 import {userModel, Messages, interests} from "../models/models.js";
 import jwt from "jsonwebtoken";
 
-const findContacts = async (req,res)=>{
-  console.log('hello')
-   try {
-     let contacts = await userModel.aggregate([
-      {$lookup: {
-        from: 'interests',
-        localField: 'username',
-        foreignField: 'to',
-        as: 'matches'
-      }},
-      {$unwind: '$matches'},
-      {$match: {'matches.status': 'interested'}},
-      {$project: {
-        _id: 0,
-        username: 1,
-        profileLink: 1,
-        slogan: 1
+const findContacts = async (req, res) => {
+  try {
+    const username = req.user.username;
 
-      }}
-     ]);
-    return {contacts};
-   } catch (error) {
-    console.log(error)
-   }}
+    const interestsList = await interests.find({
+      status: 'interested',
+      $or: [{ from: username }, { to: username }]
+    });
+
+    const contactNames = interestsList.map(item =>
+      item.from === username ? item.to : item.from
+    );
+
+    const contacts = await userModel.find(
+      { username: { $in: contactNames } },
+      { _id: 0, username: 1, profileLink: 1, slogan: 1 }
+    );
+
+    return { contacts };
+  } catch (error) {
+    console.error('Error in findContacts:', error);
+  }
+};
+
 
 const issueData = async (req, res) => {
   try {
@@ -43,7 +43,7 @@ const issueData = async (req, res) => {
       }
     };
 
-    const [userData, unread] = await Promise.all([findContacts(),
+    const [userData, unread] = await Promise.all([findContacts(req,res),
       getUnread()
     ]);
     console.log(userData)

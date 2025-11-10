@@ -578,8 +578,8 @@ body{
         font-size: .9rem;
         line-height: 20px;
         text-align: start;
-        background-color: rgb(30, 3, 33);
-        height: 22px;
+        background:linear-gradient(45deg, rgb(3, 33, 10),rgb(4, 1, 58),);
+        height: 25px;
         max-width: 115px;
         overflow:hidden;
     }
@@ -630,4 +630,8 @@ body{
         flex-direction: row;
         justify-content: space-between;
         align-self: stretch;
+    }
+    #searchBtn{
+        align-self: center;
+        margin-left: 3px;
     }

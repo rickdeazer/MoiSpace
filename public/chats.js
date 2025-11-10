@@ -6,6 +6,7 @@ async function loadContacts() {
         let contBody = document.getElementById("CONTACTS-BODY");
         const info = userInfo.userData.contacts
         const unRead = userInfo.count
+        console.log(info)
         info.forEach((u) => {
         let unseen = undefined;
         let noOfUnread = undefined;
