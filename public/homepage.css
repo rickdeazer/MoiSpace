@@ -7,7 +7,6 @@ html, body {
     box-sizing: border-box;
     background-color: rgb(17, 14, 9);
     background-attachment: fixed;
-   
 }
 @media (max-width: 500px) {
 
@@ -18,12 +17,14 @@ html, body {
     align-items: flex-start;
    justify-content: flex-start;
    height: 100%;
+   overflow-y: scroll;
    }
     /*This is the beginning of the main section*/
 
   #mainSection {
     height: 100%;
     color: white;
+    overflow-y: scroll;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(1);/*auto-fit, minmax(160px, 1fr*/
@@ -52,6 +53,7 @@ html, body {
         border-radius: 5px;
         z-index: 1;
         padding-right: 5px;
+
     }
     .MAIN-USERS-USERNAME{
         font-family: 'Lora';
@@ -540,6 +542,7 @@ html, body {
     border: solid 1px black;
     border-radius: 5px;
     background-color: purple;
+
 }
 .newCommentItems{
     width: 100%;
