@@ -104,7 +104,6 @@ sendBtn.addEventListener("click", () => {
 });
 
 page.on("serverReply", (data) => {
-  console.log(data);
   if (data.to == info1 && data.from == info2.username) {
     let time= `${new Date().getHours()}${new Date().getMinutes()}`
     markAsRead()

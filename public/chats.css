@@ -14,7 +14,7 @@ body{
     justify-content: flex-start;
     height: 100%;
     width: 100vw;
-    background: linear-gradient(180deg, rgb(4, 16, 18), rgb(1, 50, 156));
+    background: linear-gradient(180deg, rgb(4, 16, 18), rgb(65, 1, 53));
     background-attachment: fixed;
    }
     #HEADER{
@@ -118,18 +118,20 @@ body{
     }
     #HEADER-USERNAME{
         font-family: 'lora';
-        font-size: 0.8em;
+        font-size: 0.7em;
+        padding-top: 5px;
         font-style: italic;
     }
     #HEADER-PROFILEPIC{
         background: radial-gradient(rgb(2, 1, 39), rgb(222, 127, 192));
         width: 50px;
-        height: inherit;
+        height: 50px;
         border-radius: 50%;
         margin-top: 2px;
         justify-self: center;
         border: 1px solid rgb(23, 29, 4);
         margin-right: 5px;
+        background-size: cover;
     }
 
     #HEADER-BOTTOM-DIV{
@@ -162,10 +164,11 @@ body{
     align-items: center;
     background: linear-gradient(50deg, rgb(110, 56, 56), #24011d);
     background: url('/mediafiles/autumn-7517221_1920.jpg');
-        background-size: cover;
-        background-color: rgb(7, 14, 14);
-        backdrop-filter: blur(20px);
-        
+    background-size: cover;
+    background-blend-mode: darken;
+    background-color: rgb(5, 16, 16);
+    backdrop-filter: blur(20px);
+    
 
 }
 #mainSection-HEADER{
@@ -249,7 +252,7 @@ body{
         padding-left: 6px;
         place-content: space-between;
         border-left: 1px solid rgb(100, 18, 65);
-        border: solid 1px rgb(58, 58, 58);
+        border: solid 1px rgb(105, 102, 102);
         
     }
 

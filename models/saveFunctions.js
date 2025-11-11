@@ -62,7 +62,8 @@ if (User){
         user: {
             id: User._id,
             username: User.username,
-            phone: User.phone
+            phone: User.phone,
+            profileLink: User.profileLink
         }
     }} else {
         return{

@@ -82,19 +82,3 @@
         cursor: pointer;
         z-index: 31;
       }
-      .clickedPhoto{
-        position: fixed;
-        width: 98vw;
-        height: auto;
-        justify-self: start;
-        left: 1%;
-        bottom: 0%;
-        z-index: 20;
-        height: 75vh;
-        border-radius: 5%;
-        border: none;
-        background-size: cover;
-        backdrop-filter: blur(70px);
-        border: solid 1px white;
-        transition: .3s ease-out;
-      }

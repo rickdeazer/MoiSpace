@@ -108,6 +108,15 @@
     </div>
 
     <script>
+      const img = document.querySelector('.profile-photo');
+      const imgDiv = document.querySelector('.editable-photo');
+
+      img.addEventListener('click', () => {
+        [img.className, imgDiv.className] = img.classList.contains('clickedPhoto') 
+          ? ['profile-photo', 'editable-photo'] 
+          : ['clickedPhoto', ''];
+      });
+
       const submitBtn = document.getElementById("submit");
       const savingSpan = document.getElementById("saving");
       let username = localStorage.getItem("mainUser") || "<%= user.username %>";
@@ -157,8 +166,6 @@
               if (idx >= 0) changedImages[idx] = obj;
               else changedImages.push(obj);
             }
-
-            console.log("changedImages:", changedImages);
           });
         });
 

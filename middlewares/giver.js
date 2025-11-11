@@ -46,7 +46,6 @@ const issueData = async (req, res) => {
     const [userData, unread] = await Promise.all([findContacts(req,res),
       getUnread()
     ]);
-    console.log(userData)
     let count = {}
     unread.fromUsers.forEach((item)=>{
         if (!count[item.from]){count[item.from]={value: 1, message: item.message}
@@ -67,7 +66,6 @@ const issueData = async (req, res) => {
 const giveMainUser = async (req,res,next)=>{
     const token = req.cookies.token
     if (!token){
-        console.log("we found no token")
     } else {
         try {
             const user = jwt.verify(token,process.env.JWT_SECRET)            
@@ -123,12 +121,10 @@ const giveUserProfile = async(req,res)=>{
       let username = req.user.username
   try {
     const userInfo = await userModel.findOne({username}).select('username profileLink aboutMe aboutYou course year gallaryLinks slogan');
-    console.log(userInfo)
     let links = [];
     if (userInfo.gallaryLinks){
     links = userInfo.gallaryLinks.split(",")
     } else {links = []}
-    console.log(links)
     res.render("userProfile",{user:userInfo,links})
   } catch (error) {
     console.log(error)

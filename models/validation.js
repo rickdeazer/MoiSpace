@@ -1,3 +1,4 @@
+import { profile } from "console";
 import { findUser} from "./saveFunctions.js";
 import { validate } from "./saveFunctions.js";
 import jwt from "jsonwebtoken"
@@ -72,7 +73,8 @@ if (errors.length) {
         // Convert timestamps to local time
        const token = jwt.sign({
         userId: user._id,
-        username: user.username
+        username: user.username,
+        profileLink:user.profileLink
        }, process.env.JWT_SECRET, {expiresIn: '30m'});
         // user = {
         //     ...user._doc, // keep other fields

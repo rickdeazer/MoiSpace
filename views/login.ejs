@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="theme-color" content="rgb(2, 91, 11)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
     <link rel="stylesheet" href="/login.css">
@@ -35,11 +36,7 @@
       </div>
     </div>
     <div id="BOTTOM-WRAPPER">
-
-        <!---FLOGO-->
-        <div id="FLOGO">this is the logo</div>
-    
-        <!---LOGIN-FORM-->
+                <!---LOGIN-FORM-->
         <form id="SIGNUP-FORM" action="/login" method="POST" autocomplete="on">
           <div id="SIGNUP-FORM-WRAPPER">
              <div id="loader" class="loads">
@@ -62,9 +59,11 @@
                 <button id="SUBMIT-BTN" type="submit">Submit</button>
 
             </div>
+            <span class="createText">New here? <a href="/signup">create an account</a></span>
             </div>
           </form>
-
+        <!---FLOGO-->
+        <div id="FLOGO">this is the logo</div>
         <!---BOTTOM-DIVS-RTEXTs-->
         <div id="BOTTOM-DIVS-RTEXTS">
             <h4>Your username must be unique to ensure full ownership of your account</h4>
@@ -73,7 +72,11 @@
 
     </div>
     </div>
+     <footer  id="incompatibleText">
+   <h1>Desktop,laptops and tablets support is coming soon. For now use a smartphone.</h1>
+ </footer>
   </body>
+
   <script>
 const submitBtn = document.getElementById('SUBMIT-BTN');
 const loadA = document.getElementById('loadA');

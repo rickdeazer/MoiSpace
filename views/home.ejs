@@ -24,15 +24,17 @@
                 </div>
 
                 <div id="HEADER-BTNS">
-                <button id="CHATSH-BTN" class="HEADER-BTNS" ><a href="/chats"><span class="material-symbols-outlined" id="mat2">chat_bubble</span></a><%if(unread){%><div id="MSG-BADGE" class="BADGE"><%= unread%></div><%}%></button>
-                <button id="INTERESTSH-BTN" class="HEADER-BTNS"><a href="/interests"><span class="material-symbols-outlined">
+                <button onclick="window.location.href='/chats'" id="CHATSH-BTN" class="HEADER-BTNS" ><span class="material-symbols-outlined" id="mat2">chat_bubble</span><%if(unread){%><div id="MSG-BADGE" class="BADGE"><%= unread%></div><%}%></button>
+                <button onclick="window.location.href='/interests'" id="INTERESTSH-BTN" class="HEADER-BTNS"><span class="material-symbols-outlined">
 heart_check
-</span></a></button>
+</span></button>
                 </div>
 
                 <div id="USER-DETAILS">
                     <div id="HEADER-USERNAME"><h3><%= user.username %></h3></div><a href="/userProfile">
-                    <div id="HEADER-PROFILEPIC"></div></a>
+                    <div id="HEADER-PROFILEPIC" <% if (user.profileLink) {%>style="background: url(<%=user.profileLink%>); background-size: cover;"<%
+                      
+                    }%>></div></a>
                 </div>
             </div>
 
@@ -63,7 +65,7 @@ heart_check
 
     
 
-    <div class="MAIN-USERS"><div class="MAIN-USERS-IMG" style="backgroud-image: url(&quot;/uploads/profile/1020251002_165838.jpg&quot;); background-size: cover; background-position: center center;"><div class="commentsBody">
+    <div class="MAIN-USERS"><div class="MAIN-USERS-IMG"><div class="commentsBody">
 
         <h3>comments</h3>
         <h4>Hi girl you look so pretty amazingHi girl you look so pretty amazingHi girl you look so pretty amazingHi girl you look so pretty amazingHi girl you look so pretty amazingHi girl you look so pretty amazing</h4>

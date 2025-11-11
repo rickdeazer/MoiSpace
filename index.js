@@ -151,7 +151,6 @@ app.post("/profile/update/pics", upload.any(), async (req, res) => {
 
 });
 app.post("/profile/update/text",authenticate, async (req, res) => {
-  console.log(req.body)
   let username = req.user.username
   let {  course, year, aboutMe, aboutYou, slogan } = req.body;
   if (!username) return res.status(400).json({ message: "username required" });
@@ -186,7 +185,6 @@ app.post("/interest/info/sent", async (req, res)=>{
   let arr1= await userModel.find({    
     username: req.body.username
   }).select("username profileLink")
-  console.log("arr1")
   res.json({info: arr1})
 })
 

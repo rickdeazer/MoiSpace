@@ -21,15 +21,18 @@
                 </div>
 
                 <div id="HEADER-BTNS">
-                    <button id="CHATSH-BTN" class="HEADER-BTNS"><a href="/home"><span class="material-symbols-outlined">home</span></a></button>
-                    <button id="INTERESTSH-BTN" class="HEADER-BTNS"><a href="/interests"><span class="material-symbols-outlined">
+                    <button onclick="window.location.href='/home'" id="CHATSH-BTN" class="HEADER-BTNS"><span class="material-symbols-outlined">home</span></button>
+                    <button  onclick="window.location.href='/interests'"
+                     id="INTERESTSH-BTN" class="HEADER-BTNS"><span class="material-symbols-outlined">
 heart_check
-</span></a></button>
+</span></button>
                 </div>
 
                 <div id="USER-DETAILS">
                     <div id="HEADER-USERNAME"><h3><%=user.username %></h3></div>
-                    <div id="HEADER-PROFILEPIC"></div>
+                    <div id="HEADER-PROFILEPIC"  <% if (user.profileLink) {%>style="background: url(<%=user.profileLink%>); background-size: cover;"<%
+                      
+                    }%>></div>
                 </div>
             </div>
 
