@@ -127,13 +127,13 @@ html,body{
     }
     #HEADER-USERNAME{
         font-family: 'lora';
-        font-size: 0.8em;
+        font-size: 0.7em;
         font-style: italic;
     }
     #HEADER-PROFILEPIC{
         background: radial-gradient(rgb(1, 39, 1), rgb(207, 98, 173));
         width: 50px;
-        height: inherit;
+        height: 50px;
         border-radius: 50%;
         margin-top: 2px;
         justify-self: center;
@@ -389,4 +389,11 @@ html,body{
     margin-top: 5px;
     font-size:larger;
 }
+}
+.defaultBlank{
+    color: gold;
+    text-align: center;
+    width: 97%;
+    align-items: center;
+    justify-content: center;
 }

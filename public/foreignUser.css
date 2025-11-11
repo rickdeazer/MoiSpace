@@ -49,13 +49,15 @@
         height: 30px;
         margin-top: 4px;
         background:linear-gradient(50deg,rgb(2, 93, 2),rgb(49, 2, 66));
-        border: none;
         padding: 4px 8px;
         border-radius: 8px;
         font-weight: bold;
         font-family: 'Arial';
         cursor: pointer;
         font-size: 11px;
+        color: whitesmoke;
+        border: 0 1px solid;
+        border-color: white;
         align-self: center;
         justify-self: end;
         transition: all 0.3s;
@@ -72,10 +74,27 @@
         background-color: transparent;
         border: none;
         box-shadow: 0 0 10px rgb(0, 255, 0);
-        border-radius: 20%;
+        border-radius: 50%;
         color: gray;
         position: fixed;
         bottom: 4px;
         right: 46%;
         cursor: pointer;
+        z-index: 31;
+      }
+      .clickedPhoto{
+        position: fixed;
+        width: 98vw;
+        height: auto;
+        justify-self: start;
+        left: 1%;
+        bottom: 0%;
+        z-index: 20;
+        height: 75vh;
+        border-radius: 5%;
+        border: none;
+        background-size: cover;
+        backdrop-filter: blur(70px);
+        border: solid 1px white;
+        transition: .3s ease-out;
       }

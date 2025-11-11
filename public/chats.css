@@ -14,7 +14,7 @@ body{
     justify-content: flex-start;
     height: 100%;
     width: 100vw;
-    background: linear-gradient(180deg, rgb(184, 116, 158), rgb(1, 50, 156));
+    background: linear-gradient(180deg, rgb(4, 16, 18), rgb(1, 50, 156));
     background-attachment: fixed;
    }
     #HEADER{
@@ -24,8 +24,8 @@ body{
         flex-direction: column;
         width: 100%;
         position: fixed;
+        border-top: solid 1.5px pink;
         z-index: 100;
-        border-bottom: solid 1px rgb(78, 41, 37);
     }
     #HEADER-TOP-DIV{
         display: flex;
@@ -161,6 +161,11 @@ body{
     border-top-right-radius: 20px;
     align-items: center;
     background: linear-gradient(50deg, rgb(110, 56, 56), #24011d);
+    background: url('/mediafiles/autumn-7517221_1920.jpg');
+        background-size: cover;
+        background-color: rgb(7, 14, 14);
+        backdrop-filter: blur(20px);
+        
 
 }
 #mainSection-HEADER{
@@ -216,13 +221,11 @@ body{
         font-size: 0px;
     }
     #CONTACTS-BODY{
-        background: url('/mediafiles/autumn-7517221_1920.jpg');
-        background-size: cover;
         background-attachment: fixed;
-        background-color: rgb(1, 7, 47);
-        background-blend-mode:darken;
         width: 100%;
-        height:100vh;
+        background: transparent;
+        justify-self: flex-end;
+        min-height:100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -234,7 +237,7 @@ body{
     .CONTACTS{
         width: 95%;
         height: 70px;
-        background:linear-gradient(100deg,rgb(5, 1, 42),rgb(1, 113, 8));
+        background:rgb(7, 14, 14);
         border-top-left-radius: 31px;
         border-bottom-left-radius: 10px;
         border-top-right-radius: 10px;

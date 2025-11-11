@@ -1,3 +1,25 @@
+// const img = document.querySelector('.profile-photo')
+// const imgDiv = document.querySelector('.editable-photo')
+// img.addEventListener('click',()=>{
+//   if(img.classList.contains('clickedPhoto')){
+//     img.classList.replace('clickedPhoto','profile-photo')
+//     imgDiv.classList.toggle('editable-photo')
+//   } else{
+//     img.classList.replace('profile-photo','clickedPhoto')
+//     imgDiv.classList.toggle('editable-photo')
+//   }
+// })
+const img = document.querySelector('.profile-photo');
+const imgDiv = document.querySelector('.editable-photo');
+
+img.addEventListener('click', () => {
+  [img.className, imgDiv.className] = img.classList.contains('clickedPhoto') 
+    ? ['profile-photo', 'editable-photo'] 
+    : ['clickedPhoto', ''];
+});
+
+
+
 const interestBtn = document.getElementById("intestBtn");
 let foreignUserClicked = localStorage.getItem("forUsClicked");
 let mainUser = JSON.parse(localStorage.getItem("mainUser"));
@@ -19,7 +41,7 @@ function updateInterest() {
   if (interestState) {
     interestBtn.style.background = "red";
     interestBtn.style.color = "white";
-    interestBtn.innerHTML = "Interest Sent";
+    interestBtn.innerHTML = "Interested";
 
     interestBtn.addEventListener("click", () => {
       alert("Interest has already been sent");

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="theme-color" content="rgb(27, 4, 24)">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Moi Space - Edit Profile</title>
     <link
@@ -33,12 +34,13 @@
               <input
                 id="course"
                 type="text"
-                class="change"
+                disabled
+                class="change editNow"
                 value="<% if(user.course){%><%= user.course%><% } else {%>Computer Science<%}%>"
               />
               <input
                 id="year"
-                type="text"
+                type="text" disabled
                 class="change"
                 value="<% if(user.year){%><%= user.year%><% } else {%>First year<%}%>"
               />
@@ -101,7 +103,7 @@
 <% if (user.aboutYou){%><%= user.aboutYou%><%} else {%>No changes<%} %></textarea>
         
       </div>
-
+      <button id="exit" onclick="window.history.back()"></button>
       <button id="submit" class="anim">Save Profile Changes <div id="items" class=""><div id="insideBtn"></div><span id="saving">saving</span><div id="insideBtn"></div></div></button>
     </div>
 
@@ -163,6 +165,7 @@
       let aboutMeBox = document.getElementById("aboutMe");
       let aboutYouBox = document.getElementById("aboutYou");
       let courseInput = document.getElementById("course");
+      let exit = document.getElementById('exit')
       let yearInput = document.getElementById("year");
       let sloganSpan = document.getElementById("sloganValue");
       function computeChangedText() {
@@ -236,6 +239,8 @@
           const submitBn = document.getElementById("submit")
           const items = document.getElementById("items")
           const edits = document.querySelectorAll('.edit-icon')
+          const year = document.getElementById('year')
+          const course = document.getElementById('course')
           edits.forEach((edit)=>{
           edit.classList.add('unhide')
         })
@@ -254,6 +259,7 @@
         if (promises.length === 0) {
           alert("Make atleast 1 change to update.");
         } else {
+          exit.hidden=false;
           submitBn.classList.add('anim')
           items.style.display = 'flex'
           const results = await Promise.all(promises);
@@ -283,10 +289,13 @@
       });
       document.getElementById('Edit').addEventListener('click',()=>{
         const edits = document.querySelectorAll('.edit-icon')
+        exit.hidden=true;
         edits.forEach((edit)=>{
           edit.classList.add('unhide')
         })
         document.getElementById('submit').style.display = 'flex'
+        document.getElementById('course').disabled=false
+        document.getElementById('year').disabled=false
         document.querySelectorAll('.desc-box').forEach((item)=>{
           item.disabled = false
         })

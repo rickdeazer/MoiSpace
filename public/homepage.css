@@ -6,7 +6,6 @@ html, body {
     max-width: 100vw;
     box-sizing: border-box;
     background-color: rgb(17, 14, 9);
-    background-attachment: fixed;
 }
 @media (max-width: 500px) {
 
@@ -15,76 +14,62 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-   justify-content: flex-start;
-   height: 100%;
-   overflow-y: scroll;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow-y: scroll;
+
    }
     /*This is the beginning of the main section*/
 
   #mainSection {
     height: 100%;
     color: white;
-    overflow-y: scroll;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(1);/*auto-fit, minmax(160px, 1fr*/
-    grid-auto-rows: 475px;
-    padding-top: 118px;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    grid-template-columns: repeat(1);
+    grid-auto-rows: 460px;
+    padding-top: 122px;
+    scroll-behavior: smooth;
 }
-
-    .MAIN-USERS{
-     width: 98%;
-     height: 460px;
-     margin-left: 5px;
-     border-radius: 5px;
-     align-items: center;
-     display: flex;
-     gap: 7px;
-     flex-direction: column;
-    }
-    .MAIN-USERS-IMG{
-        width: 98%;
-        height: 100%;
-        background: rgb(3, 59, 94);
-        background-attachment:fixed;
-        background-position: center bottom;
-        background-size: 100% 100%;
-        outline: solid 1px rgb(124, 2, 106);
-        border-radius: 5px;
-        z-index: 1;
-        padding-right: 5px;
-
-    }
-    .MAIN-USERS-USERNAME{
-        font-family: 'Lora';
-        font-weight: 600;
-        font-size: small;
-        font-style: italic;
-        height: 15px;
-        width: 80%;
-        letter-spacing: 1px;
-        padding-left: 20px;
-        gap: 8px;
-        text-shadow: 
-            0 0 15px black,
-            0 0 35px black,
-            0 0 45px black,
-            0 0 55px black,
-            0 0 55px black,
-            0 0 15px green,
-            0 0 15px purple,
-            0 0 55px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black;
-           
-
-    }
+.MAIN-USERS {
+    width: 98%;
+    min-height: 460px; 
+    margin-left: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    scroll-snap-align: center;
+    position: relative;
+}
+.MAIN-USERS-IMG{
+    width: 98%;
+    height: 100%;
+    padding-top: 0px;
+    background: rgb(3, 59, 94);
+    background-attachment:fixed;
+    background-position: center bottom;
+    background-size: 100% 100%;
+    outline: solid 1px rgb(124, 2, 106);
+    border-radius: 3%;
+    z-index: 1;
+    position: static;
+    padding-right: 5px;
+}
+.MAIN-USERS-USERNAME {
+    position: static;
+    z-index: 20;
+    font-family: 'Lora';
+    font-weight: 600;
+    font-size: small;
+    font-style: italic;
+    width: 80%;
+    letter-spacing: 1px;
+    padding-left: 20px;
+    background: rgba(0,0,0,0.5);
+}
 
 
 
@@ -102,61 +87,47 @@ html, body {
     /*This is the beginning of the main section*/
 
   #mainSection {
-    height: 100%;
+    height: 100vh;
     color: white;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
     grid-auto-rows: 40%;
     padding-top: 110px;
+    overflow-y: scroll;
 }
 
 
-    .MAIN-USERS{
-     width: 98%;
-     min-height: 15%;
-     align-self: center;
-     justify-self: center;
-     margin-top: 15px;
-     border-radius: 15px;
-     align-items: center;
-     display: flex;
-     gap: 5px;
-     margin-left: 15px;
-     flex-direction: column;
-    }
-    .MAIN-USERS-IMG{
-        width: 98%;
-        height: 35vh;
-        background: cyan;
-        background-size: 100% 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        outline: solid 1px rgb(124, 2, 106);
-        border-radius: 15px;
-        z-index: 1;
-    }
-    .MAIN-USERS-USERNAME{
-        font-family: 'Lora';
-        font-weight: 600;
-        font-size: small;
-        font-style: italic;
-        text-shadow: 
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px green,
-            0 0 15px purple,
-            0 0 15px green,
-            0 0 15px black,
-            0 0 25px black,
-            0 0 35px black,
-            0 0 45px black,
-            0 0 55px black;
-
-    }
+.MAIN-USERS{
+    width: 98%;
+    min-height: 15%;
+    align-self: center;
+    justify-self: center;
+    margin-top: 15px;
+    border-radius: 15px;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    margin-left: 15px;
+    flex-direction: column;
+}
+.MAIN-USERS-IMG{
+    width: 98%;
+    height: 35vh;
+    background: cyan;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    outline: solid 1px rgb(124, 2, 106);
+    border-radius: 15px;
+    z-index: 1;
+}
+.MAIN-USERS-USERNAME{
+    font-family: 'Lora';
+    font-weight: 600;
+    font-size: small;
+    font-style: italic;
+}
 
 }
 @media (min-width: 768px) {
@@ -227,16 +198,6 @@ html, body {
         font-weight: 600;
         font-size: small;
         font-style: italic;
-        text-shadow: 
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px black,
-            0 0 15px green,
-            0 0 15px purple,
-            0 0 15px green;
-
 }
  #HEADER-BOTTOM-DIV #HOME-SEARCH{
         width: 50%;
@@ -261,6 +222,7 @@ html, body {
         flex-direction: column;
         width: 100%;
         position: fixed;
+        border-top: solid 1px green;
         z-index: 100;
     }
     #HEADER-TOP-DIV{
@@ -340,7 +302,8 @@ html, body {
     }
     #HEADER-USERNAME{
         font-family: 'lora';
-        font-size: 0.6em;
+        font-size: 0.7em;
+        padding-bottom: 6px;
         font-style: italic;
     }
     #HEADER-BOTTOM-DIV{
@@ -511,7 +474,7 @@ html, body {
     height: 360px;
     margin-bottom: 3px;
     width: 98%;
-    overflow-y: scroll;
+   
     padding: 0 5px 0 5px;
     background: radial-gradient(rgb(47, 64, 3),rgb(10, 3, 64));
     align-self: start;
@@ -564,8 +527,21 @@ html, body {
 .newCommentItems input::placeholder{
     color: wheat;
 }
-
-
+  #exit{
+        width: 30px;
+        height: 30px;
+        margin: 5px 0 3px 0;
+        background-color: transparent;
+        border: none;
+        box-shadow: 0 0 10px rgb(0, 255, 136);
+        border-radius: 50%;
+        color: gray;
+        position: fixed;
+        bottom: 4px;
+        right: 46%;
+        cursor: pointer;
+        z-index: 10;
+      }
 
 
 

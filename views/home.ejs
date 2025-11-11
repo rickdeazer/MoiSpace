@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Make mobile browser go fullscreen -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="rgb(37, 4, 43)">
     <title>Home Page</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
@@ -40,8 +44,7 @@ heart_check
                 <input type="text" placeholder="Search for souls..." id="HOME-SEARCH"> <span class="material-symbols-outlined" id="searchInputBtn">search</span>
             </div>
         </section>
-
-        
+         <a href="/home"><button id="exit"></button></a>
         <!--Main section Begins Here-->
         <section id="mainSection">
 
@@ -120,6 +123,7 @@ heart_check
       Rick 
       (<span class="MAIN-USERS-COURSE">Computer Science</span> 
       <span class="MAIN-USERS-YEAR">First Year</span>)</div>
+      
       <button class="commentBtns">Comments</button>
     </div>
     
