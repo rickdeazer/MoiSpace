@@ -18,11 +18,13 @@ body{
  height: 100vh;
  width: 100vw;
 
+
 }
 #TOP-WRAPPER{
     background: url("/mediafiles/signupBackground.jpg");
     background-size: cover;
     border: solid 1px black;
+    background-position: center center;
     background-repeat: no-repeat;
     justify-content:flex-start;
     
@@ -32,24 +34,32 @@ height: 3rem;
 align-items:start;
 display: flex;
 position:static;
+max-width: 100%;
 top: 0;
+padding-right: 5px;
+place-content: space-between;
 }
 #HAPPNAMELOGO{
-    width: 200px;
+    width: 170px;
+    padding-top: 5px;
     height: inherit;
     display: flex;
     flex-direction: row;
-    padding-right: 20px;
     align-items: center;
 
 }
 #headerLogo{
     width: 60px;
+    user-select: none;
     height: 60px;
 }
 #HAPPNAME{
     font-family: 'Trade Winds';
     font-size: 1.3rem;
+    text-align: center;
+    user-select: none;
+    line-height: 1.5rem;
+    user-select: none;
     font-weight:800;
     color:  rgba(42, 13, 64, 0.845);
     text-shadow: 0 0 15px rgb(179, 11, 126);
@@ -59,20 +69,20 @@ top: 0;
 width:auto;
 height: inherit;
 }
-#HPAGELINKS {
-  max-width: 80px;   
-  flex: 0 0 300px;     /* don’t grow or shrink */
+#HPAGELINKS {   
+  flex: 0 0 150px;     /* don’t grow or shrink */
   display: flex;
-  align-items: center;
+  justify-items: center;
   padding-top: 18px;
-  padding-right: 10px;
   gap: 5px;
+  height: inherit;
 }
 
 .HPAGELINKS-ITEMS{
     text-decoration: none;
-    color: rgb(131, 33, 33);
+    color: rgb(130, 29, 29);
     font-size: .7rem;
+    padding-top: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 800;
 }
@@ -80,24 +90,29 @@ height: inherit;
     display: flex;
     justify-content: center;
     color: rgb(6, 82, 6);
-    font-size: small;
-    font-style: italic;
-    
-    
+    font-size: 3.4rem;
+    font-style: normal;    
+    padding: 0 0 0 0px;
+    align-self: center;
+    max-width: min-content;
+    margin: 0;
+    user-select: none;
+}
+#TOPDIV-TEXT{
+    margin-bottom: 30px;
 }
 #HEADER-BOTTOMDIV{
     display: flex;
-    margin-left: 50px;
     text-align: center;
-    position: relative;
+    user-select: none;
     font-style: italic;
-    color: rgb(81, 26, 26);
     font-size:0.7rem;
-    width: 80%;
+    width: 98%;
     font-weight:lighter;
-    padding-top: 42px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  
+    justify-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;}
+#BOTTOMDIV-TEXT{
+    color: rgb(105, 9, 28);
 }
 
 #BOTTOM-WRAPPER{
@@ -154,6 +169,7 @@ height: inherit;
     margin-top: 10px;
     width: 100%;
     text-align: center;
+    user-select: none;
     font-family: 'Oleo Script';
     letter-spacing: 2px;
     margin-bottom: 0px;
@@ -163,8 +179,8 @@ height: inherit;
 #ERROR-TEXT{
     color: rgb(208, 28, 28);
     font-family: 'Trebuchet MS', sans-serif;
-    font-style: italic;
-    font-weight: lighter;
+    font-style: normal;
+    font-weight: normal;
     margin-bottom: 0px;
     text-align: center;
     margin-top: 20px;
@@ -178,7 +194,6 @@ height: inherit;
     padding-top: 10px;
     padding-left: 15px;
     margin-bottom: 10px;
-    width: inherit;
     margin-top: 0px;
     border: 1px solid rgb(57, 3, 65);
     height: unset;
@@ -195,12 +210,11 @@ height: inherit;
 }
 .SIGNUP-INPUTS{
     background-color: rgba(139, 207, 143, 0.489);
-    width: 150px;
+    min-width: 60%;
     outline-offset: 0px;
     height: 26px;
     border: none;
     margin-top: 0px;
-    padding-left: 10px;
     border-radius: 10px;
     margin-bottom: 0px;
 }
@@ -240,12 +254,13 @@ color: black;
 }
 .SIGNUP-INPUTS-LABELS{
     color: white;
-    width: 130px;
+    width: 100%;
     align-self: center;
     font-family:Tahoma, sans-serif;
     font-style: italic;
     font-size: small;
     text-align: start;
+    user-select: none;
 }
 #SUBMIT-BTN{
     align-self: center;
@@ -269,18 +284,20 @@ color: black;
 }
 #SUBMIT-BTN:hover{
     transform: scale(1.05);
-    background-color:  rgb(107, 97, 8);
-    color: white;
+    background: rgb(19, 138, 37);
+    color: rgb(33, 5, 5);
+    border-bottom: solid 2px rgb(37, 20, 20);
     letter-spacing: 2px;
     font-weight: lighter;
     transition: 1s ease-in-out;
     font-family: Arial, Helvetica, sans-serif;
-    animation: submit 1s ease-in ;
+    animation: submit 1s ease-in infinite ;
 }
 @keyframes submit {
     0%{}
-    100%{background-color: rgb(97, 176, 110);
+    50%{background-color: rgb(97, 176, 110);
     transform: scale(1);}
+    100%{}
 }
 
 
@@ -307,15 +324,13 @@ color: black;
 @media (max-width: 390px) {
  #HEADER-BOTTOMDIV{
     display: flex;
-    margin-left: 50px;
     text-align: center;
     font-style: italic;
     color: rgb(81, 26, 26);
     font-size:0.7rem;
-    width: 80%;
+    width: 99%;
     top: 8px;
     font-weight:lighter;
-    padding-top: 50px;
     padding-bottom: 0px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   
@@ -406,6 +421,7 @@ color: black;
         color: white;
         width: 100%;
         text-align: center;
+        user-select: none;
     }
   .createText a{
     color: rgb(6, 6, 164);

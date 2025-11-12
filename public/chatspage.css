@@ -29,6 +29,7 @@ body{
     justify-content: flex-start;
     min-height: 100%;
     min-width: 100vw;
+    user-select: none;
    }
     #HEADER{
         background: linear-gradient(45deg, rgb(0, 0, 0), rgb(74, 9, 61));

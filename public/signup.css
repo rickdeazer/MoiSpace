@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kranky&family=Lora:ital,wght@0,400..700;1,400..700&family=Offside&family=Oleo+Script:wght@400;700&family=Rubik+Wet+Paint&family=Trade+Winds&display=swap');
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
 body{
     padding: 0px;
@@ -11,6 +11,7 @@ body{
 #SIGNUP-PAGE{
  width: 100vw;
  height: 100vh;
+ user-select: none;
 }
 #TOP-WRAPPER{
     width: 99%;
@@ -22,13 +23,13 @@ body{
     justify-content:flex-start;
     padding-bottom: 10px;
     display: block;
-    
 }
 #HEADER{
 width: 98.8vw;
 height: 3rem;
 align-items:start;
 display: flex;
+place-content: space-between;
 }
 #HAPPNAMELOGO{
     width: 250px;
@@ -59,7 +60,6 @@ height: inherit;
   flex: 0 0 150px;     /* don’t grow or shrink */
   display: flex;
   justify-content: center;
-  align-items: center;
   padding-top: 18px;
   padding-right: 10px;
   gap: 5px;
@@ -76,23 +76,9 @@ height: inherit;
     display: flex;
     justify-content: center;
     color: rgb(6, 82, 6);
-    font-size: small;
-    font-style: italic;
+    font-size: xx-large;
+    font-style: normal;
     
-}
-#HEADER-BOTTOMDIV{
-    display: flex;
-    margin-left: 50px;
-    text-align: center;
-    position: relative;
-    font-style: italic;
-    color: rgb(81, 26, 26);
-    font-size:0.7rem;
-    width: 80%;
-    font-weight:lighter;
-    padding-top: 42px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  
 }
 
 #BOTTOM-WRAPPER{
@@ -103,6 +89,17 @@ height: inherit;
     flex-direction: column;
     align-items:center;
     justify-content: center;
+}
+#HEADER-BOTTOMDIV{
+    display: flex;
+    text-align: center;
+    font-style: italic;
+    color: rgb(81, 26, 26);
+    font-size:0.7rem;
+    width: 80%;
+    font-weight:lighter;
+    padding-top: 42px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 #FLOGO{
     background:url("/mediafiles/moiSpaceImage.png");
@@ -185,7 +182,7 @@ height: inherit;
 }
 .SIGNUP-INPUTS{
     background-color: rgba(155, 144, 155, 0.489);
-    width: 150px;
+    width: 100%;
     outline-offset: 0px;
     height: 26px;
     border: none;
@@ -234,7 +231,7 @@ color: black;
 }
 .SIGNUP-INPUTS-LABELS{
     color: white;
-    width: 130px;
+    width: 100%;
     align-self: center;
     font-family:Tahoma, sans-serif;
     font-style: italic;
@@ -263,18 +260,19 @@ color: black;
 }
 #SUBMIT-BTN:hover{
     transform: scale(1.05);
-    background-color:  rgb(107, 97, 8);
+    background:  rgb(169, 154, 22);
     color: white;
     letter-spacing: 2px;
     font-weight: lighter;
     transition: 1s ease-in-out;
     font-family: Arial, Helvetica, sans-serif;
-    animation: submit 1s ease-in ;
+    animation: submit 1s ease-in infinite;
 }
 @keyframes submit {
     0%{}
-    100%{background-color: rgb(97, 176, 110);
+    50%{background-color: rgb(97, 176, 110);
     transform: scale(1);}
+    100%{}
 }
 
 
@@ -298,14 +296,12 @@ color: black;
     text-shadow: 5px -6px 15px rgb(59, 255, 10);
     min-width: 100px;
 }
-@media (max-width: 390px) {
   #HEADER-BOTTOMDIV{
     display: flex;
-    margin-left: 50px;
     text-align: center;
     position: relative;
     font-style: italic;
-    color: rgb(81, 26, 26);
+    color: rgb(3, 147, 53);
     font-size:0.7rem;
     width: 80%;
     top: 8px;
@@ -315,6 +311,8 @@ color: black;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   
 } 
+#BOTTOMDIV-TEXT{
+    margin-left: 0;
 }
 }
 .unload{

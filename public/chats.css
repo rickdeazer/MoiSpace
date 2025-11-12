@@ -10,6 +10,7 @@ body{
     #CHATS-PAGE{
     display: flex;
     flex-direction: column;
+    user-select: none;
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;

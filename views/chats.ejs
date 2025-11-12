@@ -29,10 +29,10 @@ heart_check
                 </div>
 
                 <div id="USER-DETAILS">
-                    <div id="HEADER-USERNAME"><h3><%=user.username %></h3></div>
+                    <div id="HEADER-USERNAME"><h3><%=user.username %></h3></div><a href="/userProfile">
                     <div id="HEADER-PROFILEPIC"  <% if (user.profileLink) {%>style="background: url(<%=user.profileLink%>); background-size: cover;"<%
                       
-                    }%>></div>
+                    }%>></div></a>
                 </div>
             </div>
 
