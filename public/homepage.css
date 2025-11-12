@@ -419,6 +419,8 @@ html, body {
 }
 #HOME-SEARCH{
     background: linear-gradient(45deg,rgb(0, 53, 139),rgb(3, 165, 14));
+    margin-left: 23px;
+    background-color: red;
 }
 #searchInputBtn{
     margin-bottom: 4px;

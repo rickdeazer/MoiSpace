@@ -78,8 +78,22 @@ openChat()
 
 
 userName.innerHTML = info2.username;
-userPic.style.background = `url(${info2.piclink})`;
+userPic.style.background = `url(${info2.profileLink})`;
 userPic.style.backgroundSize = "cover";
+userPic.addEventListener('click',()=>{
+let form = document.createElement("form");
+    form.method = "POST";
+    form.action = "/user";
+    
+    let input = document.createElement("input");
+    input.type = "hidden";
+    input.name = "username";
+    input.value = info2.username;
+    
+    form.appendChild(input);
+    userPic.appendChild(form);
+    form.submit()
+})
 
 function send() {
   txtInput.style.height = 20 + "px";

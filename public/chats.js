@@ -21,8 +21,22 @@ async function loadContacts() {
     imgCont.classList.add("CONTACTS-PROFILEPIC");
     imgCont.style.background = `url(${u.profileLink })`;
     imgCont.style.backgroundSize = 'cover'
-
     
+    imgCont.addEventListener('click',()=>{
+    let form = document.createElement("form");
+    form.method = "POST";
+    form.action = "/user";
+    
+    let input = document.createElement("input");
+    input.type = "hidden";
+    input.name = "username";
+    input.value = u.username;
+
+    form.appendChild(input);
+    imgCont.appendChild(form)
+    form.submit(); 
+    })
+
     let infoCont = document.createElement("div");
     infoCont.classList.add("CONTACTS-INFO");
 
