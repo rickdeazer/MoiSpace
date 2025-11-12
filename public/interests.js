@@ -12,6 +12,7 @@ receivedBtn.addEventListener('click',()=>{
     container1.classList.add('HIDE-BODY')
     container2.classList.remove('HIDE-BODY')
 })
+
 let received = {};
 let sent = {};
 
@@ -80,6 +81,21 @@ let renderSent = () => {
         
     interestStatus.innerHTML = `<h3>Status: ${u.status}</h3>`;
 
+    contactPic.addEventListener('click',()=>{
+    let form = document.createElement("form");
+    form.method = "POST";
+    form.action = "/user";
+    
+    let input = document.createElement("input");
+    input.type = "hidden";
+    input.name = "username";
+    input.value = v.username;
+    
+    form.appendChild(input);
+    contactPic.appendChild(form);
+    form.submit()
+    })
+
     contactInfo.appendChild(h3);
     contactInfo.appendChild(interestStatus);
     contact.appendChild(contactPic);
@@ -116,6 +132,20 @@ let renderReceived = () => {
 
     let contactPic = document.createElement("div");
     contactPic.classList.add("CONTACTS-PROFILEPIC");
+    contactPic.addEventListener('click',()=>{
+    let form = document.createElement("form");
+    form.method = "POST";
+    form.action = "/user";
+    
+    let input = document.createElement("input");
+    input.type = "hidden";
+    input.name = "username";
+    input.value = v.username;
+    
+    form.appendChild(input);
+    contactPic.appendChild(form);
+    form.submit()
+    })
     contactPic.style.backgroundImage = `url('${
       v.profileLink || "/mediafiles/africanGirl.jpg"
     }')`;
